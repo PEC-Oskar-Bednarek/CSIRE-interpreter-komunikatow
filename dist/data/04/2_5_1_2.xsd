@@ -1,0 +1,168 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:bdt="urn:pl:oire:businessDataTypes:v1" xmlns:tech="urn:pl:oire:technical:v1" xmlns:unk_2_5_1_2="urn:pl:oire:unk_2_5_1_2:v1" elementFormDefault="qualified" targetNamespace="urn:pl:oire:unk_2_5_1_2:v1">
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Wersja z 08.12.2025                                                                                                                          ==== -->
+    <!-- ====================================================================================================================================================== -->
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Import                                                                                                                                       ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:import namespace="urn:pl:oire:businessDataTypes:v1" schemaLocation="businessDataTypes.xsd"/>
+    <xs:import namespace="urn:pl:oire:technical:v1" schemaLocation="technical.xsd"/>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== 2.5.1.2. Powiadomienie o odmowie zawarcia UD na podstawie OŚW                                                                                ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="AgreementRejectionFromStatementOfWillNotification" type="unk_2_5_1_2:AgreementRejectionFromStatementOfWillNotification"/>
+    <xs:complexType name="AgreementRejectionFromStatementOfWillNotification">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_2_5_1_2:plName>2.5.1.2. Powiadomienie o odmowie zawarcia UD na podstawie OŚW</unk_2_5_1_2:plName>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Nagłówek -->
+            <xs:element name="Header" type="tech:Header" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_2_5_1_2:plName>Nagłówek</unk_2_5_1_2:plName>
+                        <unk_2_5_1_2:code>PL-700</unk_2_5_1_2:code>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Kontekst -->
+            <xs:element name="ProcessEnergyContext" type="tech:ProcessEnergyContext" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_2_5_1_2:plName>Kontekst</unk_2_5_1_2:plName>
+                        <unk_2_5_1_2:code>PL-715</unk_2_5_1_2:code>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- 2.5.1.2. Payload Powiadomienie o odmowie zawarcia UD na podstawie OŚW -->
+            <xs:element name="Payload" type="unk_2_5_1_2:AgreementRejectionFromStatementOfWillNotificationPayload" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_2_5_1_2:plName>2.5.1.2. Payload Powiadomienie o odmowie zawarcia UD na podstawie OŚW</unk_2_5_1_2:plName>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== 2.5.1.2. Payload Powiadomienie o odmowie zawarcia UD na podstawie OŚW                                                                        ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="AgreementRejectionFromStatementOfWillNotificationPayload" type="unk_2_5_1_2:AgreementRejectionFromStatementOfWillNotificationPayload"/>
+    <xs:complexType name="AgreementRejectionFromStatementOfWillNotificationPayload">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_2_5_1_2:plName>2.5.1.2. Payload Powiadomienie o odmowie zawarcia UD na podstawie OŚW</unk_2_5_1_2:plName>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Pozostałe elementy komunikatu -->
+            <xs:element name="Miscellaneous" type="unk_2_5_1_2:Miscellaneous" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_2_5_1_2:plName>Pozostałe elementy komunikatu</unk_2_5_1_2:plName>
+                        <unk_2_5_1_2:code>PL-320</unk_2_5_1_2:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 1.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Dane PP - ogólne -->
+            <xs:element name="MeteringPointData_Basic" type="unk_2_5_1_2:MeteringPointData_Basic" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_2_5_1_2:plName>Dane PP - ogólne</unk_2_5_1_2:plName>
+                        <unk_2_5_1_2:code>PL-300</unk_2_5_1_2:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 2.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Pozostałe elementy komunikatu                                                                                                                ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="Miscellaneous" type="unk_2_5_1_2:Miscellaneous"/>
+    <xs:complexType name="Miscellaneous">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_2_5_1_2:plName>Pozostałe elementy komunikatu</unk_2_5_1_2:plName>
+                <unk_2_5_1_2:code>PL-320</unk_2_5_1_2:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 1.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- ID_instancji_procesu_referencyjnego -->
+            <xs:element name="ProcessInstanceId" type="bdt:UuidType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_2_5_1_2:plName>ID_instancji_procesu_referencyjnego</unk_2_5_1_2:plName>
+                        <unk_2_5_1_2:code>PL-002</unk_2_5_1_2:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Unikatowy kod instancji procesu nadawany przez CSIRE dla uruchomionego procesu 1.1.</xs:documentation>
+                    <xs:documentation xml:lang="en">Unique process instance code assigned by CSIRE for the running process 1.1.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Przyczyna odmowy -->
+            <xs:element name="RejectionReason" type="bdt:String10_Type" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_2_5_1_2:plName>Przyczyna odmowy</unk_2_5_1_2:plName>
+                        <unk_2_5_1_2:code>PL-136</unk_2_5_1_2:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Przyczyna odmowy realizacji zgłoszenia.</xs:documentation>
+                    <xs:documentation xml:lang="en">The reason for the denial of the request.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Dodatkowe pole opisowe -->
+            <xs:element name="Description" type="bdt:String250_Type" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_2_5_1_2:plName>Dodatkowe pole opisowe</unk_2_5_1_2:plName>
+                        <unk_2_5_1_2:code>PL-249</unk_2_5_1_2:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Uzupełniany, jeżeli brak możliwości realizacji nie jest możliwy do określenia zgodnie z listą.</xs:documentation>
+                    <xs:documentation xml:lang="en">Completed if the failure to complete is not possible to determine according to the list.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Dane PP - ogólne                                                                                                                             ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="MeteringPointData_Basic" type="unk_2_5_1_2:MeteringPointData_Basic"/>
+    <xs:complexType name="MeteringPointData_Basic">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_2_5_1_2:plName>Dane PP - ogólne</unk_2_5_1_2:plName>
+                <unk_2_5_1_2:code>PL-300</unk_2_5_1_2:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 2.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Kod PP -->
+            <xs:element name="MeteringPointCode" type="bdt:MeteringPointCodeType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_2_5_1_2:plName>Kod PP</unk_2_5_1_2:plName>
+                        <unk_2_5_1_2:code>PL-001</unk_2_5_1_2:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Kod identyfikujący Punkt pomiarowy - zgodny ze standardem GS1.</xs:documentation>
+                    <xs:documentation xml:lang="en">Metering Point Identification Code - compliant with the GS1 standard.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

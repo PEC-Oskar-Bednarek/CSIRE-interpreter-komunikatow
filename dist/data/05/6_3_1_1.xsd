@@ -1,0 +1,1698 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:bdt="urn:pl:oire:businessDataTypes:v1" xmlns:tech="urn:pl:oire:technical:v1" xmlns:unk_6_3_1_1="urn:pl:oire:unk_6_3_1_1:v1" elementFormDefault="qualified" targetNamespace="urn:pl:oire:unk_6_3_1_1:v1">
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Wersja z 18.09.2026                                                                                                                          ==== -->
+    <!-- ====================================================================================================================================================== -->
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Import                                                                                                                                       ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:import namespace="urn:pl:oire:businessDataTypes:v1" schemaLocation="businessDataTypes.xsd"/>
+    <xs:import namespace="urn:pl:oire:technical:v1" schemaLocation="technical.xsd"/>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== 6.3.1.1. Przekazanie Informacji rozliczeniowych GUD-k                                                                                        ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="GeneralDistributionComplexAgreementSettlementDataNotification" type="unk_6_3_1_1:GeneralDistributionComplexAgreementSettlementDataNotification"/>
+    <xs:complexType name="GeneralDistributionComplexAgreementSettlementDataNotification">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_6_3_1_1:plName>6.3.1.1. Przekazanie Informacji rozliczeniowych GUD-k</unk_6_3_1_1:plName>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Nagłówek -->
+            <xs:element name="Header" type="tech:Header" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>Nagłówek</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-700</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Kontekst -->
+            <xs:element name="ProcessEnergyContext" type="tech:ProcessEnergyContext" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>Kontekst</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-715</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- 6.3.1.1. Payload Przekazanie Informacji rozliczeniowych GUD-k -->
+            <xs:element name="Payload" type="unk_6_3_1_1:GeneralDistributionComplexAgreementSettlementDataNotificationPayload" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>6.3.1.1. Payload Przekazanie Informacji rozliczeniowych GUD-k</unk_6_3_1_1:plName>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== 6.3.1.1. Payload Przekazanie Informacji rozliczeniowych GUD-k                                                                                ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="GeneralDistributionComplexAgreementSettlementDataNotificationPayload" type="unk_6_3_1_1:GeneralDistributionComplexAgreementSettlementDataNotificationPayload"/>
+    <xs:complexType name="GeneralDistributionComplexAgreementSettlementDataNotificationPayload">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_6_3_1_1:plName>6.3.1.1. Payload Przekazanie Informacji rozliczeniowych GUD-k</unk_6_3_1_1:plName>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Rekord operacji masowej -->
+            <xs:element name="GeneralDistributionComplexAgreementSettlementData" type="unk_6_3_1_1:GeneralDistributionComplexAgreementSettlementData" minOccurs="1" maxOccurs="1000">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>Rekord operacji masowej</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-711</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 1.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Rekord operacji masowej                                                                                                                      ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="GeneralDistributionComplexAgreementSettlementData" type="unk_6_3_1_1:GeneralDistributionComplexAgreementSettlementData"/>
+    <xs:complexType name="GeneralDistributionComplexAgreementSettlementData">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_6_3_1_1:plName>Rekord operacji masowej</unk_6_3_1_1:plName>
+                <unk_6_3_1_1:code>PL-711</unk_6_3_1_1:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 1.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Identyfikator transakcji -->
+            <xs:element name="ReferenceTransactionId" type="bdt:UuidType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>Identyfikator transakcji</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-710</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Identyfikator rekordu nadawany przez Operatora, używany do korelacji rekordu żądania do rekordu wyniku</xs:documentation>
+                    <xs:documentation xml:lang="en">Identifier assigned by Operator, used for batch record identification</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Przedmiot danych -->
+            <xs:element name="DataSubject" type="unk_6_3_1_1:DataSubject" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>Przedmiot danych</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-160</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 1.1.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Informacje podstawowe -->
+            <xs:element name="BasicData" type="unk_6_3_1_1:BasicData" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>Informacje podstawowe</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-325</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 1.2.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Dane pomiarowe -->
+            <xs:element name="MeasurementData" type="unk_6_3_1_1:MeasurementData" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>Dane pomiarowe</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-349</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 1.3.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Dane rozliczeniowe -->
+            <xs:element name="BillingData" type="unk_6_3_1_1:BillingData" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>Dane rozliczeniowe</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-332</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 1.4.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Podsumowanie dokumentu rozliczeniowego -->
+            <xs:element name="BillingDocumentSummary" type="unk_6_3_1_1:BillingDocumentSummary" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>Podsumowanie dokumentu rozliczeniowego</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-340</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 1.5.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Przedmiot danych                                                                                                                             ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="DataSubject" type="unk_6_3_1_1:DataSubject"/>
+    <xs:complexType name="DataSubject">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_6_3_1_1:plName>Przedmiot danych</unk_6_3_1_1:plName>
+                <unk_6_3_1_1:code>PL-160</unk_6_3_1_1:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 1.1.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Przedmiot danych -->
+            <xs:element name="DataSubject" type="bdt:DataSubjectType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>Przedmiot danych</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-161</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Określa, czy przekazywane lub udostępniane dane pomiarowe dotyczą Punktu pomiarowego, czy obiektu pomiarowego.</xs:documentation>
+                    <xs:documentation xml:lang="en">Determines whether the transferred or shared metering data pertains to a Metering Point or a Metering Facility.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Dane PP - ogólne -->
+            <xs:element name="MeteringPointData_Basic" type="unk_6_3_1_1:MeteringPointData_Basic" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>Dane PP - ogólne</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-300</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 1.1.1.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Dane obiektu - ogólne -->
+            <xs:element name="FacilityData_Basic" type="unk_6_3_1_1:FacilityData_Basic" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>Dane obiektu - ogólne</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-425</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 1.1.2.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Dane PP - ogólne                                                                                                                             ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="MeteringPointData_Basic" type="unk_6_3_1_1:MeteringPointData_Basic"/>
+    <xs:complexType name="MeteringPointData_Basic">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_6_3_1_1:plName>Dane PP - ogólne</unk_6_3_1_1:plName>
+                <unk_6_3_1_1:code>PL-300</unk_6_3_1_1:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 1.1.1.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Kod PP -->
+            <xs:element name="MeteringPointCode" type="bdt:MeteringPointCodeType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>Kod PP</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-001</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Kod identyfikujący Punkt pomiarowy - zgodny ze standardem GS1.</xs:documentation>
+                    <xs:documentation xml:lang="en">Metering Point Identification Code - compliant with the GS1 standard.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Dane obiektu - ogólne                                                                                                                        ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="FacilityData_Basic" type="unk_6_3_1_1:FacilityData_Basic"/>
+    <xs:complexType name="FacilityData_Basic">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_6_3_1_1:plName>Dane obiektu - ogólne</unk_6_3_1_1:plName>
+                <unk_6_3_1_1:code>PL-425</unk_6_3_1_1:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 1.1.2.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Identyfikator obiektu -->
+            <xs:element name="FacilityIdentifier" type="bdt:FacilityIdentifierType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>Identyfikator obiektu</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-424</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Unikalny kod identyfikujący obiekt pomiarowy. Struktura Identyfikatora obiektu składa się z:
+1) kodu EIC (np. 19X000000000001C),
+2) oznaczenia przedmiotu identyfikacji (OP - obiektu pomiarowego),
+3) unikalnego dopełnienia nadawanego przez Operatora (np. 11111111).</xs:documentation>
+                    <xs:documentation xml:lang="en">Unique code identifying the metering facility. The structure of the facility Identifier consists of:
+1) EIC code (e.g. 19X000000000001C),
+2) designation of the facility of identification (OP - measurement facility),
+3) a unique complement assigned by the Operator (e.g. 11111111).</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Informacje podstawowe                                                                                                                        ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="BasicData" type="unk_6_3_1_1:BasicData"/>
+    <xs:complexType name="BasicData">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_6_3_1_1:plName>Informacje podstawowe</unk_6_3_1_1:plName>
+                <unk_6_3_1_1:code>PL-325</unk_6_3_1_1:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 1.2.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Data i czas dokonania rozliczenia -->
+            <xs:element name="BillingDateTime" type="xs:dateTime" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>Data i czas dokonania rozliczenia</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-178</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Data i czas dokonania rozliczenia.</xs:documentation>
+                    <xs:documentation xml:lang="en">Date and time of billing.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- ID_rozliczenia -->
+            <xs:element name="BillingIdentifier" type="bdt:String50_Type" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>ID_rozliczenia</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-226</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Unikatowy identyfikator rozliczenia danego PPE, nadawany przez OSD.</xs:documentation>
+                    <xs:documentation xml:lang="en">The unique identifier of the billing of a given PPE, assigned by the DSO.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- ID_rozliczenia_wzajemnego_OSD-SE -->
+            <xs:element name="DsoSupplierSettlementIdentifier" type="bdt:String50_Type" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>ID_rozliczenia_wzajemnego_OSD-SE</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-224</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Identyfikator dokumentu (faktury zbiorczej/zagregowanej lub noty uznaniowej), wystawianej przez Operatora dla SE z tytułu usług dystrybucyjnych świadczonych przez Operatora na rzecz Użytkowników z którymi SE ma zawarte umowy kompleksowe, w którym uwzględnione jest dane rozliczenie</xs:documentation>
+                    <xs:documentation xml:lang="en">Identifier of the document (summary/aggregate invoice or credit note), issued by the Operator to the Energy Supplier for distribution services provided by the Operator to Users with whom the ES has concluded comprehensive agreements, in which the billing in question is included</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Typ komunikatu -->
+            <xs:element name="MessageType" type="bdt:BillingType_Type" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>Typ komunikatu</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-175</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Kod oznaczający typ komunikatu.</xs:documentation>
+                    <xs:documentation xml:lang="en">Code indicating the type of message.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Czy korekta komunikatu? -->
+            <xs:element name="IsCorrection" type="xs:boolean" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>Czy korekta komunikatu?</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-195</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Informacja, czy komunikat jest korektą komunikatu.</xs:documentation>
+                    <xs:documentation xml:lang="en">Information on whether the message is a correction of the message.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Przyczyna korekty -->
+            <xs:element name="CorrectionReason" type="bdt:BillingDataCorrectionReasonType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>Przyczyna korekty</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-188</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Kod oznaczający przyczynę korekty.</xs:documentation>
+                    <xs:documentation xml:lang="en">Code indicating the reason for the correction.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Typ danych rozliczeniowych -->
+            <xs:element name="BillingDataSource" type="bdt:BillingDataSourceType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>Typ danych rozliczeniowych</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-207</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Określenie pochodzenia danych rozliczeniowych, wykorzystywanych do rozliczenia opłat dystrybucyjnych w PPE.</xs:documentation>
+                    <xs:documentation xml:lang="en">Determination of the origin of billing data, used for billing distribution charges in the MP.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Dane profilowe -->
+            <xs:element name="IsProfileDataUsed" type="xs:boolean" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>Dane profilowe</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-459</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Określenie, czy do rozliczenia wykorzystywane są sumaryczne dane pochodzące z dobowych profili zużycia.</xs:documentation>
+                    <xs:documentation xml:lang="en">Determine whether aggregate data from daily consumption profiles are used for billing.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Dane z rejestrów OBIS -->
+            <xs:element name="IsRegisterDataUsed" type="xs:boolean" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>Dane z rejestrów OBIS</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-460</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Określenie, czy do rozliczenia wykorzystywane są wskazania rejestrów zgodnych z OBIS.</xs:documentation>
+                    <xs:documentation xml:lang="en">Determine whether OBIS-compliant register measurements are used for billing.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Zużycie energii w roku bazowym -->
+            <xs:element name="BaselineYearEnergyConsumption" type="bdt:BaselineYearEnergyConsumptionType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>Zużycie energii w roku bazowym</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-148</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Wartość zużycia w strefie nocnej w roku bazowym dla grupy taryfowej G12as, wyrażona w [kWh].</xs:documentation>
+                    <xs:documentation xml:lang="en">The value of consumption in the night zone in the base year for tariff group G12as, expressed in [kWh].</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Okres rozliczeniowy -->
+            <xs:element name="BillingPeriod" type="bdt:BillingPeriod_Type" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>Okres rozliczeniowy</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-275</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Okres rozliczeniowy usług dystrybucji - zgodny z okresem rozliczeniowym Operatora.</xs:documentation>
+                    <xs:documentation xml:lang="en">Billing period for distribution services - consistent with the Operator's billing period.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Czy PPE został zgrupowany -->
+            <xs:element name="IsGrouped" type="xs:boolean" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>Czy PPE został zgrupowany</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-438</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Określenie, czy punkt poboru energii został zgrupowany z innymi punktami poboru energii w celu wyliczenia opłaty mocowej dla określonej grupy odbiorców końcowych (K1, K2, K3, K4).</xs:documentation>
+                    <xs:documentation xml:lang="en">Determination whether the power point was grouped with other power points for the purpose of calculating the power charge for a specific group of end users (K1, K2, K3, K4).</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Grupowanie PPE OM -->
+            <xs:element name="EnergyConsumptionMeteringPointGroup" type="unk_6_3_1_1:EnergyConsumptionMeteringPointGroup" minOccurs="0" maxOccurs="unbounded">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>Grupowanie PPE OM</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-439</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 1.2.1.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Grupowanie PPE OM                                                                                                                            ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="EnergyConsumptionMeteringPointGroup" type="unk_6_3_1_1:EnergyConsumptionMeteringPointGroup"/>
+    <xs:complexType name="EnergyConsumptionMeteringPointGroup">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_6_3_1_1:plName>Grupowanie PPE OM</unk_6_3_1_1:plName>
+                <unk_6_3_1_1:code>PL-439</unk_6_3_1_1:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 1.2.1.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Kod PP -->
+            <xs:element name="MeteringPointCode" type="bdt:MeteringPointCodeType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>Kod PP</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-440</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Kod identyfikujący punkt pomiarowy, który został zgrupowany w celu wyznaczenia opłaty mocowej dla określonej grupy odbiorców końcowych (K1, K2, K3, K4). Lista kodów powinna uwzględniać także kod PPE, którego dotyczy przekazanie IRGUD-k.</xs:documentation>
+                    <xs:documentation xml:lang="en">Code identifying the metering point that has been grouped to determine the power charge for a specific group of end users (K1, K2, K3, K4). The list of codes should also include the code of the PPE to which the IRGUD-k transfer applies.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Dane pomiarowe                                                                                                                               ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="MeasurementData" type="unk_6_3_1_1:MeasurementData"/>
+    <xs:complexType name="MeasurementData">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_6_3_1_1:plName>Dane pomiarowe</unk_6_3_1_1:plName>
+                <unk_6_3_1_1:code>PL-349</unk_6_3_1_1:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 1.3.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Licznik -->
+            <xs:element name="Meter" type="unk_6_3_1_1:Meter" minOccurs="0" maxOccurs="unbounded">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>Licznik</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-348</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 1.3.1.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Ryczałt -->
+            <xs:element name="FlatRate" type="unk_6_3_1_1:FlatRate" minOccurs="0" maxOccurs="unbounded">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>Ryczałt</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-327</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 1.3.2.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Licznik                                                                                                                                      ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="Meter" type="unk_6_3_1_1:Meter"/>
+    <xs:complexType name="Meter">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_6_3_1_1:plName>Licznik</unk_6_3_1_1:plName>
+                <unk_6_3_1_1:code>PL-348</unk_6_3_1_1:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 1.3.1.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Nr licznika -->
+            <xs:element name="MeterNumber" type="bdt:MeterNumberType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>Nr licznika</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-097</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Numer seryjny podstawowego licznika energii czynnej.</xs:documentation>
+                    <xs:documentation xml:lang="en">Serial number of the primary active energy meter.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Rejestr pomiarowy -->
+            <xs:element name="MeteringRegister" type="unk_6_3_1_1:MeteringRegister" minOccurs="0" maxOccurs="unbounded">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>Rejestr pomiarowy</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-212</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 1.3.1.1.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Podsumowanie profilowych danych -->
+            <xs:element name="MeasurementDataSummary" type="unk_6_3_1_1:MeasurementDataSummary" minOccurs="0" maxOccurs="unbounded">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>Podsumowanie profilowych danych</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-458</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 1.3.1.2.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Rejestr pomiarowy                                                                                                                            ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="MeteringRegister" type="unk_6_3_1_1:MeteringRegister"/>
+    <xs:complexType name="MeteringRegister">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_6_3_1_1:plName>Rejestr pomiarowy</unk_6_3_1_1:plName>
+                <unk_6_3_1_1:code>PL-212</unk_6_3_1_1:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 1.3.1.1.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Typ rejestru -->
+            <xs:element name="RegisterType" type="bdt:MeterRegistryType_Type" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>Typ rejestru</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-088</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Zgodnie z opisem protokołu IEC62056, atrybut wskazuje rejestr pomiarowy licznika energii elektrycznej, którego dotyczy przekazywanie wskazań pomiarowych.</xs:documentation>
+                    <xs:documentation xml:lang="en">According to the description of the IEC62056 protocol, the attribute indicates the measurement register of the electricity meter to which the transmission of measurement readings applies.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Wskazania energii -->
+            <xs:element name="EnergyMeasurement" type="unk_6_3_1_1:EnergyMeasurement" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>Wskazania energii</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-326</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 1.3.1.1.1.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Wskazania mocy -->
+            <xs:element name="PowerMeasurement" type="unk_6_3_1_1:PowerMeasurement" minOccurs="0" maxOccurs="unbounded">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>Wskazania mocy</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-331</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 1.3.1.1.2.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Wskazania energii                                                                                                                            ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="EnergyMeasurement" type="unk_6_3_1_1:EnergyMeasurement"/>
+    <xs:complexType name="EnergyMeasurement">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_6_3_1_1:plName>Wskazania energii</unk_6_3_1_1:plName>
+                <unk_6_3_1_1:code>PL-326</unk_6_3_1_1:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 1.3.1.1.1.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Pochodzenie bieżącego wskazania -->
+            <xs:element name="MeasurementSource" type="bdt:MeasurementSourceType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>Pochodzenie bieżącego wskazania</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-196</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Kod specyfikujący pochodzenie wskazania.</xs:documentation>
+                    <xs:documentation xml:lang="en">Code specifying the origin of the measurement.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Data i czas bieżącego wskazania -->
+            <xs:element name="MeasurementDateTime" type="xs:dateTime" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>Data i czas bieżącego wskazania</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-198</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Data i czas bieżącego wskazania dla wyznaczonych danych pomiarowych.</xs:documentation>
+                    <xs:documentation xml:lang="en">Date and time of current measurement for designated metering data.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Wskazanie bieżące rejestru -->
+            <xs:element name="MeterRegisterValue" type="bdt:MeterRegistryValueType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>Wskazanie bieżące rejestru</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-184</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Bieżące wskazanie rejestru licznika z uwzględnieniem czterech miejsc po przecinku.</xs:documentation>
+                    <xs:documentation xml:lang="en">Current meter register measurement with four decimal places.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Mnożna liczydła -->
+            <xs:element name="MeterMultiplier" type="bdt:MultiplierType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>Mnożna liczydła</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-208</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Współczynnik wynikający z parametrów układu pomiarowo-rozliczeniowego.</xs:documentation>
+                    <xs:documentation xml:lang="en">Factor resulting from the parameters of the metering and billing system.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Zdarzenia dla rejestru -->
+            <xs:element name="MeterRegisterEventType" type="bdt:MeterRegistryEventType_Type" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>Zdarzenia dla rejestru</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-187</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Powiadomienie o zdarzeniu dla rejestru licznika.</xs:documentation>
+                    <xs:documentation xml:lang="en">Event notification for the meter register.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Data i czas poprzedniego wskazania -->
+            <xs:element name="PreviousMeasurementDateTime" type="xs:dateTime" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>Data i czas poprzedniego wskazania</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-194</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Data i czas poprzedniego odczytu albo wyznaczenia danych pomiarowych.</xs:documentation>
+                    <xs:documentation xml:lang="en">Date and time of previous reading or designated metering data.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Wskazanie poprzednie rejestru -->
+            <xs:element name="PreviousMeterRegisterValue" type="bdt:MeterRegistryValueType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>Wskazanie poprzednie rejestru</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-183</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Poprzednie wskazanie rejestru licznika z uwzględnieniem czterech miejsc po przecinku.</xs:documentation>
+                    <xs:documentation xml:lang="en">Previous meter register measurement including four decimal places.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Podsumowanie wskazania -->
+            <xs:element name="MeasurementInformation" type="unk_6_3_1_1:MeasurementInformation" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>Podsumowanie wskazania</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-328</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 1.3.1.1.1.1.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Podsumowanie wskazania                                                                                                                       ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="MeasurementInformation" type="unk_6_3_1_1:MeasurementInformation"/>
+    <xs:complexType name="MeasurementInformation">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_6_3_1_1:plName>Podsumowanie wskazania</unk_6_3_1_1:plName>
+                <unk_6_3_1_1:code>PL-328</unk_6_3_1_1:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 1.3.1.1.1.1.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Wolumen -->
+            <xs:element name="Volume" type="bdt:VolumeType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>Wolumen</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-204</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Ilość energii dla rejestru, wynikająca z różnicy wskazań oraz mnożnej. Określana zgodnie z wybranym typem rejestru w [kWh], [kVarh], z dokładnością do czterech miejsc po przecinku.</xs:documentation>
+                    <xs:documentation xml:lang="en">The amount of energy for the register, resulting from the difference in measurements and the multiplier. Determined according to the selected register type in [kWh], [kVarh], to four decimal places.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Straty -->
+            <xs:element name="LossVolume" type="bdt:RealVolumeType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>Straty</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-202</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Wielkość strat energii dla każdego rejestru z uwzględnieniem mnożnej liczydła. W przypadku wystąpienia korekty wolumenowej wielkosć strat wyliczana jest ze zużycia po odjęciu/dodaniu korekty.
+Wartości ujemne pomniejszają ilość energii, dodatnie powiększają wolumen. Jeżeli straty nie są określone, należy przyjąć wartość "0".</xs:documentation>
+                    <xs:documentation xml:lang="en">The volume of energy losses for each register taking into account the meter multiplier. If there is a volume adjustment, the volume of losses is calculated from the consumption after subtracting/adding the adjustment.
+Negative values decrease the amount of energy, positive values increase the volume. If the losses are not specified, take the value of "0".</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Korekta wolumenu -->
+            <xs:element name="CorrectedVolume" type="bdt:RealVolumeType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>Korekta wolumenu</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-201</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Korekta wolumenu energii dla poszczególnych rejestrów z uwzględnieniem mnożnej liczydła.
+Wartości ujemne pomniejszają wolumen, dodatnie powiększają wolumen. W przypadku braku potrzeby doliczeń/odliczeń ilości energii należy wprowadzić wartość "0".</xs:documentation>
+                    <xs:documentation xml:lang="en">Adjustment of the volume of energy for individual registers taking into account the meter multiplier.
+Negative values decrease the volume, positive values increase the volume. If there is no need for energy volume additions/deductions, enter the value "0".</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Przyczyna korekty wolumenu -->
+            <xs:element name="VolumeCorrectionReason" type="bdt:VolumeCorrectionReasonType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>Przyczyna korekty wolumenu</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-203</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Określenie przyczyny korekty wolumenu dla rejestru pomiarowego.</xs:documentation>
+                    <xs:documentation xml:lang="en">Determination of the reason for volume correction for the metering register.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Sumaryczny wolumen -->
+            <xs:element name="TotalVolume" type="bdt:VolumeType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>Sumaryczny wolumen</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-205</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sumaryczna ilość energii, wyznaczona jako suma wartości atrybutów: wolumen, straty i korekta wolumenu wielkość wolumenu. Określana zgodnie z wybranym typem rejestru w [kWh], [kVarh].</xs:documentation>
+                    <xs:documentation xml:lang="en">The total amount of energy, determined as the sum of the values of the attributes: volume, losses and volume adjustment volume. Determined according to the selected register type in [kWh], [kVarh].</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Wskazania mocy                                                                                                                               ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="PowerMeasurement" type="unk_6_3_1_1:PowerMeasurement"/>
+    <xs:complexType name="PowerMeasurement">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_6_3_1_1:plName>Wskazania mocy</unk_6_3_1_1:plName>
+                <unk_6_3_1_1:code>PL-331</unk_6_3_1_1:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 1.3.1.1.2.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Moc pobrana maksymalna -->
+            <xs:element name="MaxConsumedPower" type="bdt:PowerKiloWattsType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>Moc pobrana maksymalna</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-282</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Wartości te stanowią podstawę do pobrania przez Operatora opłaty za przekroczenie mocy umownej. Wartość uwzględnia mnożną, straty, korekty.
+Dla przekroczenia poboru mocy jako: 
+1) sumy wartości należy podać maksymalne wartości poboru mocy (maksymalnie 10 dla każdego miesiąca), 
+2) 10 krotności wartości, należy podać jedną wartość (dla całego okresu rozliczeniowego) przed mnożeniem przez 10.</xs:documentation>
+                    <xs:documentation xml:lang="en">These values are the basis for the Operator to charge for exceeding the contracted capacity. The value takes into account multiplication, losses, adjustments.
+For excess power consumption as: 
+1) sums of values, the maximum values of power consumption should be given (maximum 10 for each month), 
+2) 10 times the value, provide one value (for the entire billing period) before multiplying by 10.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Data i czas poboru mocy -->
+            <xs:element name="MaxConsumedPowerDateTime" type="xs:dateTime" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>Data i czas poboru mocy</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-283</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Określenie daty i czasu wskazania poboru mocy.</xs:documentation>
+                    <xs:documentation xml:lang="en">Specifying the date and time of measurement of power consumption.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Podsumowanie profilowych danych                                                                                                              ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="MeasurementDataSummary" type="unk_6_3_1_1:MeasurementDataSummary"/>
+    <xs:complexType name="MeasurementDataSummary">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_6_3_1_1:plName>Podsumowanie profilowych danych</unk_6_3_1_1:plName>
+                <unk_6_3_1_1:code>PL-458</unk_6_3_1_1:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 1.3.1.2.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Typ rozliczanego produktu energetycznego -->
+            <xs:element name="BillingProfileEnergyProductType" type="bdt:BillingProfileEnergyProductType_Type" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>Typ rozliczanego produktu energetycznego</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-441</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Określenie właściwego produktu energetycznego, zgodnie z listą. Wskazane produkty dotyczą profili rozliczeniowych.</xs:documentation>
+                    <xs:documentation xml:lang="en">Determination of the relevant energy product, according to the list. The indicated products refer to billing profiles.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Data początku okresu -->
+            <xs:element name="PeriodStartDate" type="xs:date" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>Data początku okresu</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-179</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Data początku przedziału czasowego, dla którego są przekazywane sumaryczne dane profilowe (od początku doby).</xs:documentation>
+                    <xs:documentation xml:lang="en">Date of the beginning of the time interval for which aggregate profile data is provided (from the beginning of the day).</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Data końca okresu -->
+            <xs:element name="PeriodEndDate" type="xs:date" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>Data końca okresu</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-180</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Data końcowa przedziału czasowego, dla którego są przekazane sumaryczne dane profilowe (włącznie).</xs:documentation>
+                    <xs:documentation xml:lang="en">End date of the time interval for which aggregate profile data are provided (inclusive).</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Wolumen -->
+            <xs:element name="Volume" type="bdt:RealVolumeType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>Wolumen</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-185</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sumaryczna wielkość pobranej lub wprowadzonej energii elektrycznej wynikająca z profili rozliczeniowych, wyrażona w [kWh]. Wartości dodatnie (+) oznaczają energię pobraną z sieci, wartości ujemne (-) oznaczają energię wprowadzoną do sieci.</xs:documentation>
+                    <xs:documentation xml:lang="en">The summed volume of electricity withdrawn or injected resulting from billing profiles, expressed in [kWh]. Positive values (+) represent energy taken from the grid, negative values (-) represent energy injected into the grid.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Wolumen - bilans dodatni -->
+            <xs:element name="PositiveVolume" type="bdt:VolumeType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>Wolumen - bilans dodatni</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-442</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sumaryczna wielkość poboru energii elektrycznej z sieci wynikająca z bilansu, wyrażona w [kWh].</xs:documentation>
+                    <xs:documentation xml:lang="en">The aggregate volume of electricity withdrawn from the grid resulting from the balance, expressed in [kWh].</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Wolumen - bilans ujemny -->
+            <xs:element name="NegativeVolume" type="bdt:VolumeType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>Wolumen - bilans ujemny</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-443</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sumaryczna wielkość wprowadzonej energii elektrycznej do sieci wynikająca z bilansu, wyrażona w [kWh]. Wartości są wprowadzane bez znaku (-).</xs:documentation>
+                    <xs:documentation xml:lang="en">The total amount of electricity injected into the grid resulting from the balance, expressed in [kWh]. Values are entered without the (-) sign.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Ryczałt                                                                                                                                      ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="FlatRate" type="unk_6_3_1_1:FlatRate"/>
+    <xs:complexType name="FlatRate">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_6_3_1_1:plName>Ryczałt</unk_6_3_1_1:plName>
+                <unk_6_3_1_1:code>PL-327</unk_6_3_1_1:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 1.3.2.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Data początku okresu -->
+            <xs:element name="PeriodStartDate" type="xs:date" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>Data początku okresu</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-179</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Data początku przedziału czasowego, dla którego są przekazywane dane (od początku doby).</xs:documentation>
+                    <xs:documentation xml:lang="en">The date of the beginning of the time interval for which data is provided (from the beginning of the day).</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Data końca okresu -->
+            <xs:element name="PeriodEndDate" type="xs:date" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>Data końca okresu</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-180</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Data końcowa przedziału czasowego, dla którego są przekazane dane (włącznie).</xs:documentation>
+                    <xs:documentation xml:lang="en">The end date of the time interval for which the data are transferred (inclusive).</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Wolumen -->
+            <xs:element name="Volume" type="bdt:VolumeType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>Wolumen</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-185</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Ilość energii dla ryczałtu, wyrażony w [kWh].</xs:documentation>
+                    <xs:documentation xml:lang="en">Amount of energy for a lump sum, expressed in [kWh].</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Dane rozliczeniowe                                                                                                                           ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="BillingData" type="unk_6_3_1_1:BillingData"/>
+    <xs:complexType name="BillingData">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_6_3_1_1:plName>Dane rozliczeniowe</unk_6_3_1_1:plName>
+                <unk_6_3_1_1:code>PL-332</unk_6_3_1_1:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 1.4.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Data początku okresu rozliczeniowego -->
+            <xs:element name="BillingPeriodStartDate" type="xs:date" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>Data początku okresu rozliczeniowego</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-181</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Data rozpoczęcia okresu rozliczeniowego albo okresu prognozowania.</xs:documentation>
+                    <xs:documentation xml:lang="en">Date of start of the billing period or the forecasting period.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Data końca okresu rozliczeniowego -->
+            <xs:element name="BillingPeriodEndDate" type="xs:date" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>Data końca okresu rozliczeniowego</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-182</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Data zakończenia okresu rozliczeniowego albo okresu prognozowania (włącznie).</xs:documentation>
+                    <xs:documentation xml:lang="en">Date of termination of the billing period or forecasting period (inclusive).</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Czy rozliczenie prognoz? -->
+            <xs:element name="IsBillingForecast" type="xs:boolean" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>Czy rozliczenie prognoz?</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-166</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Czy rozliczenie powinno uwzględniać wcześniejsze prognozy?</xs:documentation>
+                    <xs:documentation xml:lang="en">Should the billing take into account previous forecasts?</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Sposób wyliczenia Tg(fi) -->
+            <xs:element name="TgPhiCalculationMethod" type="bdt:TgPhiCalculationMethodType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>Sposób wyliczenia Tg(fi)</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-289</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Wskazanie sposobu wyliczenia Tg(fi), zgodnie z taryfą OSD.</xs:documentation>
+                    <xs:documentation xml:lang="en">Indication of the calculation of Tg(fi), in accordance with the DSO tariff.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Parametry rozliczenia -->
+            <xs:element name="BillingParameters" type="unk_6_3_1_1:BillingParameters" minOccurs="1" maxOccurs="unbounded">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>Parametry rozliczenia</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-333</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 1.4.1.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Poprzednie prognozy -->
+            <xs:element name="PreviousForecast" type="unk_6_3_1_1:PreviousForecast" minOccurs="0" maxOccurs="unbounded">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>Poprzednie prognozy</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-338</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 1.4.2.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Rozliczenie korygowane -->
+            <xs:element name="CorrectedBilling" type="unk_6_3_1_1:CorrectedBilling" minOccurs="0" maxOccurs="unbounded">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>Rozliczenie korygowane</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-339</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 1.4.3.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Parametry rozliczenia                                                                                                                        ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="BillingParameters" type="unk_6_3_1_1:BillingParameters"/>
+    <xs:complexType name="BillingParameters">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_6_3_1_1:plName>Parametry rozliczenia</unk_6_3_1_1:plName>
+                <unk_6_3_1_1:code>PL-333</unk_6_3_1_1:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 1.4.1.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Okres od -->
+            <xs:element name="PeriodFrom" type="xs:date" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>Okres od</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-213</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Data początkowa dla wskazanego Typu opłaty.</xs:documentation>
+                    <xs:documentation xml:lang="en">The starting date for the indicated Charge Type.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Okres do -->
+            <xs:element name="PeriodTo" type="xs:date" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>Okres do</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-214</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Data końcowa dla wskazanego Typu opłaty.</xs:documentation>
+                    <xs:documentation xml:lang="en">End date for the indicated Charge Type.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Fazowość układu pomiarowego -->
+            <xs:element name="MeasuringSystemPhasesCount" type="bdt:MeasuringSystemPhasesCountType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>Fazowość układu pomiarowego</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-093</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Fazowość układu pomiarowo-rozliczeniowego.</xs:documentation>
+                    <xs:documentation xml:lang="en">Phasing of the metering and billing system.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Grupa taryfowa -->
+            <xs:element name="TariffGroup" type="bdt:String10_Type" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>Grupa taryfowa</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-085</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Grupa taryfowa zgodna z Taryfą OSD.</xs:documentation>
+                    <xs:documentation xml:lang="en">Tariff group in accordance with the DSO Tariff.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Moc umowna -->
+            <xs:element name="ContractedPower" type="bdt:PowerKiloWattsType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>Moc umowna</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-086</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Wielkość mocy umownej, wyrażona w [kW].</xs:documentation>
+                    <xs:documentation xml:lang="en">The size of the contracted power, expressed in [kW].</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Współczynnik pewności zasilania -->
+            <xs:element name="PowerReliabilityFactor" type="bdt:PowerReliabilityFactorType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>Współczynnik pewności zasilania</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-233</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Wartość liczbowa współczynnika wykorzystywana do wyliczania opłaty stałej oraz przejściowej.W przypadku braku stosowania współczynnika należy podać wartość "1".</xs:documentation>
+                    <xs:documentation xml:lang="en">The numerical value of the coefficient used to calculate the fixed charge and the transitional charge.If the coefficient is not used, the value "1" should be given.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- tg φ0 Q1 -->
+            <xs:element name="TgPhiQ1" type="bdt:TgPhiValue_Type" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>tg φ0 Q1</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-480</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Wartość współczynnika tg φ0 w pierwszym kwadrancie.</xs:documentation>
+                    <xs:documentation xml:lang="en">The value of the tg φ0 coefficient in the first quadrant.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- tg φ0 Q2 -->
+            <xs:element name="TgPhiQ2" type="bdt:TgPhiValue_Type" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>tg φ0 Q2</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-481</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Wartość współczynnika tg φ0 w drugim kwadrancie.</xs:documentation>
+                    <xs:documentation xml:lang="en">The value of the tg φ0 coefficient in the second quadrant.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- tg φ0 Q3 -->
+            <xs:element name="TgPhiQ3" type="bdt:TgPhiValue_Type" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>tg φ0 Q3</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-482</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Wartość współczynnika tg φ0 w trzecim kwadrancie.</xs:documentation>
+                    <xs:documentation xml:lang="en">Value of tg φ0 coefficient in the third quadrant.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- tg φ0 Q4 -->
+            <xs:element name="TgPhiQ4" type="bdt:TgPhiValue_Type" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>tg φ0 Q4</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-483</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Wartość współczynnika tg φ0 w czwartym kwadrancie.</xs:documentation>
+                    <xs:documentation xml:lang="en">The value of the tg φ0 coefficient in the fourth quadrant.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Sposób rozliczenia przekroczenia poboru mocy -->
+            <xs:element name="ExcessPowerConsumptionBillingMethod" type="bdt:ExcessPowerConsumptionBillingMethodType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>Sposób rozliczenia przekroczenia poboru mocy</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-231</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Określenie sposobu rozliczenia przekroczenia poboru mocy, zgodnie z taryfą OSD.</xs:documentation>
+                    <xs:documentation xml:lang="en">Determination of the method of accounting for excess power consumption, in accordance with the tariff of the DSO.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Typ opłaty -->
+            <xs:element name="ChargeType" type="unk_6_3_1_1:ChargeType" minOccurs="1" maxOccurs="unbounded">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>Typ opłaty</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-353</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 1.4.1.1.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Typ opłaty                                                                                                                                   ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="ChargeType" type="unk_6_3_1_1:ChargeType"/>
+    <xs:complexType name="ChargeType">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_6_3_1_1:plName>Typ opłaty</unk_6_3_1_1:plName>
+                <unk_6_3_1_1:code>PL-353</unk_6_3_1_1:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 1.4.1.1.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Typ opłaty -->
+            <xs:element name="ChargeType" type="bdt:ChargeType_Type" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>Typ opłaty</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-215</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Nazwa opłaty dla danego PPE w zakresie usługi dystrybucyjnej.</xs:documentation>
+                    <xs:documentation xml:lang="en">Name of the charge for a given PPE for distribution service.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Strefa -->
+            <xs:element name="Zone" type="unk_6_3_1_1:Zone" minOccurs="1" maxOccurs="unbounded">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>Strefa</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-334</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 1.4.1.1.1.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Strefa                                                                                                                                       ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="Zone" type="unk_6_3_1_1:Zone"/>
+    <xs:complexType name="Zone">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_6_3_1_1:plName>Strefa</unk_6_3_1_1:plName>
+                <unk_6_3_1_1:code>PL-334</unk_6_3_1_1:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 1.4.1.1.1.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Oznaczenie strefy -->
+            <xs:element name="ZoneType" type="bdt:ZoneType_Type" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>Oznaczenie strefy</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-232</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Określenie strefy której dotyczy dany typ opłaty.</xs:documentation>
+                    <xs:documentation xml:lang="en">Determination of the zone to which the type of charge applies.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Rozliczenie -->
+            <xs:element name="Billing" type="unk_6_3_1_1:Billing" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>Rozliczenie</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-335</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 1.4.1.1.1.1.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Rozliczenie                                                                                                                                  ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="Billing" type="unk_6_3_1_1:Billing"/>
+    <xs:complexType name="Billing">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_6_3_1_1:plName>Rozliczenie</unk_6_3_1_1:plName>
+                <unk_6_3_1_1:code>PL-335</unk_6_3_1_1:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 1.4.1.1.1.1.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Ilość -->
+            <xs:element name="Count" type="bdt:CountType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>Ilość</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-216</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Wskazanie ilości odpowiednio dla Typu opłaty.</xs:documentation>
+                    <xs:documentation xml:lang="en">Indication of the quantity for the Type of charge, respectively.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Jednostka -->
+            <xs:element name="Unit" type="bdt:UnitCodeType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>Jednostka</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-217</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Jednostka ilości odpowiednio dla Typu opłaty.</xs:documentation>
+                    <xs:documentation xml:lang="en">Unit of quantity for the Type of charge, respectively.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Krotność k -->
+            <xs:element name="UnitPriceMultiplier" type="bdt:UnitPriceMultiplierType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>Krotność k</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-285</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Krotność ceny jednostkowej, ustalona w taryfie OSD.</xs:documentation>
+                    <xs:documentation xml:lang="en">Unit price multiplier, as set in the DSO tariff.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Wartość Tg(fi) -->
+            <xs:element name="TgPhiValue" type="bdt:TgPhiValue_Type" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>Wartość Tg(fi)</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-286</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Współczynnik mocy wynikający z pobranej energii biernej.</xs:documentation>
+                    <xs:documentation xml:lang="en">The power factor resulting from the reactive energy consumed.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Wskaźnik energii biernej -->
+            <xs:element name="ReactivePowerValue" type="bdt:ReactivePowerValueType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>Wskaźnik energii biernej</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-287</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Wyliczenie zgodne ze wzorem: 
+W przypadku braku zasadności wskaźnika, należy podać wartość "1".</xs:documentation>
+                    <xs:documentation xml:lang="en">Calculation in accordance with the formula: 
+If the indicator is not valid, the value of "1" should be given.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Współczynnik intensywności -->
+            <xs:element name="ConsumptionIntensityCoefficient" type="bdt:ConsumptionIntensityCoefficientType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>Współczynnik intensywności</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-299</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Wartość liczbowa współczynnika intensywności zużycia energii, wykorzystywana do wyliczania stawek poszczególnych opłat. W przypadku braku stosowania współczynnika intensywności należy podać wartość "1".</xs:documentation>
+                    <xs:documentation xml:lang="en">The numerical value of the energy consumption intensity factor, used to calculate the rates of individual charges. If the intensity factor is not used, the value of "1" should be given."
+The numerical value of the summator coefficient, used to calculate the rates of individual charges.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Zmniejszenie mocy umownej -->
+            <xs:element name="IsPowerReductionApplied" type="xs:boolean" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>Zmniejszenie mocy umownej</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-295</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Wskazanie, czy w rozliczeniach za świadczenie usług dystrybucji energii elektrycznej
+składnik stały stawki sieciowej został zwiększony w związku ze zmniejszeniem mocy umownej.</xs:documentation>
+                    <xs:documentation xml:lang="en">Indication whether, in billings for the provision of electricity distribution services
+the fixed component of the network rate was increased in connection with the reduction of contracted capacity.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Współczynnik sezonowości -->
+            <xs:element name="IsSeasonalityApplied" type="xs:boolean" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>Współczynnik sezonowości</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-298</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Wskazanie, czy w rozliczeniach za świadczenie usług dystrybucji energii elektrycznej
+składnik stały stawki sieciowej został zwiększony w związku ze stosowaniem sezonowości.</xs:documentation>
+                    <xs:documentation xml:lang="en">Indication whether, in the billing for the provision of electricity distribution services
+The fixed component of the network rate was increased in connection with the application of seasonality.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Współczynnik sumatora -->
+            <xs:element name="AggregatorCoefficient" type="bdt:AggregatorCoefficientType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>Współczynnik sumatora</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-526</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Wartość liczbowa współczynnika sumatora, wykorzystywana do wyliczania stawek poszczególnych opłat.
+W przypadku braku stosowania współczynnika, należy podać wartość "1".</xs:documentation>
+                    <xs:documentation xml:lang="en">If the coefficient is not applied, the value of "1" should be provided.""</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Wynik przekroczenia mocy -->
+            <xs:element name="ExcessPowerConsumptionTotal" type="bdt:PowerKiloWattsType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>Wynik przekroczenia mocy</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-284</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Suma wszystkich wielkości nadwyżek mocy pobranej ponad moc umowną (maksymalnie po 10 największych (godzinowych) z każdego miesiąca kończącego się w okresie rozliczeniowym (dla Sposobu rozliczenia przekroczenia poboru mocy CK012) albo dziesięciokrotność największego przekroczenia mocy pobranej ponad moc umowną w całym okresie rozliczeniowym (dla Sposobu rozliczenia przekroczenia poboru mocy CK013).</xs:documentation>
+                    <xs:documentation xml:lang="en">The sum of all volumes of power overdrawn over the contracted capacity (maximum of 10 largest (hourly) from each month ending in the billing period (for Power Overdrawal Billing Method CK012) or 10 times the largest power overdrawn over the contracted capacity in the entire billing period (for Power Overdrawal Billing Method CK013).</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Cena jednostkowa -->
+            <xs:element name="UnitPrice" type="bdt:PriceType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>Cena jednostkowa</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-218</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Cena jednostkowa opłaty odpowiednio dla Typu opłaty w PLN/jednostka; uwzględnia wskaźniki poszczególnych opłat (atrybut PL-298, PL-295).</xs:documentation>
+                    <xs:documentation xml:lang="en">Unit price of the fee for the Type of fee in PLN/unit, respectively; takes into account the indicators of individual fees (attribute PL-298, PL-295).</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Wartość netto -->
+            <xs:element name="NetAmount" type="bdt:PriceType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>Wartość netto</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-219</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Wartość netto opłaty odpowiednio dla Typu opłaty, wyrażona w PLN.</xs:documentation>
+                    <xs:documentation xml:lang="en">The net value of the charge for the Type of charge, respectively, expressed in PLN.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Stawka VAT -->
+            <xs:element name="VatRate" type="bdt:String10_Type" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>Stawka VAT</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-220</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Stawka VAT opłaty, wyrażona w [%], jeżeli zwolniony z podatku VAT należy uzupełnić "n/d".</xs:documentation>
+                    <xs:documentation xml:lang="en">VAT rate of the charge, expressed in [%], if exempt from VAT should be completed "n/a."</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Kwota VAT -->
+            <xs:element name="VatAmount" type="bdt:PriceType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>Kwota VAT</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-288</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Kwota VAT</xs:documentation>
+                    <xs:documentation xml:lang="en">VAT amount</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Inne, na potrzeby dodatkowych rozliczeń -->
+            <xs:element name="AdditionalBillingInformation" type="bdt:AdditionalBillingInformationType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>Inne, na potrzeby dodatkowych rozliczeń</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-601</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Dodatkowe informacje na potrzeby rozliczenia klastra energii.</xs:documentation>
+                    <xs:documentation xml:lang="en">Additional info for energy cluster billing.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Poprzednie prognozy                                                                                                                          ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="PreviousForecast" type="unk_6_3_1_1:PreviousForecast"/>
+    <xs:complexType name="PreviousForecast">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_6_3_1_1:plName>Poprzednie prognozy</unk_6_3_1_1:plName>
+                <unk_6_3_1_1:code>PL-338</unk_6_3_1_1:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 1.4.2.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- ID_rozliczenia_prognozy -->
+            <xs:element name="ForecastBillingIdentifier" type="bdt:String50_Type" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>ID_rozliczenia_prognozy</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-206</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Identyfikator ID_rozliczenia, który przesłany został jako prognoza, uwzględniany w ramach rozliczenia prognozy.</xs:documentation>
+                    <xs:documentation xml:lang="en">ID identifier of the ID_billing that was sent as a forecast, taken into account as part of the billing of the forecast.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Wartość netto prognozy -->
+            <xs:element name="ForecastedNetAmount" type="bdt:PriceType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>Wartość netto prognozy</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-222</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sumaryczna wartość netto wskazanej prognozy, wyrażona w PLN.</xs:documentation>
+                    <xs:documentation xml:lang="en">The total net value of the indicated forecast, expressed in PLN.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Stawka VAT -->
+            <xs:element name="VatRate" type="bdt:String10_Type" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>Stawka VAT</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-220</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Stawka VAT opłaty, wyrażona w [%], jeżeli zwolniony z podatku VAT należy uzupełnić "n/d".</xs:documentation>
+                    <xs:documentation xml:lang="en">VAT rate of the charge, expressed in [%], if exempt from VAT should be completed "n/a."</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Kwota VAT -->
+            <xs:element name="VatAmount" type="bdt:PriceType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>Kwota VAT</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-288</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Kwota VAT</xs:documentation>
+                    <xs:documentation xml:lang="en">VAT amount</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Rozliczenie korygowane                                                                                                                       ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="CorrectedBilling" type="unk_6_3_1_1:CorrectedBilling"/>
+    <xs:complexType name="CorrectedBilling">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_6_3_1_1:plName>Rozliczenie korygowane</unk_6_3_1_1:plName>
+                <unk_6_3_1_1:code>PL-339</unk_6_3_1_1:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 1.4.3.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- ID_korygowanego_rozliczenia -->
+            <xs:element name="CorrectedBillingIdentifier" type="bdt:String50_Type" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>ID_korygowanego_rozliczenia</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-354</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Identyfikator ID_rozliczenia, który jest przedmiotem korekty, określony przez nadawcę korygowanego komunikatu.</xs:documentation>
+                    <xs:documentation xml:lang="en">ID of the ID_billing that is the subject of the correction, specified by the sender of the message being corrected.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Kwota netto korygowanego rozliczenia -->
+            <xs:element name="CorrectedNetAmount" type="bdt:PriceType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>Kwota netto korygowanego rozliczenia</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-358</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Kwota netto korygowanego rozliczenia, występująca w podsumowaniu dokumentu rozliczeniowego komunikatu korygowanego.</xs:documentation>
+                    <xs:documentation xml:lang="en">The net amount of the adjusted billing, appearing in the summary of the billing document of the adjusted message.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Podsumowanie dokumentu rozliczeniowego                                                                                                       ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="BillingDocumentSummary" type="unk_6_3_1_1:BillingDocumentSummary"/>
+    <xs:complexType name="BillingDocumentSummary">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_6_3_1_1:plName>Podsumowanie dokumentu rozliczeniowego</unk_6_3_1_1:plName>
+                <unk_6_3_1_1:code>PL-340</unk_6_3_1_1:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 1.5.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Wartość netto dokumentu rozliczeniowego -->
+            <xs:element name="NetAmount" type="bdt:PriceType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>Wartość netto dokumentu rozliczeniowego</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-290</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Podsumowanie dokumentu rozliczeniowego, jako suma typów opłat pomniejszona o prognozy i korekty jeżeli wystąpiły.</xs:documentation>
+                    <xs:documentation xml:lang="en">Summary of the billing document, as the sum of the types of charges minus forecasts and adjustments if any.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Rozliczenie VAT -->
+            <xs:element name="VatCalculation" type="unk_6_3_1_1:VatCalculation" minOccurs="0" maxOccurs="unbounded">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>Rozliczenie VAT</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-359</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 1.5.1.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Rozliczenie VAT                                                                                                                              ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="VatCalculation" type="unk_6_3_1_1:VatCalculation"/>
+    <xs:complexType name="VatCalculation">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_6_3_1_1:plName>Rozliczenie VAT</unk_6_3_1_1:plName>
+                <unk_6_3_1_1:code>PL-359</unk_6_3_1_1:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 1.5.1.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Stawka VAT -->
+            <xs:element name="VatRate" type="bdt:String10_Type" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>Stawka VAT</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-220</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Stawka VAT opłaty, wyrażona w [%], jeżeli zwolniony z podatku VAT należy uzupełnić "n/d".</xs:documentation>
+                    <xs:documentation xml:lang="en">VAT rate of the charge, expressed in [%], if exempt from VAT should be completed "n/a."</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Kwota netto -->
+            <xs:element name="NetAmount" type="bdt:PriceType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>Kwota netto</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-225</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Suma wartości netto w ramach rozliczenia finansowego, wyrażona w PLN.</xs:documentation>
+                    <xs:documentation xml:lang="en">The sum of the net value within the financial billing, expressed in PLN.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Kwota VAT -->
+            <xs:element name="VatAmount" type="bdt:PriceType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_3_1_1:plName>Kwota VAT</unk_6_3_1_1:plName>
+                        <unk_6_3_1_1:code>PL-288</unk_6_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Kwota VAT</xs:documentation>
+                    <xs:documentation xml:lang="en">VAT amount</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

@@ -1,0 +1,318 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:bdt="urn:pl:oire:businessDataTypes:v1" xmlns:tech="urn:pl:oire:technical:v1" xmlns:unk_5_3_1_1="urn:pl:oire:unk_5_3_1_1:v1" elementFormDefault="qualified" targetNamespace="urn:pl:oire:unk_5_3_1_1:v1">
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Wersja z 18.09.2026                                                                                                                          ==== -->
+    <!-- ====================================================================================================================================================== -->
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Import                                                                                                                                       ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:import namespace="urn:pl:oire:businessDataTypes:v1" schemaLocation="businessDataTypes.xsd"/>
+    <xs:import namespace="urn:pl:oire:technical:v1" schemaLocation="technical.xsd"/>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== 5.3.1.1. Powiadomienie o zakończeniu bilansowania handlowego dla pojedynczego PP                                                             ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="SingleMpBalanceResponsiblePartyTerminationNotification" type="unk_5_3_1_1:SingleMpBalanceResponsiblePartyTerminationNotification"/>
+    <xs:complexType name="SingleMpBalanceResponsiblePartyTerminationNotification">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_5_3_1_1:plName>5.3.1.1. Powiadomienie o zakończeniu bilansowania handlowego dla pojedynczego PP</unk_5_3_1_1:plName>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Nagłówek -->
+            <xs:element name="Header" type="tech:Header" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_5_3_1_1:plName>Nagłówek</unk_5_3_1_1:plName>
+                        <unk_5_3_1_1:code>PL-700</unk_5_3_1_1:code>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Kontekst -->
+            <xs:element name="ProcessEnergyContext" type="tech:ProcessEnergyContext" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_5_3_1_1:plName>Kontekst</unk_5_3_1_1:plName>
+                        <unk_5_3_1_1:code>PL-715</unk_5_3_1_1:code>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- 5.3.1.1. Payload Powiadomienie o zakończeniu bilansowania handlowego dla pojedynczego PP -->
+            <xs:element name="Payload" type="unk_5_3_1_1:SingleMpBalanceResponsiblePartyTerminationNotificationPayload" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_5_3_1_1:plName>5.3.1.1. Payload Powiadomienie o zakończeniu bilansowania handlowego dla pojedynczego PP</unk_5_3_1_1:plName>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== 5.3.1.1. Payload Powiadomienie o zakończeniu bilansowania handlowego dla pojedynczego PP                                                     ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="SingleMpBalanceResponsiblePartyTerminationNotificationPayload" type="unk_5_3_1_1:SingleMpBalanceResponsiblePartyTerminationNotificationPayload"/>
+    <xs:complexType name="SingleMpBalanceResponsiblePartyTerminationNotificationPayload">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_5_3_1_1:plName>5.3.1.1. Payload Powiadomienie o zakończeniu bilansowania handlowego dla pojedynczego PP</unk_5_3_1_1:plName>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Dane PP - ogólne -->
+            <xs:element name="MeteringPointData_Basic" type="unk_5_3_1_1:MeteringPointData_Basic" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_5_3_1_1:plName>Dane PP - ogólne</unk_5_3_1_1:plName>
+                        <unk_5_3_1_1:code>PL-300</unk_5_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 1.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Pozostałe elementy komunikatu -->
+            <xs:element name="Miscellaneous" type="unk_5_3_1_1:Miscellaneous" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_5_3_1_1:plName>Pozostałe elementy komunikatu</unk_5_3_1_1:plName>
+                        <unk_5_3_1_1:code>PL-320</unk_5_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 2.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Dane Użytkownika KSE - ogólne -->
+            <xs:element name="KseUserData_Basic" type="unk_5_3_1_1:KseUserData_Basic" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_5_3_1_1:plName>Dane Użytkownika KSE - ogólne</unk_5_3_1_1:plName>
+                        <unk_5_3_1_1:code>PL-395</unk_5_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 3.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Dane PP - ogólne                                                                                                                             ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="MeteringPointData_Basic" type="unk_5_3_1_1:MeteringPointData_Basic"/>
+    <xs:complexType name="MeteringPointData_Basic">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_5_3_1_1:plName>Dane PP - ogólne</unk_5_3_1_1:plName>
+                <unk_5_3_1_1:code>PL-300</unk_5_3_1_1:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 1.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Kod PP -->
+            <xs:element name="MeteringPointCode" type="bdt:MeteringPointCodeType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_5_3_1_1:plName>Kod PP</unk_5_3_1_1:plName>
+                        <unk_5_3_1_1:code>PL-001</unk_5_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Kod identyfikujący Punkt pomiarowy - zgodny ze standardem GS1.</xs:documentation>
+                    <xs:documentation xml:lang="en">Metering Point Identification Code - compliant with the GS1 standard.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Pozostałe elementy komunikatu                                                                                                                ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="Miscellaneous" type="unk_5_3_1_1:Miscellaneous"/>
+    <xs:complexType name="Miscellaneous">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_5_3_1_1:plName>Pozostałe elementy komunikatu</unk_5_3_1_1:plName>
+                <unk_5_3_1_1:code>PL-320</unk_5_3_1_1:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 2.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Wnioskowana data zakończenia bilansowania -->
+            <xs:element name="RequestedBalanceEndDate" type="xs:date" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_5_3_1_1:plName>Wnioskowana data zakończenia bilansowania</unk_5_3_1_1:plName>
+                        <unk_5_3_1_1:code>PL-152</unk_5_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Wnioskowana data zakończenia bilansowania handlowego (włącznie).</xs:documentation>
+                    <xs:documentation xml:lang="en">Requested date of termination of commercial balancing (inclusive).</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Dane Użytkownika KSE - ogólne                                                                                                                ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="KseUserData_Basic" type="unk_5_3_1_1:KseUserData_Basic"/>
+    <xs:complexType name="KseUserData_Basic">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_5_3_1_1:plName>Dane Użytkownika KSE - ogólne</unk_5_3_1_1:plName>
+                <unk_5_3_1_1:code>PL-395</unk_5_3_1_1:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 3.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Czy wiele podmiotów? -->
+            <xs:element name="HasMultipleEntities" type="xs:boolean" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_5_3_1_1:plName>Czy wiele podmiotów?</unk_5_3_1_1:plName>
+                        <unk_5_3_1_1:code>PL-400</unk_5_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Określenie, czy do Punktu pomiarowego ma być przypisany więcej niż jeden podmiot (osoba fizyczna lub prawna).</xs:documentation>
+                    <xs:documentation xml:lang="en">Determine whether more than one entity (individual or legal entity) is to be assigned to a Metering Point.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Dane Użytkownika KSE - podstawowe -->
+            <xs:element name="KseUserData_Primary" type="unk_5_3_1_1:KseUserData_Primary" minOccurs="1" maxOccurs="unbounded">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_5_3_1_1:plName>Dane Użytkownika KSE - podstawowe</unk_5_3_1_1:plName>
+                        <unk_5_3_1_1:code>PL-311</unk_5_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 3.1.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Dane Użytkownika KSE - podstawowe                                                                                                            ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="KseUserData_Primary" type="unk_5_3_1_1:KseUserData_Primary"/>
+    <xs:complexType name="KseUserData_Primary">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_5_3_1_1:plName>Dane Użytkownika KSE - podstawowe</unk_5_3_1_1:plName>
+                <unk_5_3_1_1:code>PL-311</unk_5_3_1_1:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 3.1.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Typ Użytkownika KSE -->
+            <xs:element name="KseUserType" type="bdt:KseUserType_Type" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_5_3_1_1:plName>Typ Użytkownika KSE</unk_5_3_1_1:plName>
+                        <unk_5_3_1_1:code>PL-024</unk_5_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Określenie typu Użytkownika KSE wprowadzonego do Punktu pomiarowego.</xs:documentation>
+                    <xs:documentation xml:lang="en">Determination of the type of the KSE User entered in the Metering Point.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Dane Użytkownika KSE - identyfikacyjne -->
+            <xs:element name="KseUserData_Identifiers" type="unk_5_3_1_1:KseUserData_Identifiers" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_5_3_1_1:plName>Dane Użytkownika KSE - identyfikacyjne</unk_5_3_1_1:plName>
+                        <unk_5_3_1_1:code>PL-312</unk_5_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 3.1.1.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Dane Użytkownika KSE - identyfikacyjne                                                                                                       ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="KseUserData_Identifiers" type="unk_5_3_1_1:KseUserData_Identifiers"/>
+    <xs:complexType name="KseUserData_Identifiers">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_5_3_1_1:plName>Dane Użytkownika KSE - identyfikacyjne</unk_5_3_1_1:plName>
+                <unk_5_3_1_1:code>PL-312</unk_5_3_1_1:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 3.1.1.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- PESEL -->
+            <xs:element name="Pesel" type="bdt:PeselType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_5_3_1_1:plName>PESEL</unk_5_3_1_1:plName>
+                        <unk_5_3_1_1:code>PL-028</unk_5_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Numer PESEL identyfikujący użytkownika.</xs:documentation>
+                    <xs:documentation xml:lang="en">PESEL number identifying the user.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- NIP -->
+            <xs:element name="Nip" type="bdt:NipType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_5_3_1_1:plName>NIP</unk_5_3_1_1:plName>
+                        <unk_5_3_1_1:code>PL-029</unk_5_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Numer NIP identyfikujący użytkownika.</xs:documentation>
+                    <xs:documentation xml:lang="en">NIP number identifying the user.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- KRS -->
+            <xs:element name="Krs" type="bdt:KrsType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_5_3_1_1:plName>KRS</unk_5_3_1_1:plName>
+                        <unk_5_3_1_1:code>PL-030</unk_5_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Numer KRS identyfikujący użytkownika.</xs:documentation>
+                    <xs:documentation xml:lang="en">KRS number identifying the user.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Typ identyfikatora -->
+            <xs:element name="IdentifierType" type="bdt:UserIdentifierType_Type" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_5_3_1_1:plName>Typ identyfikatora</unk_5_3_1_1:plName>
+                        <unk_5_3_1_1:code>PL-032</unk_5_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sposób nadania identyfikatora osobie fizycznej nierezydent lub rezydent bez PESEL.</xs:documentation>
+                    <xs:documentation xml:lang="en">The method of assigning an identifier to an individual non-resident or resident without PESEL.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Inny identyfikator osoby fizycznej -->
+            <xs:element name="CustomKseUserIdentifier" type="bdt:IdentityDocumentNumberType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_5_3_1_1:plName>Inny identyfikator osoby fizycznej</unk_5_3_1_1:plName>
+                        <unk_5_3_1_1:code>PL-033</unk_5_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Identyfikator użytkownika, dla którego nie jest znany PESEL. W przypadku nadania numeru przez Operatora, struktura identyfikatora powinna wyglądać następująco: [EIC] [UKSE] [UNIKATOWE_DOPEŁNIENIE_W_FORMACIE_12345678901]</xs:documentation>
+                    <xs:documentation xml:lang="en">Identification for a KSE user without PESEL. The identifier structure should look as follows: [EIC] [UKSE] [UNIQUE_ADDENDUM_IN_FORMAT_12345678901].</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Global NIP -->
+            <xs:element name="GlobalTaxIdentification" type="bdt:GlobalTaxIdentificationType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_5_3_1_1:plName>Global NIP</unk_5_3_1_1:plName>
+                        <unk_5_3_1_1:code>PL-034</unk_5_3_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Numer identyfikujący użytkownika typu jednostka organizacyjna nieposiadająca numeru NIP, w tym nierezydent.</xs:documentation>
+                    <xs:documentation xml:lang="en">Number identifying the user of the type organizational entity without NIP identifier (e.g. non-resident).</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

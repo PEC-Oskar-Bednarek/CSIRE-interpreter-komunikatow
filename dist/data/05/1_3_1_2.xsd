@@ -1,0 +1,256 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:bdt="urn:pl:oire:businessDataTypes:v1" xmlns:tech="urn:pl:oire:technical:v1" xmlns:unk_1_3_1_2="urn:pl:oire:unk_1_3_1_2:v1" elementFormDefault="qualified" targetNamespace="urn:pl:oire:unk_1_3_1_2:v1">
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Wersja z 18.09.2026                                                                                                                          ==== -->
+    <!-- ====================================================================================================================================================== -->
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Import                                                                                                                                       ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:import namespace="urn:pl:oire:businessDataTypes:v1" schemaLocation="businessDataTypes.xsd"/>
+    <xs:import namespace="urn:pl:oire:technical:v1" schemaLocation="technical.xsd"/>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== 1.3.1.2. Powiadomienie o nowej umowie                                                                                                        ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="NewSupplyAgreementNotification" type="unk_1_3_1_2:NewSupplyAgreementNotification"/>
+    <xs:complexType name="NewSupplyAgreementNotification">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_1_3_1_2:plName>1.3.1.2. Powiadomienie o nowej umowie</unk_1_3_1_2:plName>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Nagłówek -->
+            <xs:element name="Header" type="tech:Header" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_1_3_1_2:plName>Nagłówek</unk_1_3_1_2:plName>
+                        <unk_1_3_1_2:code>PL-700</unk_1_3_1_2:code>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Kontekst -->
+            <xs:element name="ProcessEnergyContext" type="tech:ProcessEnergyContext" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_1_3_1_2:plName>Kontekst</unk_1_3_1_2:plName>
+                        <unk_1_3_1_2:code>PL-715</unk_1_3_1_2:code>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- 1.3.1.2. Payload Powiadomienie o nowej umowie -->
+            <xs:element name="Payload" type="unk_1_3_1_2:NewSupplyAgreementNotificationPayload" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_1_3_1_2:plName>1.3.1.2. Payload Powiadomienie o nowej umowie</unk_1_3_1_2:plName>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== 1.3.1.2. Payload Powiadomienie o nowej umowie                                                                                                ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="NewSupplyAgreementNotificationPayload" type="unk_1_3_1_2:NewSupplyAgreementNotificationPayload"/>
+    <xs:complexType name="NewSupplyAgreementNotificationPayload">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_1_3_1_2:plName>1.3.1.2. Payload Powiadomienie o nowej umowie</unk_1_3_1_2:plName>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Dane PP - ogólne -->
+            <xs:element name="MeteringPointData_Basic" type="unk_1_3_1_2:MeteringPointData_Basic" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_1_3_1_2:plName>Dane PP - ogólne</unk_1_3_1_2:plName>
+                        <unk_1_3_1_2:code>PL-300</unk_1_3_1_2:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 1.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Parametry handlowe - ogólne -->
+            <xs:element name="BusinessData_Basic" type="unk_1_3_1_2:BusinessData_Basic" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_1_3_1_2:plName>Parametry handlowe - ogólne</unk_1_3_1_2:plName>
+                        <unk_1_3_1_2:code>PL-316</unk_1_3_1_2:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 2.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Pozostałe elementy komunikatu -->
+            <xs:element name="Miscellaneous" type="unk_1_3_1_2:Miscellaneous" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_1_3_1_2:plName>Pozostałe elementy komunikatu</unk_1_3_1_2:plName>
+                        <unk_1_3_1_2:code>PL-320</unk_1_3_1_2:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 3.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Dane PP - ogólne                                                                                                                             ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="MeteringPointData_Basic" type="unk_1_3_1_2:MeteringPointData_Basic"/>
+    <xs:complexType name="MeteringPointData_Basic">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_1_3_1_2:plName>Dane PP - ogólne</unk_1_3_1_2:plName>
+                <unk_1_3_1_2:code>PL-300</unk_1_3_1_2:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 1.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Kod PP -->
+            <xs:element name="MeteringPointCode" type="bdt:MeteringPointCodeType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_1_3_1_2:plName>Kod PP</unk_1_3_1_2:plName>
+                        <unk_1_3_1_2:code>PL-001</unk_1_3_1_2:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Kod identyfikujący Punkt pomiarowy - zgodny ze standardem GS1.</xs:documentation>
+                    <xs:documentation xml:lang="en">Metering Point Identification Code - compliant with the GS1 standard.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Dane PP - podmioty obsługujące PP -->
+            <xs:element name="MeteringPointData_Operators" type="unk_1_3_1_2:MeteringPointData_Operators" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_1_3_1_2:plName>Dane PP - podmioty obsługujące PP</unk_1_3_1_2:plName>
+                        <unk_1_3_1_2:code>PL-303</unk_1_3_1_2:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 1.1.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Dane PP - podmioty obsługujące PP                                                                                                            ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="MeteringPointData_Operators" type="unk_1_3_1_2:MeteringPointData_Operators"/>
+    <xs:complexType name="MeteringPointData_Operators">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_1_3_1_2:plName>Dane PP - podmioty obsługujące PP</unk_1_3_1_2:plName>
+                <unk_1_3_1_2:code>PL-303</unk_1_3_1_2:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 1.1.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- ID_SE -->
+            <xs:element name="SupplierIdentifier" type="bdt:EicIdentifierType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_1_3_1_2:plName>ID_SE</unk_1_3_1_2:plName>
+                        <unk_1_3_1_2:code>PL-019</unk_1_3_1_2:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Kod identyfikujący sprzedawcę - zgodny z EIC.</xs:documentation>
+                    <xs:documentation xml:lang="en">EIC code identifying the Energy Supplier.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Parametry handlowe - ogólne                                                                                                                  ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="BusinessData_Basic" type="unk_1_3_1_2:BusinessData_Basic"/>
+    <xs:complexType name="BusinessData_Basic">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_1_3_1_2:plName>Parametry handlowe - ogólne</unk_1_3_1_2:plName>
+                <unk_1_3_1_2:code>PL-316</unk_1_3_1_2:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 2.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Rodzaj umowy sieciowej -->
+            <xs:element name="NetworkAgreementType" type="bdt:NetworkAgreementType_Type" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_1_3_1_2:plName>Rodzaj umowy sieciowej</unk_1_3_1_2:plName>
+                        <unk_1_3_1_2:code>PL-059</unk_1_3_1_2:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Określenie rodzaju umowy, na podstawie której świadczona jest usługa dystrybucji energii elektrycznej.</xs:documentation>
+                    <xs:documentation xml:lang="en">Determination of the type of agreement under which the electricity distribution service is provided.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Status umowy obrotu -->
+            <xs:element name="TradeAgreementStatus" type="bdt:TradeAgreementStatusType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_1_3_1_2:plName>Status umowy obrotu</unk_1_3_1_2:plName>
+                        <unk_1_3_1_2:code>PL-090</unk_1_3_1_2:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Określenie statusu umowy, na podstawie której świadczona jest sprzedaż energii.</xs:documentation>
+                    <xs:documentation xml:lang="en">Determination of the status of the agreement under which energy supply is provided.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Szacowany wolumen roczny -->
+            <xs:element name="EstimatedAnnualVolume" type="bdt:EstimatedAnnualVolumeType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_1_3_1_2:plName>Szacowany wolumen roczny</unk_1_3_1_2:plName>
+                        <unk_1_3_1_2:code>PL-068</unk_1_3_1_2:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Szacowana lub deklarowana wartość średniorocznego zapotrzebowania na energię, wyrażona w [kWh].</xs:documentation>
+                    <xs:documentation xml:lang="en">The estimated or declared value of the average annual energy demand, expressed in [kWh].</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Pozostałe elementy komunikatu                                                                                                                ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="Miscellaneous" type="unk_1_3_1_2:Miscellaneous"/>
+    <xs:complexType name="Miscellaneous">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_1_3_1_2:plName>Pozostałe elementy komunikatu</unk_1_3_1_2:plName>
+                <unk_1_3_1_2:code>PL-320</unk_1_3_1_2:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 3.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- ID_instancji_procesu_referencyjnego -->
+            <xs:element name="ProcessInstanceId" type="bdt:UuidType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_1_3_1_2:plName>ID_instancji_procesu_referencyjnego</unk_1_3_1_2:plName>
+                        <unk_1_3_1_2:code>PL-002</unk_1_3_1_2:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Unikatowy kod instancji procesu referencyjnego komunikatu, nadawany przez CSIRE.</xs:documentation>
+                    <xs:documentation xml:lang="en">The unique process instance code of the message reference process, assigned by CSIRE.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Data wpisania umowy do charakterystyki PP -->
+            <xs:element name="StartDate" type="xs:date" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_1_3_1_2:plName>Data wpisania umowy do charakterystyki PP</unk_1_3_1_2:plName>
+                        <unk_1_3_1_2:code>PL-135</unk_1_3_1_2:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Data wejścia w życie umowy.</xs:documentation>
+                    <xs:documentation xml:lang="en">The effective date of the agreement.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

@@ -1,0 +1,216 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:bdt="urn:pl:oire:businessDataTypes:v1" xmlns:tech="urn:pl:oire:technical:v1" xmlns:unk_8_5_1_4="urn:pl:oire:unk_8_5_1_4:v1" elementFormDefault="qualified" targetNamespace="urn:pl:oire:unk_8_5_1_4:v1">
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Wersja z 08.12.2025                                                                                                                          ==== -->
+    <!-- ====================================================================================================================================================== -->
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Import                                                                                                                                       ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:import namespace="urn:pl:oire:businessDataTypes:v1" schemaLocation="businessDataTypes.xsd"/>
+    <xs:import namespace="urn:pl:oire:technical:v1" schemaLocation="technical.xsd"/>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== 8.5.1.4. Żądanie realizacji ograniczenia dostępności mocy                                                                                    ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="PowerLimitChangeRealisationRequest" type="unk_8_5_1_4:PowerLimitChangeRealisationRequest"/>
+    <xs:complexType name="PowerLimitChangeRealisationRequest">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_8_5_1_4:plName>8.5.1.4. Żądanie realizacji ograniczenia dostępności mocy</unk_8_5_1_4:plName>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Nagłówek -->
+            <xs:element name="Header" type="tech:Header" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_8_5_1_4:plName>Nagłówek</unk_8_5_1_4:plName>
+                        <unk_8_5_1_4:code>PL-700</unk_8_5_1_4:code>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Kontekst -->
+            <xs:element name="ProcessEnergyContext" type="tech:ProcessEnergyContext" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_8_5_1_4:plName>Kontekst</unk_8_5_1_4:plName>
+                        <unk_8_5_1_4:code>PL-715</unk_8_5_1_4:code>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- 8.5.1.4. Payload Żądanie realizacji ograniczenia dostępności mocy -->
+            <xs:element name="Payload" type="unk_8_5_1_4:PowerLimitChangeRealisationRequestPayload" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_8_5_1_4:plName>8.5.1.4. Payload Żądanie realizacji ograniczenia dostępności mocy</unk_8_5_1_4:plName>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== 8.5.1.4. Payload Żądanie realizacji ograniczenia dostępności mocy                                                                            ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="PowerLimitChangeRealisationRequestPayload" type="unk_8_5_1_4:PowerLimitChangeRealisationRequestPayload"/>
+    <xs:complexType name="PowerLimitChangeRealisationRequestPayload">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_8_5_1_4:plName>8.5.1.4. Payload Żądanie realizacji ograniczenia dostępności mocy</unk_8_5_1_4:plName>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Dane PP - ogólne -->
+            <xs:element name="MeteringPointData_Basic" type="unk_8_5_1_4:MeteringPointData_Basic" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_8_5_1_4:plName>Dane PP - ogólne</unk_8_5_1_4:plName>
+                        <unk_8_5_1_4:code>PL-300</unk_8_5_1_4:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 1.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Pozostałe elementy komunikatu -->
+            <xs:element name="Miscellaneous" type="unk_8_5_1_4:Miscellaneous" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_8_5_1_4:plName>Pozostałe elementy komunikatu</unk_8_5_1_4:plName>
+                        <unk_8_5_1_4:code>PL-320</unk_8_5_1_4:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 2.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Dane PP - ogólne                                                                                                                             ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="MeteringPointData_Basic" type="unk_8_5_1_4:MeteringPointData_Basic"/>
+    <xs:complexType name="MeteringPointData_Basic">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_8_5_1_4:plName>Dane PP - ogólne</unk_8_5_1_4:plName>
+                <unk_8_5_1_4:code>PL-300</unk_8_5_1_4:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 1.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Kod PP -->
+            <xs:element name="MeteringPointCode" type="bdt:MeteringPointCodeType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_8_5_1_4:plName>Kod PP</unk_8_5_1_4:plName>
+                        <unk_8_5_1_4:code>PL-001</unk_8_5_1_4:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Kod identyfikujący Punkt pomiarowy - zgodny ze standardem GS1.</xs:documentation>
+                    <xs:documentation xml:lang="en">Metering Point Identification Code - compliant with the GS1 standard.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Pozostałe elementy komunikatu                                                                                                                ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="Miscellaneous" type="unk_8_5_1_4:Miscellaneous"/>
+    <xs:complexType name="Miscellaneous">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_8_5_1_4:plName>Pozostałe elementy komunikatu</unk_8_5_1_4:plName>
+                <unk_8_5_1_4:code>PL-320</unk_8_5_1_4:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 2.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- ID_instancji_procesu_referencyjnego -->
+            <xs:element name="ProcessInstanceId" type="bdt:UuidType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_8_5_1_4:plName>ID_instancji_procesu_referencyjnego</unk_8_5_1_4:plName>
+                        <unk_8_5_1_4:code>PL-002</unk_8_5_1_4:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Unikatowy kod instancji procesu referencyjnego komunikatu, nadawany przez CSIRE.</xs:documentation>
+                    <xs:documentation xml:lang="en">The unique process instance code of the message reference process, assigned by CSIRE.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- ID prawnego nadawcy komunikatu referencyjnego -->
+            <xs:element name="MessageJuridicalSenderId" type="bdt:EicIdentifierType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_8_5_1_4:plName>ID prawnego nadawcy komunikatu referencyjnego</unk_8_5_1_4:plName>
+                        <unk_8_5_1_4:code>PL-147</unk_8_5_1_4:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Kod identyfikujący prawnego nadawcę komunikatu inicjalnego w procesie.</xs:documentation>
+                    <xs:documentation xml:lang="en">Code identifying the legal sender of the initial message in the process.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Typ komunikatu ograniczenia -->
+            <xs:element name="ConstraintNotificationType" type="bdt:ConstraintNotificationType_Type" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_8_5_1_4:plName>Typ komunikatu ograniczenia</unk_8_5_1_4:plName>
+                        <unk_8_5_1_4:code>PL-252</unk_8_5_1_4:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Określenie przeprowadzanego typu działania.</xs:documentation>
+                    <xs:documentation xml:lang="en">Determination of the type of action carried out.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Typ ograniczenia -->
+            <xs:element name="ConstraintType" type="bdt:ConstraintType_Type" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_8_5_1_4:plName>Typ ograniczenia</unk_8_5_1_4:plName>
+                        <unk_8_5_1_4:code>PL-352</unk_8_5_1_4:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Określa tryb ograniczenia dostępności mocy.</xs:documentation>
+                    <xs:documentation xml:lang="en">Determines the mode of power availability limitation.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Moc ograniczenia -->
+            <xs:element name="LimitedPowerAmount" type="bdt:PowerKiloWattsType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_8_5_1_4:plName>Moc ograniczenia</unk_8_5_1_4:plName>
+                        <unk_8_5_1_4:code>PL-253</unk_8_5_1_4:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Maksymalna moc 15 minutowa dostępna dla PPE w czasie ograniczenia.</xs:documentation>
+                    <xs:documentation xml:lang="en">Maximum 15-minute power available to PPE during the curtailment.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Planowana data uruchomienia -->
+            <xs:element name="PlannedValidFrom" type="xs:dateTime" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_8_5_1_4:plName>Planowana data uruchomienia</unk_8_5_1_4:plName>
+                        <unk_8_5_1_4:code>PL-254</unk_8_5_1_4:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Planowana data uruchomienia strażnika mocy dla PPE.</xs:documentation>
+                    <xs:documentation xml:lang="en">Planned date of power limiter operation for PPE.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Planowana data zakończenia -->
+            <xs:element name="PlannedValidTo" type="xs:dateTime" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_8_5_1_4:plName>Planowana data zakończenia</unk_8_5_1_4:plName>
+                        <unk_8_5_1_4:code>PL-255</unk_8_5_1_4:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Planowana data zakończenia strażnika mocy dla PPE.</xs:documentation>
+                    <xs:documentation xml:lang="en">Planned termination date of the power limiter for PPE.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

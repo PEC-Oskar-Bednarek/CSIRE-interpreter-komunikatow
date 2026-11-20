@@ -1,0 +1,156 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:bdt="urn:pl:oire:businessDataTypes:v1" xmlns:tech="urn:pl:oire:technical:v1" xmlns:unk_8_2_1_11="urn:pl:oire:unk_8_2_1_11:v1" elementFormDefault="qualified" targetNamespace="urn:pl:oire:unk_8_2_1_11:v1">
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Wersja z 18.09.2026                                                                                                                          ==== -->
+    <!-- ====================================================================================================================================================== -->
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Import                                                                                                                                       ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:import namespace="urn:pl:oire:businessDataTypes:v1" schemaLocation="businessDataTypes.xsd"/>
+    <xs:import namespace="urn:pl:oire:technical:v1" schemaLocation="technical.xsd"/>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== 8.2.1.11. Powiadomienie o realizacji załączenia                                                                                              ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="ConnectionNotification" type="unk_8_2_1_11:ConnectionNotification"/>
+    <xs:complexType name="ConnectionNotification">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_8_2_1_11:plName>8.2.1.11. Powiadomienie o realizacji załączenia</unk_8_2_1_11:plName>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Nagłówek -->
+            <xs:element name="Header" type="tech:Header" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_8_2_1_11:plName>Nagłówek</unk_8_2_1_11:plName>
+                        <unk_8_2_1_11:code>PL-700</unk_8_2_1_11:code>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Kontekst -->
+            <xs:element name="ProcessEnergyContext" type="tech:ProcessEnergyContext" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_8_2_1_11:plName>Kontekst</unk_8_2_1_11:plName>
+                        <unk_8_2_1_11:code>PL-715</unk_8_2_1_11:code>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- 8.2.1.11. Payload Powiadomienie o realizacji załączenia -->
+            <xs:element name="Payload" type="unk_8_2_1_11:ConnectionNotificationPayload" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_8_2_1_11:plName>8.2.1.11. Payload Powiadomienie o realizacji załączenia</unk_8_2_1_11:plName>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== 8.2.1.11. Payload Powiadomienie o realizacji załączenia                                                                                      ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="ConnectionNotificationPayload" type="unk_8_2_1_11:ConnectionNotificationPayload"/>
+    <xs:complexType name="ConnectionNotificationPayload">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_8_2_1_11:plName>8.2.1.11. Payload Powiadomienie o realizacji załączenia</unk_8_2_1_11:plName>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Dane PP - ogólne -->
+            <xs:element name="MeteringPointData_Basic" type="unk_8_2_1_11:MeteringPointData_Basic" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_8_2_1_11:plName>Dane PP - ogólne</unk_8_2_1_11:plName>
+                        <unk_8_2_1_11:code>PL-300</unk_8_2_1_11:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 1.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Pozostałe elementy komunikatu -->
+            <xs:element name="Miscellaneous" type="unk_8_2_1_11:Miscellaneous" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_8_2_1_11:plName>Pozostałe elementy komunikatu</unk_8_2_1_11:plName>
+                        <unk_8_2_1_11:code>PL-320</unk_8_2_1_11:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 2.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Dane PP - ogólne                                                                                                                             ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="MeteringPointData_Basic" type="unk_8_2_1_11:MeteringPointData_Basic"/>
+    <xs:complexType name="MeteringPointData_Basic">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_8_2_1_11:plName>Dane PP - ogólne</unk_8_2_1_11:plName>
+                <unk_8_2_1_11:code>PL-300</unk_8_2_1_11:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 1.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Kod PP -->
+            <xs:element name="MeteringPointCode" type="bdt:MeteringPointCodeType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_8_2_1_11:plName>Kod PP</unk_8_2_1_11:plName>
+                        <unk_8_2_1_11:code>PL-001</unk_8_2_1_11:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Kod identyfikujący Punkt pomiarowy - zgodny ze standardem GS1.</xs:documentation>
+                    <xs:documentation xml:lang="en">Metering Point Identification Code - compliant with the GS1 standard.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Pozostałe elementy komunikatu                                                                                                                ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="Miscellaneous" type="unk_8_2_1_11:Miscellaneous"/>
+    <xs:complexType name="Miscellaneous">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_8_2_1_11:plName>Pozostałe elementy komunikatu</unk_8_2_1_11:plName>
+                <unk_8_2_1_11:code>PL-320</unk_8_2_1_11:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 2.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- ID_instancji_procesu_referencyjnego -->
+            <xs:element name="ProcessInstanceId" type="bdt:UuidType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_8_2_1_11:plName>ID_instancji_procesu_referencyjnego</unk_8_2_1_11:plName>
+                        <unk_8_2_1_11:code>PL-002</unk_8_2_1_11:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Unikatowy kod instancji procesu referencyjnego komunikatu, nadawany przez CSIRE.</xs:documentation>
+                    <xs:documentation xml:lang="en">The unique process instance code of the message reference process, assigned by CSIRE.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Data i czas załączenia -->
+            <xs:element name="EffectiveDateTime" type="xs:dateTime" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_8_2_1_11:plName>Data i czas załączenia</unk_8_2_1_11:plName>
+                        <unk_8_2_1_11:code>PL-251</unk_8_2_1_11:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Parametr uzupełniany przez OSD w oparciu o zrealizowane załączenie.</xs:documentation>
+                    <xs:documentation xml:lang="en">Parameter completed by the DSO based on the completed switch-on.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

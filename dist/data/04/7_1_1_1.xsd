@@ -1,0 +1,284 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:bdt="urn:pl:oire:businessDataTypes:v1" xmlns:tech="urn:pl:oire:technical:v1" xmlns:unk_7_1_1_1="urn:pl:oire:unk_7_1_1_1:v1" elementFormDefault="qualified" targetNamespace="urn:pl:oire:unk_7_1_1_1:v1">
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Wersja z 08.12.2025                                                                                                                          ==== -->
+    <!-- ====================================================================================================================================================== -->
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Import                                                                                                                                       ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:import namespace="urn:pl:oire:businessDataTypes:v1" schemaLocation="businessDataTypes.xsd"/>
+    <xs:import namespace="urn:pl:oire:technical:v1" schemaLocation="technical.xsd"/>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== 7.1.1.1. Żądanie dobowego profilu zużycia                                                                                                    ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="DailyMeteringPointMeasurementsDataRequest" type="unk_7_1_1_1:DailyMeteringPointMeasurementsDataRequest"/>
+    <xs:complexType name="DailyMeteringPointMeasurementsDataRequest">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_7_1_1_1:plName>7.1.1.1. Żądanie dobowego profilu zużycia</unk_7_1_1_1:plName>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Nagłówek -->
+            <xs:element name="Header" type="tech:Header" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_1_1_1:plName>Nagłówek</unk_7_1_1_1:plName>
+                        <unk_7_1_1_1:code>PL-700</unk_7_1_1_1:code>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Kontekst -->
+            <xs:element name="ProcessEnergyContext" type="tech:ProcessEnergyContext" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_1_1_1:plName>Kontekst</unk_7_1_1_1:plName>
+                        <unk_7_1_1_1:code>PL-715</unk_7_1_1_1:code>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- 7.1.1.1. Payload Żądanie dobowego profilu zużycia -->
+            <xs:element name="Payload" type="unk_7_1_1_1:DailyMeteringPointMeasurementsDataRequestPayload" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_1_1_1:plName>7.1.1.1. Payload Żądanie dobowego profilu zużycia</unk_7_1_1_1:plName>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== 7.1.1.1. Payload Żądanie dobowego profilu zużycia                                                                                            ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="DailyMeteringPointMeasurementsDataRequestPayload" type="unk_7_1_1_1:DailyMeteringPointMeasurementsDataRequestPayload"/>
+    <xs:complexType name="DailyMeteringPointMeasurementsDataRequestPayload">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_7_1_1_1:plName>7.1.1.1. Payload Żądanie dobowego profilu zużycia</unk_7_1_1_1:plName>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Przedmiot danych -->
+            <xs:element name="DataSubject" type="unk_7_1_1_1:DataSubject" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_1_1_1:plName>Przedmiot danych</unk_7_1_1_1:plName>
+                        <unk_7_1_1_1:code>PL-160</unk_7_1_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 1.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Informacje podstawowe -->
+            <xs:element name="BasicData" type="unk_7_1_1_1:BasicData" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_1_1_1:plName>Informacje podstawowe</unk_7_1_1_1:plName>
+                        <unk_7_1_1_1:code>PL-325</unk_7_1_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 2.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Przedmiot danych                                                                                                                             ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="DataSubject" type="unk_7_1_1_1:DataSubject"/>
+    <xs:complexType name="DataSubject">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_7_1_1_1:plName>Przedmiot danych</unk_7_1_1_1:plName>
+                <unk_7_1_1_1:code>PL-160</unk_7_1_1_1:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 1.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Przedmiot danych -->
+            <xs:element name="DataSubject" type="bdt:DataSubjectType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_1_1_1:plName>Przedmiot danych</unk_7_1_1_1:plName>
+                        <unk_7_1_1_1:code>PL-161</unk_7_1_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Określa, czy przekazywane lub udostępniane dane pomiarowe dotyczą Punktu pomiarowego, czy obiektu pomiarowego.</xs:documentation>
+                    <xs:documentation xml:lang="en">Determines whether the transferred or shared metering data pertains to a Metering Point or a Metering Facility.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Dane PP - ogólne -->
+            <xs:element name="MeteringPointData_Basic" type="unk_7_1_1_1:MeteringPointData_Basic" minOccurs="0" maxOccurs="1000">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_1_1_1:plName>Dane PP - ogólne</unk_7_1_1_1:plName>
+                        <unk_7_1_1_1:code>PL-300</unk_7_1_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 1.1.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Dane obiektu - ogólne -->
+            <xs:element name="FacilityData_Basic" type="unk_7_1_1_1:FacilityData_Basic" minOccurs="0" maxOccurs="1000">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_1_1_1:plName>Dane obiektu - ogólne</unk_7_1_1_1:plName>
+                        <unk_7_1_1_1:code>PL-425</unk_7_1_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 1.2.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Dane PP - ogólne                                                                                                                             ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="MeteringPointData_Basic" type="unk_7_1_1_1:MeteringPointData_Basic"/>
+    <xs:complexType name="MeteringPointData_Basic">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_7_1_1_1:plName>Dane PP - ogólne</unk_7_1_1_1:plName>
+                <unk_7_1_1_1:code>PL-300</unk_7_1_1_1:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 1.1.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Kod PP -->
+            <xs:element name="MeteringPointCode" type="bdt:MeteringPointCodeType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_1_1_1:plName>Kod PP</unk_7_1_1_1:plName>
+                        <unk_7_1_1_1:code>PL-001</unk_7_1_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Kod identyfikujący Punkt pomiarowy - zgodny ze standardem GS1.</xs:documentation>
+                    <xs:documentation xml:lang="en">Metering Point Identification Code - compliant with the GS1 standard.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Dane obiektu - ogólne                                                                                                                        ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="FacilityData_Basic" type="unk_7_1_1_1:FacilityData_Basic"/>
+    <xs:complexType name="FacilityData_Basic">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_7_1_1_1:plName>Dane obiektu - ogólne</unk_7_1_1_1:plName>
+                <unk_7_1_1_1:code>PL-425</unk_7_1_1_1:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 1.2.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Identyfikator obiektu -->
+            <xs:element name="FacilityIdentifier" type="bdt:FacilityIdentifierType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_1_1_1:plName>Identyfikator obiektu</unk_7_1_1_1:plName>
+                        <unk_7_1_1_1:code>PL-424</unk_7_1_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Unikalny kod identyfikujący obiekt pomiarowy. Struktura Identyfikatora obiektu składa się z:
+1) kodu EIC (np. 19X000000000001C),
+2) oznaczenia przedmiotu identyfikacji (OP - obiektu pomiarowego),
+3) unikalnego dopełnienia nadawanego przez Operatora (np. 11111111).</xs:documentation>
+                    <xs:documentation xml:lang="en">Unique code identifying the metering facility. The structure of the facility Identifier consists of:
+1) EIC code (e.g. 19X000000000001C),
+2) designation of the facility of identification (OP - measurement facility),
+3) a unique complement assigned by the Operator (e.g. 11111111).</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Informacje podstawowe                                                                                                                        ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="BasicData" type="unk_7_1_1_1:BasicData"/>
+    <xs:complexType name="BasicData">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_7_1_1_1:plName>Informacje podstawowe</unk_7_1_1_1:plName>
+                <unk_7_1_1_1:code>PL-325</unk_7_1_1_1:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 2.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Czas początku okresu -->
+            <xs:element name="PeriodStart" type="xs:dateTime" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_1_1_1:plName>Czas początku okresu</unk_7_1_1_1:plName>
+                        <unk_7_1_1_1:code>PL-179</unk_7_1_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Czas początku przedziału czasowego, dla którego mają być udostępnione dane lub informacje (od początku doby).</xs:documentation>
+                    <xs:documentation xml:lang="en">The beginning of the time interval for which data or information is to be made available (from the beginning of the day).</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Czas końca okresu -->
+            <xs:element name="PeriodEnd" type="xs:dateTime" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_1_1_1:plName>Czas końca okresu</unk_7_1_1_1:plName>
+                        <unk_7_1_1_1:code>PL-180</unk_7_1_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Czas końcowy przedziału czasowego, dla którego mają być udostępnione dane lub informacje.</xs:documentation>
+                    <xs:documentation xml:lang="en">End of the time period for which data or information is to be made available.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Parametry licznika - typ produktu energetycznego -->
+            <xs:element name="MeterData_ProductType" type="unk_7_1_1_1:MeterData_ProductType" minOccurs="0" maxOccurs="unbounded">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_1_1_1:plName>Parametry licznika - typ produktu energetycznego</unk_7_1_1_1:plName>
+                        <unk_7_1_1_1:code>PL-248</unk_7_1_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 2.1.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Parametry licznika - typ produktu energetycznego                                                                                             ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="MeterData_ProductType" type="unk_7_1_1_1:MeterData_ProductType"/>
+    <xs:complexType name="MeterData_ProductType">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_7_1_1_1:plName>Parametry licznika - typ produktu energetycznego</unk_7_1_1_1:plName>
+                <unk_7_1_1_1:code>PL-248</unk_7_1_1_1:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 2.1.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Typ produktu energetycznego -->
+            <xs:element name="ProductType" type="bdt:ProductType_Type" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_1_1_1:plName>Typ produktu energetycznego</unk_7_1_1_1:plName>
+                        <unk_7_1_1_1:code>PL-247</unk_7_1_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Określenie właściwego produktu energetycznego, zgodnie z listą. 
+W zakresie wskazania profilów pomiarowych, oznacza przekazanie danych profilowych bez uwzględnienia doliczeń/odliczeń, w odróżnieniu do wskazania profilów rozliczeniowego, który uwzględnia w prezentowanych wartościach straty energii elektrycznej lub doliczenia oraz odliczenia, zgodnie z parametrami umowy między Operatorem a Użytkownikiem KSE. 
+Produkt energetyczny: Energia pobrana (CK1125, CK1128), dotyczy wielkości pobranej z sieci elektroenergetycznej; Energia wprowadzona (CK1126, CK1129) dotyczy wielkości wprowadzonej do sieci.
+Produkt energetyczny: Bilans energii czynnej (CK1127, CK1130) dotyczy wielkości wyliczonej jako sumaryczne zbilansowanie w godzinie (t) ilości energii wprowadzonej do i pobranej z sieci z wszystkich faz. Wartości dodatnie (+) oznaczają energię pobraną z sieci, wartości ujemne bilansu energii czynnej (-) oznacza energię wprowadzoną do sieci.
+W przypadku nie wybrania żadnego produktu energetycznego zostaną przesłane wszystkie dostępne produkty energetyczne.</xs:documentation>
+                    <xs:documentation xml:lang="en">Determination of the relevant energy product, according to the list. 
+In terms of the metering profiles measurements, means the transmission of profile data without taking into account additions/deductions, as opposed to the billing profiles measurements, which takes into account electricity losses or additions and deductions in the presented values, in accordance with the parameters of the agreement between the Operator and the KSE User. 
+Energy product: Energy withdrawn (CK1125, CK1128), refers to the volume withdrawn from the power grid; Energy injected (CK1126, CK1129) refers to the volume injected into the grid.
+Energy product: Active energy balance (CK1127, CK1130) refers to the quantity calculated as the summed balance in hour (t) of the amount of energy injected into and withdrawn from the grid from all phases. Positive values (+) represent energy taken from the grid, negative values of the active energy balance (-) represent energy fed into the grid.
+If no energy product is selected, all available energy products will be returned.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

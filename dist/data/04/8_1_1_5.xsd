@@ -1,0 +1,232 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:bdt="urn:pl:oire:businessDataTypes:v1" xmlns:tech="urn:pl:oire:technical:v1" xmlns:unk_8_1_1_5="urn:pl:oire:unk_8_1_1_5:v1" elementFormDefault="qualified" targetNamespace="urn:pl:oire:unk_8_1_1_5:v1">
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Wersja z 08.12.2025                                                                                                                          ==== -->
+    <!-- ====================================================================================================================================================== -->
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Import                                                                                                                                       ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:import namespace="urn:pl:oire:businessDataTypes:v1" schemaLocation="businessDataTypes.xsd"/>
+    <xs:import namespace="urn:pl:oire:technical:v1" schemaLocation="technical.xsd"/>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== 8.1.1.5. Żądanie realizacji wyłączenia                                                                                                       ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="DisconnectionRealisationRequest" type="unk_8_1_1_5:DisconnectionRealisationRequest"/>
+    <xs:complexType name="DisconnectionRealisationRequest">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_8_1_1_5:plName>8.1.1.5. Żądanie realizacji wyłączenia</unk_8_1_1_5:plName>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Nagłówek -->
+            <xs:element name="Header" type="tech:Header" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_8_1_1_5:plName>Nagłówek</unk_8_1_1_5:plName>
+                        <unk_8_1_1_5:code>PL-700</unk_8_1_1_5:code>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Kontekst -->
+            <xs:element name="ProcessEnergyContext" type="tech:ProcessEnergyContext" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_8_1_1_5:plName>Kontekst</unk_8_1_1_5:plName>
+                        <unk_8_1_1_5:code>PL-715</unk_8_1_1_5:code>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- 8.1.1.5. Payload Żądanie realizacji wyłączenia -->
+            <xs:element name="Payload" type="unk_8_1_1_5:DisconnectionRealisationRequestPayload" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_8_1_1_5:plName>8.1.1.5. Payload Żądanie realizacji wyłączenia</unk_8_1_1_5:plName>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== 8.1.1.5. Payload Żądanie realizacji wyłączenia                                                                                               ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="DisconnectionRealisationRequestPayload" type="unk_8_1_1_5:DisconnectionRealisationRequestPayload"/>
+    <xs:complexType name="DisconnectionRealisationRequestPayload">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_8_1_1_5:plName>8.1.1.5. Payload Żądanie realizacji wyłączenia</unk_8_1_1_5:plName>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Dane PP - ogólne -->
+            <xs:element name="MeteringPointData_Basic" type="unk_8_1_1_5:MeteringPointData_Basic" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_8_1_1_5:plName>Dane PP - ogólne</unk_8_1_1_5:plName>
+                        <unk_8_1_1_5:code>PL-300</unk_8_1_1_5:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 1.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Informacje podstawowe -->
+            <xs:element name="BasicData" type="unk_8_1_1_5:BasicData" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_8_1_1_5:plName>Informacje podstawowe</unk_8_1_1_5:plName>
+                        <unk_8_1_1_5:code>PL-325</unk_8_1_1_5:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 2.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Dane PP - podmioty obsługujące PP -->
+            <xs:element name="MeteringPointData_Operators" type="unk_8_1_1_5:MeteringPointData_Operators" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_8_1_1_5:plName>Dane PP - podmioty obsługujące PP</unk_8_1_1_5:plName>
+                        <unk_8_1_1_5:code>PL-303</unk_8_1_1_5:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 3.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Pozostałe elementy komunikatu -->
+            <xs:element name="Miscellaneous" type="unk_8_1_1_5:Miscellaneous" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_8_1_1_5:plName>Pozostałe elementy komunikatu</unk_8_1_1_5:plName>
+                        <unk_8_1_1_5:code>PL-320</unk_8_1_1_5:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 4.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Dane PP - ogólne                                                                                                                             ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="MeteringPointData_Basic" type="unk_8_1_1_5:MeteringPointData_Basic"/>
+    <xs:complexType name="MeteringPointData_Basic">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_8_1_1_5:plName>Dane PP - ogólne</unk_8_1_1_5:plName>
+                <unk_8_1_1_5:code>PL-300</unk_8_1_1_5:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 1.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Kod PP -->
+            <xs:element name="MeteringPointCode" type="bdt:MeteringPointCodeType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_8_1_1_5:plName>Kod PP</unk_8_1_1_5:plName>
+                        <unk_8_1_1_5:code>PL-001</unk_8_1_1_5:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Kod identyfikujący Punkt pomiarowy - zgodny ze standardem GS1.</xs:documentation>
+                    <xs:documentation xml:lang="en">Metering Point Identification Code - compliant with the GS1 standard.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Informacje podstawowe                                                                                                                        ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="BasicData" type="unk_8_1_1_5:BasicData"/>
+    <xs:complexType name="BasicData">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_8_1_1_5:plName>Informacje podstawowe</unk_8_1_1_5:plName>
+                <unk_8_1_1_5:code>PL-325</unk_8_1_1_5:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 2.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Rodzaj żądania -->
+            <xs:element name="RequestType" type="bdt:DisconnectionRequestType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_8_1_1_5:plName>Rodzaj żądania</unk_8_1_1_5:plName>
+                        <unk_8_1_1_5:code>PL-227</unk_8_1_1_5:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Określenie, czy żądanie dotyczy wstrzymania dostarczania en. el., wyłączenia dostarczania en.el. wynikającego z wyczerpania salda przedpłaty.</xs:documentation>
+                    <xs:documentation xml:lang="en">Determination of whether the request is for stopping the supply of electricity, shutting down the supply of electricity resulting from the exhaustion of the prepayment balance.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Dane PP - podmioty obsługujące PP                                                                                                            ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="MeteringPointData_Operators" type="unk_8_1_1_5:MeteringPointData_Operators"/>
+    <xs:complexType name="MeteringPointData_Operators">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_8_1_1_5:plName>Dane PP - podmioty obsługujące PP</unk_8_1_1_5:plName>
+                <unk_8_1_1_5:code>PL-303</unk_8_1_1_5:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 3.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- ID_SE -->
+            <xs:element name="SupplierIdentifier" type="bdt:EicIdentifierType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_8_1_1_5:plName>ID_SE</unk_8_1_1_5:plName>
+                        <unk_8_1_1_5:code>PL-019</unk_8_1_1_5:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Kod identyfikujący sprzedawcę - zgodny z EIC.</xs:documentation>
+                    <xs:documentation xml:lang="en">EIC code identifying the Energy Supplier.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Pozostałe elementy komunikatu                                                                                                                ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="Miscellaneous" type="unk_8_1_1_5:Miscellaneous"/>
+    <xs:complexType name="Miscellaneous">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_8_1_1_5:plName>Pozostałe elementy komunikatu</unk_8_1_1_5:plName>
+                <unk_8_1_1_5:code>PL-320</unk_8_1_1_5:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 4.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- ID_instancji_procesu_referencyjnego -->
+            <xs:element name="ProcessInstanceId" type="bdt:UuidType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_8_1_1_5:plName>ID_instancji_procesu_referencyjnego</unk_8_1_1_5:plName>
+                        <unk_8_1_1_5:code>PL-002</unk_8_1_1_5:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Unikatowy kod instancji procesu referencyjnego komunikatu, nadawany przez CSIRE.</xs:documentation>
+                    <xs:documentation xml:lang="en">The unique process instance code of the message reference process, assigned by CSIRE.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Wnioskowana data wyłączenia -->
+            <xs:element name="EffectiveDate" type="xs:date" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_8_1_1_5:plName>Wnioskowana data wyłączenia</unk_8_1_1_5:plName>
+                        <unk_8_1_1_5:code>PL-143</unk_8_1_1_5:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Wnioskowana data wyłączenia dostaw energii.</xs:documentation>
+                    <xs:documentation xml:lang="en">Requested date of energy supply shutdown.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

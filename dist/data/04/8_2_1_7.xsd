@@ -1,0 +1,168 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:bdt="urn:pl:oire:businessDataTypes:v1" xmlns:tech="urn:pl:oire:technical:v1" xmlns:unk_8_2_1_7="urn:pl:oire:unk_8_2_1_7:v1" elementFormDefault="qualified" targetNamespace="urn:pl:oire:unk_8_2_1_7:v1">
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Wersja z 08.12.2025                                                                                                                          ==== -->
+    <!-- ====================================================================================================================================================== -->
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Import                                                                                                                                       ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:import namespace="urn:pl:oire:businessDataTypes:v1" schemaLocation="businessDataTypes.xsd"/>
+    <xs:import namespace="urn:pl:oire:technical:v1" schemaLocation="technical.xsd"/>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== 8.2.1.7. Powiadomienie o braku możliwości załączenia                                                                                         ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="ConnectionRejectionNotification" type="unk_8_2_1_7:ConnectionRejectionNotification"/>
+    <xs:complexType name="ConnectionRejectionNotification">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_8_2_1_7:plName>8.2.1.7. Powiadomienie o braku możliwości załączenia</unk_8_2_1_7:plName>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Nagłówek -->
+            <xs:element name="Header" type="tech:Header" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_8_2_1_7:plName>Nagłówek</unk_8_2_1_7:plName>
+                        <unk_8_2_1_7:code>PL-700</unk_8_2_1_7:code>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Kontekst -->
+            <xs:element name="ProcessEnergyContext" type="tech:ProcessEnergyContext" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_8_2_1_7:plName>Kontekst</unk_8_2_1_7:plName>
+                        <unk_8_2_1_7:code>PL-715</unk_8_2_1_7:code>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- 8.2.1.7. Payload Powiadomienie o braku możliwości załączenia -->
+            <xs:element name="Payload" type="unk_8_2_1_7:ConnectionRejectionNotificationPayload" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_8_2_1_7:plName>8.2.1.7. Payload Powiadomienie o braku możliwości załączenia</unk_8_2_1_7:plName>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== 8.2.1.7. Payload Powiadomienie o braku możliwości załączenia                                                                                 ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="ConnectionRejectionNotificationPayload" type="unk_8_2_1_7:ConnectionRejectionNotificationPayload"/>
+    <xs:complexType name="ConnectionRejectionNotificationPayload">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_8_2_1_7:plName>8.2.1.7. Payload Powiadomienie o braku możliwości załączenia</unk_8_2_1_7:plName>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Dane PP - ogólne -->
+            <xs:element name="MeteringPointData_Basic" type="unk_8_2_1_7:MeteringPointData_Basic" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_8_2_1_7:plName>Dane PP - ogólne</unk_8_2_1_7:plName>
+                        <unk_8_2_1_7:code>PL-300</unk_8_2_1_7:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 1.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Status realizacji żądania -->
+            <xs:element name="Result" type="unk_8_2_1_7:Result" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_8_2_1_7:plName>Status realizacji żądania</unk_8_2_1_7:plName>
+                        <unk_8_2_1_7:code>PL-144</unk_8_2_1_7:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 2.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Dane PP - ogólne                                                                                                                             ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="MeteringPointData_Basic" type="unk_8_2_1_7:MeteringPointData_Basic"/>
+    <xs:complexType name="MeteringPointData_Basic">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_8_2_1_7:plName>Dane PP - ogólne</unk_8_2_1_7:plName>
+                <unk_8_2_1_7:code>PL-300</unk_8_2_1_7:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 1.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Kod PP -->
+            <xs:element name="MeteringPointCode" type="bdt:MeteringPointCodeType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_8_2_1_7:plName>Kod PP</unk_8_2_1_7:plName>
+                        <unk_8_2_1_7:code>PL-001</unk_8_2_1_7:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Kod identyfikujący Punkt pomiarowy - zgodny ze standardem GS1.</xs:documentation>
+                    <xs:documentation xml:lang="en">Metering Point Identification Code - compliant with the GS1 standard.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Status realizacji żądania                                                                                                                    ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="Result" type="unk_8_2_1_7:Result"/>
+    <xs:complexType name="Result">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_8_2_1_7:plName>Status realizacji żądania</unk_8_2_1_7:plName>
+                <unk_8_2_1_7:code>PL-144</unk_8_2_1_7:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 2.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- ID_instancji_procesu_referencyjnego -->
+            <xs:element name="ProcessInstanceId" type="bdt:UuidType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_8_2_1_7:plName>ID_instancji_procesu_referencyjnego</unk_8_2_1_7:plName>
+                        <unk_8_2_1_7:code>PL-002</unk_8_2_1_7:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Unikatowy kod instancji procesu referencyjnego komunikatu, nadawany przez CSIRE.</xs:documentation>
+                    <xs:documentation xml:lang="en">The unique process instance code of the message reference process, assigned by CSIRE.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Powód braku możliwości realizacji żądania załączenia -->
+            <xs:element name="ConnectionRejectionReason" type="bdt:ResultCodes_8_2" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_8_2_1_7:plName>Powód braku możliwości realizacji żądania załączenia</unk_8_2_1_7:plName>
+                        <unk_8_2_1_7:code>PL-507</unk_8_2_1_7:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Przyczyna odmowy realizacji zgłoszenia.</xs:documentation>
+                    <xs:documentation xml:lang="en">The reason for the denial of the request.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Opis rezultatu -->
+            <xs:element name="ResultDescription" type="bdt:String250_Type" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_8_2_1_7:plName>Opis rezultatu</unk_8_2_1_7:plName>
+                        <unk_8_2_1_7:code>PL-498</unk_8_2_1_7:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Zawiera dodatkowe informacje na temat błędu</xs:documentation>
+                    <xs:documentation xml:lang="en">Includes additional information on the error</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

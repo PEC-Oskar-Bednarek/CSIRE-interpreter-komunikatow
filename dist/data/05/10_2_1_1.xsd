@@ -1,0 +1,828 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:bdt="urn:pl:oire:businessDataTypes:v1" xmlns:tech="urn:pl:oire:technical:v1" xmlns:unk_10_2_1_1="urn:pl:oire:unk_10_2_1_1:v1" elementFormDefault="qualified" targetNamespace="urn:pl:oire:unk_10_2_1_1:v1">
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Wersja z 18.09.2026                                                                                                                          ==== -->
+    <!-- ====================================================================================================================================================== -->
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Import                                                                                                                                       ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:import namespace="urn:pl:oire:businessDataTypes:v1" schemaLocation="businessDataTypes.xsd"/>
+    <xs:import namespace="urn:pl:oire:technical:v1" schemaLocation="technical.xsd"/>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== 10.2.1.1. Powiadomienie o zmianie danych obiektu                                                                                             ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="FacilityDataModificationNotification" type="unk_10_2_1_1:FacilityDataModificationNotification"/>
+    <xs:complexType name="FacilityDataModificationNotification">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_10_2_1_1:plName>10.2.1.1. Powiadomienie o zmianie danych obiektu</unk_10_2_1_1:plName>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Nagłówek -->
+            <xs:element name="Header" type="tech:Header" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_10_2_1_1:plName>Nagłówek</unk_10_2_1_1:plName>
+                        <unk_10_2_1_1:code>PL-700</unk_10_2_1_1:code>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Kontekst -->
+            <xs:element name="ProcessEnergyContext" type="tech:ProcessEnergyContext" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_10_2_1_1:plName>Kontekst</unk_10_2_1_1:plName>
+                        <unk_10_2_1_1:code>PL-715</unk_10_2_1_1:code>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- 10.2.1.1. Payload Powiadomienie o zmianie danych obiektu -->
+            <xs:element name="Payload" type="unk_10_2_1_1:FacilityDataModificationNotificationPayload" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_10_2_1_1:plName>10.2.1.1. Payload Powiadomienie o zmianie danych obiektu</unk_10_2_1_1:plName>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== 10.2.1.1. Payload Powiadomienie o zmianie danych obiektu                                                                                     ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="FacilityDataModificationNotificationPayload" type="unk_10_2_1_1:FacilityDataModificationNotificationPayload"/>
+    <xs:complexType name="FacilityDataModificationNotificationPayload">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_10_2_1_1:plName>10.2.1.1. Payload Powiadomienie o zmianie danych obiektu</unk_10_2_1_1:plName>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Dane obiektu - ogólne -->
+            <xs:element name="FacilityData_Basic" type="unk_10_2_1_1:FacilityData_Basic" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_10_2_1_1:plName>Dane obiektu - ogólne</unk_10_2_1_1:plName>
+                        <unk_10_2_1_1:code>PL-425</unk_10_2_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 1.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Pozostałe elementy komunikatu -->
+            <xs:element name="Miscellaneous" type="unk_10_2_1_1:Miscellaneous" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_10_2_1_1:plName>Pozostałe elementy komunikatu</unk_10_2_1_1:plName>
+                        <unk_10_2_1_1:code>PL-320</unk_10_2_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 2.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <xs:choice>
+                <!-- Zmiana atrybutów obiektu -->
+                <xs:element name="FacilityAttributeModification" type="unk_10_2_1_1:FacilityAttributeModification" minOccurs="0" maxOccurs="1">
+                    <xs:annotation>
+                        <xs:appinfo>
+                            <unk_10_2_1_1:plName>Zmiana atrybutów obiektu</unk_10_2_1_1:plName>
+                            <unk_10_2_1_1:code>PL-476</unk_10_2_1_1:code>
+                        </xs:appinfo>
+                        <xs:documentation xml:lang="pl">Sekcja 3.</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                
+                <!-- Zmiana udziałów wspólnoty prosumenckiej -->
+                <xs:element name="ProsumerCommunityRenewableEnergySourcesInformation" type="unk_10_2_1_1:ProsumerCommunityRenewableEnergySourcesInformation" minOccurs="0" maxOccurs="unbounded">
+                    <xs:annotation>
+                        <xs:appinfo>
+                            <unk_10_2_1_1:plName>Zmiana udziałów wspólnoty prosumenckiej</unk_10_2_1_1:plName>
+                            <unk_10_2_1_1:code>PL-555</unk_10_2_1_1:code>
+                        </xs:appinfo>
+                        <xs:documentation xml:lang="pl">Sekcja 4.</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                
+                <!-- Dodanie PP do obiektu -->
+                <xs:element name="FacilityMpAddition" type="unk_10_2_1_1:FacilityMpAddition" minOccurs="0" maxOccurs="unbounded">
+                    <xs:annotation>
+                        <xs:appinfo>
+                            <unk_10_2_1_1:plName>Dodanie PP do obiektu</unk_10_2_1_1:plName>
+                            <unk_10_2_1_1:code>PL-472</unk_10_2_1_1:code>
+                        </xs:appinfo>
+                        <xs:documentation xml:lang="pl">Sekcja 5.</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                
+                <!-- Usunięcie PP z obiektu -->
+                <xs:element name="FacilityMpRemoval" type="unk_10_2_1_1:FacilityMpRemoval" minOccurs="0" maxOccurs="unbounded">
+                    <xs:annotation>
+                        <xs:appinfo>
+                            <unk_10_2_1_1:plName>Usunięcie PP z obiektu</unk_10_2_1_1:plName>
+                            <unk_10_2_1_1:code>PL-477</unk_10_2_1_1:code>
+                        </xs:appinfo>
+                        <xs:documentation xml:lang="pl">Sekcja 6.</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+            </xs:choice>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Dane obiektu - ogólne                                                                                                                        ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="FacilityData_Basic" type="unk_10_2_1_1:FacilityData_Basic"/>
+    <xs:complexType name="FacilityData_Basic">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_10_2_1_1:plName>Dane obiektu - ogólne</unk_10_2_1_1:plName>
+                <unk_10_2_1_1:code>PL-425</unk_10_2_1_1:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 1.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Identyfikator obiektu -->
+            <xs:element name="FacilityIdentifier" type="bdt:FacilityIdentifierType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_10_2_1_1:plName>Identyfikator obiektu</unk_10_2_1_1:plName>
+                        <unk_10_2_1_1:code>PL-424</unk_10_2_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Unikalny kod identyfikujący obiekt pomiarowy. Struktura Identyfikatora obiektu składa się z:
+1) kodu EIC (np. 19X000000000001C),
+2) oznaczenia przedmiotu identyfikacji (OP - obiektu pomiarowego),
+3) unikalnego dopełnienia nadawanego przez Operatora (np. 11111111).</xs:documentation>
+                    <xs:documentation xml:lang="en">Unique code identifying the metering facility. The structure of the facility Identifier consists of:
+1) EIC code (e.g. 19X000000000001C),
+2) designation of the facility of identification (OP - measurement facility),
+3) a unique complement assigned by the Operator (e.g. 11111111).</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Pozostałe elementy komunikatu                                                                                                                ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="Miscellaneous" type="unk_10_2_1_1:Miscellaneous"/>
+    <xs:complexType name="Miscellaneous">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_10_2_1_1:plName>Pozostałe elementy komunikatu</unk_10_2_1_1:plName>
+                <unk_10_2_1_1:code>PL-320</unk_10_2_1_1:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 2.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Typ zmiany obiektu -->
+            <xs:element name="FacilityChangeType" type="bdt:FacilityChangeType_Type" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_10_2_1_1:plName>Typ zmiany obiektu</unk_10_2_1_1:plName>
+                        <unk_10_2_1_1:code>PL-470</unk_10_2_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Określenie, jakiego rodzaju zmiany obiektu dotyczy komunikat.</xs:documentation>
+                    <xs:documentation xml:lang="en">Determination of what type of change of facility the message concerns.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Typ obiektu -->
+            <xs:element name="FacilityType" type="bdt:FacilityType_Type" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_10_2_1_1:plName>Typ obiektu</unk_10_2_1_1:plName>
+                        <unk_10_2_1_1:code>PL-423</unk_10_2_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Określenie typu obiektu, którego dotyczy zmiana atrybutów, zgodnie ze słownikiem.</xs:documentation>
+                    <xs:documentation xml:lang="en">Determination of the type of facility affected by the attribute change, according to the dictionary.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Wnioskowana data zmiany parametrów obiektu -->
+            <xs:element name="EffectiveDate" type="xs:date" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_10_2_1_1:plName>Wnioskowana data zmiany parametrów obiektu</unk_10_2_1_1:plName>
+                        <unk_10_2_1_1:code>PL-150</unk_10_2_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Wnioskowana data zmiany parametrów obiektu, dotyczy doby dla której użytkownik CSIRE wnioskuje o zmianę parametrów w PP. 
+Data ograniczona jedynie "wprzód".</xs:documentation>
+                    <xs:documentation xml:lang="en">Requested date of change of facility parameters, applies to the day for which the CSIRE user is requesting a change of parameters in the MP. 
+Date limited only by ''forward''.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Zmiana atrybutów obiektu                                                                                                                     ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="FacilityAttributeModification" type="unk_10_2_1_1:FacilityAttributeModification"/>
+    <xs:complexType name="FacilityAttributeModification">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_10_2_1_1:plName>Zmiana atrybutów obiektu</unk_10_2_1_1:plName>
+                <unk_10_2_1_1:code>PL-476</unk_10_2_1_1:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 3.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Dane obiektu - ogólne (aktualizacja) -->
+            <xs:element name="FacilityData_Basic_Update" type="unk_10_2_1_1:FacilityData_Basic_Update" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_10_2_1_1:plName>Dane obiektu - ogólne (aktualizacja)</unk_10_2_1_1:plName>
+                        <unk_10_2_1_1:code>PL-425</unk_10_2_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 3.1.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <xs:choice>
+                <!-- Obiekt sumujący -->
+                <xs:element name="AggregatingFacility" type="unk_10_2_1_1:AggregatingFacility" minOccurs="0" maxOccurs="1">
+                    <xs:annotation>
+                        <xs:appinfo>
+                            <unk_10_2_1_1:plName>Obiekt sumujący</unk_10_2_1_1:plName>
+                            <unk_10_2_1_1:code>PL-453</unk_10_2_1_1:code>
+                        </xs:appinfo>
+                        <xs:documentation xml:lang="pl">Sekcja 3.2.</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                
+                <!-- Wspólnota energetyczna -->
+                <xs:element name="EnergyCommunity" type="unk_10_2_1_1:EnergyCommunity" minOccurs="0" maxOccurs="1">
+                    <xs:annotation>
+                        <xs:appinfo>
+                            <unk_10_2_1_1:plName>Wspólnota energetyczna</unk_10_2_1_1:plName>
+                            <unk_10_2_1_1:code>PL-455</unk_10_2_1_1:code>
+                        </xs:appinfo>
+                        <xs:documentation xml:lang="pl">Sekcja 3.3.</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                
+                <!-- Wspólnota prosumencka -->
+                <xs:element name="ProsumerCommunity" type="unk_10_2_1_1:ProsumerCommunity" minOccurs="0" maxOccurs="1">
+                    <xs:annotation>
+                        <xs:appinfo>
+                            <unk_10_2_1_1:plName>Wspólnota prosumencka</unk_10_2_1_1:plName>
+                            <unk_10_2_1_1:code>PL-464</unk_10_2_1_1:code>
+                        </xs:appinfo>
+                        <xs:documentation xml:lang="pl">Sekcja 3.4.</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+                
+                <!-- Beneficjent systemu wsparcia -->
+                <xs:element name="SupportSystemBeneficiary" type="unk_10_2_1_1:SupportSystemBeneficiary" minOccurs="0" maxOccurs="1">
+                    <xs:annotation>
+                        <xs:appinfo>
+                            <unk_10_2_1_1:plName>Beneficjent systemu wsparcia</unk_10_2_1_1:plName>
+                            <unk_10_2_1_1:code>PL-549</unk_10_2_1_1:code>
+                        </xs:appinfo>
+                        <xs:documentation xml:lang="pl">Sekcja 3.5.</xs:documentation>
+                    </xs:annotation>
+                </xs:element>
+            </xs:choice>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Dane obiektu - ogólne (aktualizacja)                                                                                                         ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="FacilityData_Basic_Update" type="unk_10_2_1_1:FacilityData_Basic_Update"/>
+    <xs:complexType name="FacilityData_Basic_Update">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_10_2_1_1:plName>Dane obiektu - ogólne (aktualizacja)</unk_10_2_1_1:plName>
+                <unk_10_2_1_1:code>PL-425</unk_10_2_1_1:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 3.1.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Nazwa obiektu -->
+            <xs:element name="FacilityName" type="bdt:String250_Type" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_10_2_1_1:plName>Nazwa obiektu</unk_10_2_1_1:plName>
+                        <unk_10_2_1_1:code>PL-426</unk_10_2_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Nazwa obiektu, o ile została nadana.</xs:documentation>
+                    <xs:documentation xml:lang="en">Name of the facility, if assigned.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Czy posiada szczególne warunki świadczenia usług? -->
+            <xs:element name="HasSpecificServiceConditions" type="xs:boolean" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_10_2_1_1:plName>Czy posiada szczególne warunki świadczenia usług?</unk_10_2_1_1:plName>
+                        <unk_10_2_1_1:code>PL-118</unk_10_2_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Określenie, czy dla obiektu pomiarowego zachodzą nietypowe warunki świadczenia usług.
+Dotyczy przypadków, gdy występuje różnica pomiędzy warunkami świadczenia usług dla PP wchodzących w skład obiektu oraz całym obiektem pomiarowym.</xs:documentation>
+                    <xs:documentation xml:lang="en">Determination of whether abnormal service conditions exist for the metering facility.
+Applies to cases where there is a difference between the conditions of service for the MPs included in the facility and the entire metering facility.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Szczególne warunki świadczenia usług -->
+            <xs:element name="SpecificTermsOfService" type="bdt:String250_Type" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_10_2_1_1:plName>Szczególne warunki świadczenia usług</unk_10_2_1_1:plName>
+                        <unk_10_2_1_1:code>PL-370</unk_10_2_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Określenie szczegółowych warunków świadczenia usług. Dotyczy przypadków, gdy występuje różnica pomiędzy warunkami świadczenia usług dla PP wchodzących w skład obiektu oraz całym obiektem pomiarowym.</xs:documentation>
+                    <xs:documentation xml:lang="en">Determination of the detailed conditions for the provision of services. Applies to cases where there is a difference between the terms of service for MPs included in the facility and the entire metering facility.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Obiekt sumujący                                                                                                                              ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="AggregatingFacility" type="unk_10_2_1_1:AggregatingFacility"/>
+    <xs:complexType name="AggregatingFacility">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_10_2_1_1:plName>Obiekt sumujący</unk_10_2_1_1:plName>
+                <unk_10_2_1_1:code>PL-453</unk_10_2_1_1:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 3.2.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Typ obiektu sumującego -->
+            <xs:element name="AggregatingFacilityType" type="bdt:AggregatingFacilityType_Type" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_10_2_1_1:plName>Typ obiektu sumującego</unk_10_2_1_1:plName>
+                        <unk_10_2_1_1:code>PL-454</unk_10_2_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Określenie, czy sumator jest urządzeniem pomiarowym na sieci, czy sumowanie następuje w systemie bilingowym Operatora.</xs:documentation>
+                    <xs:documentation xml:lang="en">Determination whether the aggregator is a metering device on the network, or whether the aggregation is done in the Operator's billing system.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Rodzaj obiektu sumującego -->
+            <xs:element name="AggregatingFacilityDetails" type="bdt:String100_Type" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_10_2_1_1:plName>Rodzaj obiektu sumującego</unk_10_2_1_1:plName>
+                        <unk_10_2_1_1:code>PL-437</unk_10_2_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Doprecyzowanie, czego dotyczy rozliczanie z obiektem sumującym, zgodnie z zawartą umową z Użytkownikiem KSE.</xs:documentation>
+                    <xs:documentation xml:lang="en">Clarification of what the billing to the aggregating facility is for, according to the agreement with the KSE User.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Wspólnota energetyczna                                                                                                                       ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="EnergyCommunity" type="unk_10_2_1_1:EnergyCommunity"/>
+    <xs:complexType name="EnergyCommunity">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_10_2_1_1:plName>Wspólnota energetyczna</unk_10_2_1_1:plName>
+                <unk_10_2_1_1:code>PL-455</unk_10_2_1_1:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 3.3.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Czy zawarta UD? -->
+            <xs:element name="HasDistributionAgreement" type="xs:boolean" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_10_2_1_1:plName>Czy zawarta UD?</unk_10_2_1_1:plName>
+                        <unk_10_2_1_1:code>PL-514</unk_10_2_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Określenie, czy wspólnota energetyczna zawarła umowę o świadczenie usług dystrybucji energii elektrycznej z OSD.</xs:documentation>
+                    <xs:documentation xml:lang="en">Determination whether the energy community has entered into an agreement for the provision of electricity distribution services with the DSO.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Typ strony umowy -->
+            <xs:element name="AgreementPartyType" type="bdt:KseUserType_Type" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_10_2_1_1:plName>Typ strony umowy</unk_10_2_1_1:plName>
+                        <unk_10_2_1_1:code>PL-456</unk_10_2_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Określenie typu strony umowy zawartej przez wspólnotę energetyczną.</xs:documentation>
+                    <xs:documentation xml:lang="en">Determination of the type of party to the agreement entered into by the energy community.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- PESEL -->
+            <xs:element name="Pesel" type="bdt:PeselType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_10_2_1_1:plName>PESEL</unk_10_2_1_1:plName>
+                        <unk_10_2_1_1:code>PL-028</unk_10_2_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Numer PESEL identyfikujący stronę umowy</xs:documentation>
+                    <xs:documentation xml:lang="en">PESEL number identifying the contracting party</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- NIP -->
+            <xs:element name="Nip" type="bdt:NipType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_10_2_1_1:plName>NIP</unk_10_2_1_1:plName>
+                        <unk_10_2_1_1:code>PL-029</unk_10_2_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Numer NIP identyfikujący stronę umowy</xs:documentation>
+                    <xs:documentation xml:lang="en">NIP number identifying the party to the agreement</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- KRS -->
+            <xs:element name="Krs" type="bdt:KrsType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_10_2_1_1:plName>KRS</unk_10_2_1_1:plName>
+                        <unk_10_2_1_1:code>PL-030</unk_10_2_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Numer KRS identyfikujący stronę umowy</xs:documentation>
+                    <xs:documentation xml:lang="en">KRS number identifying the contracting party</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Typ identyfikatora -->
+            <xs:element name="IdentifierType" type="bdt:UserIdentifierType_Type" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_10_2_1_1:plName>Typ identyfikatora</unk_10_2_1_1:plName>
+                        <unk_10_2_1_1:code>PL-032</unk_10_2_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Typ dokumentu tożsamości identyfikujący stronę umowy typu osoba fizyczna - nierezydent lub rezydent bez PESEL.</xs:documentation>
+                    <xs:documentation xml:lang="en">Type of identity document identifying the party of the agreement type natural person - non-resident or resident without PESEL.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Inny identyfikator osoby fizycznej -->
+            <xs:element name="CustomKseUserIdentifier" type="bdt:IdentityDocumentNumberType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_10_2_1_1:plName>Inny identyfikator osoby fizycznej</unk_10_2_1_1:plName>
+                        <unk_10_2_1_1:code>PL-033</unk_10_2_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Identyfikator użytkownika, dla którego nie jest znany PESEL.</xs:documentation>
+                    <xs:documentation xml:lang="en">Identification for a KSE user without PESEL.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Global NIP -->
+            <xs:element name="GlobalTaxIdentification" type="bdt:GlobalTaxIdentificationType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_10_2_1_1:plName>Global NIP</unk_10_2_1_1:plName>
+                        <unk_10_2_1_1:code>PL-034</unk_10_2_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Numer identyfikujący stronę umowy jednostka organizacyjna nieposiadająca numeru NIP, w tym nierezydent.</xs:documentation>
+                    <xs:documentation xml:lang="en">Number identifying the contracting party organizational entity without NIP identifier (e.g. non-resident).</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Wspólnota prosumencka                                                                                                                        ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="ProsumerCommunity" type="unk_10_2_1_1:ProsumerCommunity"/>
+    <xs:complexType name="ProsumerCommunity">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_10_2_1_1:plName>Wspólnota prosumencka</unk_10_2_1_1:plName>
+                <unk_10_2_1_1:code>PL-464</unk_10_2_1_1:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 3.4.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Rodzaj prosumenta -->
+            <xs:element name="ProsumerCommunityType" type="bdt:ProsumerCommunityType_Type" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_10_2_1_1:plName>Rodzaj prosumenta</unk_10_2_1_1:plName>
+                        <unk_10_2_1_1:code>PL-465</unk_10_2_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Określenie sposobu wykorzystania obiektu pomiarowego typu Wspólnota prosumencka zgodnie ze stanem faktycznym.</xs:documentation>
+                    <xs:documentation xml:lang="en">Determination of the use of the prosumer community type metering facility, according to the status.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Jednostka wytwarzania OZE -->
+            <xs:element name="RenewableEnergySourcesProductionUnitData" type="unk_10_2_1_1:RenewableEnergySourcesProductionUnitData" minOccurs="1" maxOccurs="unbounded">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_10_2_1_1:plName>Jednostka wytwarzania OZE</unk_10_2_1_1:plName>
+                        <unk_10_2_1_1:code>PL-548</unk_10_2_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 3.4.1.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Jednostka wytwarzania OZE                                                                                                                    ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="RenewableEnergySourcesProductionUnitData" type="unk_10_2_1_1:RenewableEnergySourcesProductionUnitData"/>
+    <xs:complexType name="RenewableEnergySourcesProductionUnitData">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_10_2_1_1:plName>Jednostka wytwarzania OZE</unk_10_2_1_1:plName>
+                <unk_10_2_1_1:code>PL-548</unk_10_2_1_1:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 3.4.1.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Kod PP -->
+            <xs:element name="MeteringPointCode" type="bdt:MeteringPointCodeType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_10_2_1_1:plName>Kod PP</unk_10_2_1_1:plName>
+                        <unk_10_2_1_1:code>PL-001</unk_10_2_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Kod identyfikujący Punkt pomiarowy - zgodny ze standardem GS1 służący jako jednostka wytwarzania OZE w ramach prosumenta wirtualnego lub zbiorowego</xs:documentation>
+                    <xs:documentation xml:lang="en">Code identifying the Metering Point - compliant with the GS1 standard serving as the unit of RES generation within a virtual or collective prosumer.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Parametry techniczne - nośniki energii -->
+            <xs:element name="TechnicalData_EnergyCarriers" type="unk_10_2_1_1:TechnicalData_EnergyCarriers" minOccurs="1" maxOccurs="unbounded">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_10_2_1_1:plName>Parametry techniczne - nośniki energii</unk_10_2_1_1:plName>
+                        <unk_10_2_1_1:code>PL-544</unk_10_2_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 3.4.1.1.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Parametry techniczne - nośniki energii                                                                                                       ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="TechnicalData_EnergyCarriers" type="unk_10_2_1_1:TechnicalData_EnergyCarriers"/>
+    <xs:complexType name="TechnicalData_EnergyCarriers">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_10_2_1_1:plName>Parametry techniczne - nośniki energii</unk_10_2_1_1:plName>
+                <unk_10_2_1_1:code>PL-544</unk_10_2_1_1:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 3.4.1.1.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Typ i rodzaj nośnika -->
+            <xs:element name="EnergyCarrierType" type="bdt:RenewableEnergyCarrierType_Type" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_10_2_1_1:plName>Typ i rodzaj nośnika</unk_10_2_1_1:plName>
+                        <unk_10_2_1_1:code>PL-545</unk_10_2_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Określenie, jaki typ i rodzaj nośnika jest zainstalowany w punkcie pomiarowym.</xs:documentation>
+                    <xs:documentation xml:lang="en">Determination of what type and type of carrier is installed at the metering point.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Moc zainstalowana nośnika -->
+            <xs:element name="CarrierInstalledPower" type="bdt:RealVolumeType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_10_2_1_1:plName>Moc zainstalowana nośnika</unk_10_2_1_1:plName>
+                        <unk_10_2_1_1:code>PL-494</unk_10_2_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Wartość mocy elektrycznej zainstalowanej w nośniku.</xs:documentation>
+                    <xs:documentation xml:lang="en">The value of the electric power installed in the carrier.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Jednostka mocy zainstalowanej nośnika -->
+            <xs:element name="CarrierPowerUnit" type="bdt:UnitCodeType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_10_2_1_1:plName>Jednostka mocy zainstalowanej nośnika</unk_10_2_1_1:plName>
+                        <unk_10_2_1_1:code>PL-557</unk_10_2_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Jednostka mocy zainstalowanej dla nośnika energii. Wyrażona zgodnie z wybranym typem rejestru w [kW], [MW], [kVA], [MVA].</xs:documentation>
+                    <xs:documentation xml:lang="en">Unit of installed capacity for the energy carrier. Expressed according to the selected type of register in [kW], [MW], [kVA], [MVA].</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Beneficjent systemu wsparcia                                                                                                                 ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="SupportSystemBeneficiary" type="unk_10_2_1_1:SupportSystemBeneficiary"/>
+    <xs:complexType name="SupportSystemBeneficiary">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_10_2_1_1:plName>Beneficjent systemu wsparcia</unk_10_2_1_1:plName>
+                <unk_10_2_1_1:code>PL-549</unk_10_2_1_1:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 3.5.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- NIP -->
+            <xs:element name="Nip" type="bdt:NipType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_10_2_1_1:plName>NIP</unk_10_2_1_1:plName>
+                        <unk_10_2_1_1:code>PL-029</unk_10_2_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Numer NIP identyfikujący użytkownika.</xs:documentation>
+                    <xs:documentation xml:lang="en">NIP number identifying the user.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Czy system wsparcia OZE? -->
+            <xs:element name="IsPartOfResSupportSystem" type="xs:boolean" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_10_2_1_1:plName>Czy system wsparcia OZE?</unk_10_2_1_1:plName>
+                        <unk_10_2_1_1:code>PL-550</unk_10_2_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Określenie, czy dany obiekt pomiarowy bierze udział w systemie wsparcia OZE?</xs:documentation>
+                    <xs:documentation xml:lang="en">Determination whether a given metering facility participates in the RES support system.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Czy system wsparcia Kogeneracji? -->
+            <xs:element name="IsPartOfCogenerationUnitSupportSystem" type="xs:boolean" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_10_2_1_1:plName>Czy system wsparcia Kogeneracji?</unk_10_2_1_1:plName>
+                        <unk_10_2_1_1:code>PL-551</unk_10_2_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Określenie, czy dany obiekt pomiarowy bierze udział w systemie wsparcia jednostek kogeneracji?</xs:documentation>
+                    <xs:documentation xml:lang="en">Determination whether a given metering facility participates in the cogeneration units support system?</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Typ danych podlegających weryfikacji -->
+            <xs:element name="BeneficiaryDataType" type="bdt:BeneficiaryDataType_Type" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_10_2_1_1:plName>Typ danych podlegających weryfikacji</unk_10_2_1_1:plName>
+                        <unk_10_2_1_1:code>PL-552</unk_10_2_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Określenie rodzaju danych pomiarowych, które powinny być przekazywane dla danego obiektu przez Operatora.</xs:documentation>
+                    <xs:documentation xml:lang="en">Determination of the type of metering data that should be transmitted for the facility by the Operator.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Data początkowa uprawnienia do danych -->
+            <xs:element name="DataAccessPrivilegesValidFrom" type="xs:date" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_10_2_1_1:plName>Data początkowa uprawnienia do danych</unk_10_2_1_1:plName>
+                        <unk_10_2_1_1:code>PL-553</unk_10_2_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Data rozpoczęcia uczestnictwa podmiotu w systemie wsparcia.</xs:documentation>
+                    <xs:documentation xml:lang="en">Date of start of entity's participation in the support system.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Data końcowa uprawnienia do danych -->
+            <xs:element name="DataAccessPrivilegesValidTo" type="xs:date" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_10_2_1_1:plName>Data końcowa uprawnienia do danych</unk_10_2_1_1:plName>
+                        <unk_10_2_1_1:code>PL-554</unk_10_2_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Data zakończenia uczestnictwa podmiotu w systemie wsparcia (włącznie).</xs:documentation>
+                    <xs:documentation xml:lang="en">Date of termination of the entity's participation in the support system (inclusive).</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- ID_Operator -->
+            <xs:element name="OperatorIdentifier" type="bdt:EicIdentifierType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_10_2_1_1:plName>ID_Operator</unk_10_2_1_1:plName>
+                        <unk_10_2_1_1:code>PL-017</unk_10_2_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Kod identyfikujący Operatora, który utworzył oraz administruje PP. Kod identyfikacyjny zgodny z EIC.</xs:documentation>
+                    <xs:documentation xml:lang="en">Identification code of the Operator who created and administers the MP. Identification code in accordance with the EIC.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Zmiana udziałów wspólnoty prosumenckiej                                                                                                      ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="ProsumerCommunityRenewableEnergySourcesInformation" type="unk_10_2_1_1:ProsumerCommunityRenewableEnergySourcesInformation"/>
+    <xs:complexType name="ProsumerCommunityRenewableEnergySourcesInformation">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_10_2_1_1:plName>Zmiana udziałów wspólnoty prosumenckiej</unk_10_2_1_1:plName>
+                <unk_10_2_1_1:code>PL-555</unk_10_2_1_1:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 4.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Kod PP -->
+            <xs:element name="MeteringPointCode" type="bdt:MeteringPointCodeType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_10_2_1_1:plName>Kod PP</unk_10_2_1_1:plName>
+                        <unk_10_2_1_1:code>PL-001</unk_10_2_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Kod identyfikujący Punkt pomiarowy - zgodny ze standardem GS1.</xs:documentation>
+                    <xs:documentation xml:lang="en">Metering Point Identification Code - compliant with the GS1 standard.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Udział w wytwarzaniu -->
+            <xs:element name="TotalProductionPercentage" type="bdt:PositivePercentageType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_10_2_1_1:plName>Udział w wytwarzaniu</unk_10_2_1_1:plName>
+                        <unk_10_2_1_1:code>PL-267</unk_10_2_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Udział pojedynczego Użytkownika KSE w całkowitym wytwarzaniu energii elektrycznej w instalacji OZE prosumenta zbiorowego lub wirtualnego, wyrażony w [%].</xs:documentation>
+                    <xs:documentation xml:lang="en">The share of a single KSE User in the total electricity generation of a collective or virtual prosumer's RES installation, expressed in [%].</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Udział w mocy -->
+            <xs:element name="TotalPowerPercentage" type="bdt:PowerKiloWattsType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_10_2_1_1:plName>Udział w mocy</unk_10_2_1_1:plName>
+                        <unk_10_2_1_1:code>PL-268</unk_10_2_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Udział pojedynczego Użytkownika KSE w sumarycznej mocy zainstalowanej w instalacji OZE prosumenta zbiorowego lub wirtualnego, wyrażony w [kW].</xs:documentation>
+                    <xs:documentation xml:lang="en">Share of a single KSE User in the total installed capacity of a collective or virtual prosumer's RES installation, expressed in [kW].</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Dodanie PP do obiektu                                                                                                                        ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="FacilityMpAddition" type="unk_10_2_1_1:FacilityMpAddition"/>
+    <xs:complexType name="FacilityMpAddition">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_10_2_1_1:plName>Dodanie PP do obiektu</unk_10_2_1_1:plName>
+                <unk_10_2_1_1:code>PL-472</unk_10_2_1_1:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 5.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Kod PP -->
+            <xs:element name="MeteringPointCode" type="bdt:MeteringPointCodeType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_10_2_1_1:plName>Kod PP</unk_10_2_1_1:plName>
+                        <unk_10_2_1_1:code>PL-001</unk_10_2_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Kod identyfikujący Punkt pomiarowy - zgodny ze standardem GS1.</xs:documentation>
+                    <xs:documentation xml:lang="en">Metering Point Identification Code - compliant with the GS1 standard.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Usunięcie PP z obiektu                                                                                                                       ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="FacilityMpRemoval" type="unk_10_2_1_1:FacilityMpRemoval"/>
+    <xs:complexType name="FacilityMpRemoval">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_10_2_1_1:plName>Usunięcie PP z obiektu</unk_10_2_1_1:plName>
+                <unk_10_2_1_1:code>PL-477</unk_10_2_1_1:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 6.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Kod PP -->
+            <xs:element name="MeteringPointCode" type="bdt:MeteringPointCodeType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_10_2_1_1:plName>Kod PP</unk_10_2_1_1:plName>
+                        <unk_10_2_1_1:code>PL-001</unk_10_2_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Kod identyfikujący Punkt pomiarowy - zgodny ze standardem GS1.</xs:documentation>
+                    <xs:documentation xml:lang="en">Metering Point Identification Code - compliant with the GS1 standard.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

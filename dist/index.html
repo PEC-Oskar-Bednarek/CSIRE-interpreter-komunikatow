@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="CSIRE interpreter. Przeglądaj pola XML, sprawdzaj schematy i odczytuj kody błędów.">
+  <meta name="theme-color" content="#fcf8f0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self'; font-src 'self'; img-src 'self'; connect-src 'self'; worker-src 'self'; base-uri 'none'; form-action 'none'">
+  <title>CSIRE interpreter</title>
+  <link rel="icon" href="favicon.png" type="image/png">
+  <link rel="stylesheet" href="styles.css?v=kolumny-i-lupa">
+  <link rel="stylesheet" href="design-fonts.css">
+  <link rel="stylesheet" href="designs.css?v=slownik-wewnetrzny">
+  <script type="module" src="app.mjs?v=slownik-wewnetrzny"></script>
+</head>
+<body data-design="cieply">
+  <a class="skip" href="#main">Przejdź do treści</a>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="#analiza" aria-label="CSIRE interpreter, analiza">
+        <span class="brand-mark" aria-hidden="true"><i></i><i></i><i></i></span>
+        <span class="brand-word">CSIRE <span>interpreter</span></span>
+      </a>
+      <nav class="main-nav" aria-label="Nawigacja">
+        <a class="nav-link" href="#analiza" aria-current="page">Analiza</a>
+        <a class="nav-link" href="#archiwum">Archiwum</a>
+        <a class="nav-link" href="#slownik">Słownik</a>
+      </nav>
+      <button class="theme-switch" id="theme-switch" type="button" role="switch" aria-label="Motyw finansowy" aria-checked="false">
+        <span class="theme-option" aria-hidden="true"><span class="theme-sun"></span></span>
+        <span class="theme-option" aria-hidden="true"><span class="theme-moon"></span></span>
+      </button>
+    </div>
+  </header>
+  <main class="container" id="main" tabindex="-1">
+    <section id="analysis-view" aria-label="Analiza komunikatu"></section>
+    <section id="archive-view" aria-labelledby="archive-title" hidden>
+      <div class="page-intro">
+        <div><h1 id="archive-title">Archiwum komunikatów</h1><p id="archive-context"></p>
+          <p id="archive-location" hidden>Folder archiwum <code></code></p></div>
+        <button class="button button-outline" type="button" id="archive-refresh" hidden>Odśwież</button>
+      </div>
+      <section class="panel dictionary-panel" aria-label="Zapisane komunikaty">
+        <div class="filters dictionary-filters">
+          <label class="search-field"><span class="search-icon" aria-hidden="true"></span><input type="search" id="archive-query" placeholder="Szukaj po typie, UNK, kodzie błędu lub identyfikatorze…" aria-label="Szukaj w archiwum"></label>
+          <button class="button button-outline" type="button" id="archive-export" disabled>Pobierz CSV ↓</button>
+          <button class="button button-outline" type="button" id="archive-excel" hidden disabled>Rejestr Excel ↓</button>
+        </div>
+        <p id="archive-status" class="local-note" role="status"></p>
+        <details id="archive-skipped-details" class="result-section" hidden>
+          <summary>Pokaż nazwy plików i powody pominięcia</summary>
+          <ul id="archive-skipped-files"></ul>
+        </details>
+        <div id="archive-results"></div>
+      </section>
+    </section>
+
+    <section id="dictionary-view" aria-labelledby="dictionary-title" hidden>
+      <div class="page-intro">
+        <div>
+          <h1 id="dictionary-title">Słownik</h1>
+        </div>
+        <a class="button button-outline" id="dictionary-source" href="https://www.pse.pl/oire/standardy-biznesowe" target="_blank" rel="noopener noreferrer">Źródło PSE <span aria-hidden="true">↗</span></a>
+      </div>
+      <section class="panel glossary-group local-dictionary" id="local-dictionary" aria-labelledby="local-dictionary-title" hidden>
+        <h2 id="local-dictionary-title">Wewnętrzny słownik PPE i liczników</h2>
+        <code id="local-dictionary-path"></code>
+        <p id="local-dictionary-status" role="status"></p>
+      </section>
+      <div class="glossary-groups" id="glossary-groups">
+        <div class="panel glossary-group" role="group" aria-labelledby="glossary-messages">
+          <h2 id="glossary-messages">Komunikaty i procesy</h2>
+          <div class="glossary-options">
+            <button class="button button-outline" type="button" data-category="types" aria-pressed="true">Typy komunikatów</button>
+            <button class="button button-outline" type="button" data-category="unk" aria-pressed="false">Numery komunikatów (UNK)</button>
+            <button class="button button-outline" type="button" data-category="processes" aria-pressed="false">Procesy biznesowe</button>
+          </div>
+        </div>
+        <div class="panel glossary-group" role="group" aria-labelledby="glossary-results-group">
+          <h2 id="glossary-results-group">Kody wyników</h2>
+          <div class="glossary-options">
+            <button class="button button-outline" type="button" data-category="CE" aria-pressed="false">Błędy CE</button>
+            <button class="button button-outline" type="button" data-category="CA" aria-pressed="false">Akceptacje CA</button>
+            <button class="button button-outline" type="button" data-category="CL" aria-pressed="false">Przyczyny CL</button>
+            <button class="button button-outline" type="button" data-category="anomalies" aria-pressed="false">Anomalie CS</button>
+          </div>
+        </div>
+        <div class="panel glossary-group" role="group" aria-labelledby="glossary-structure">
+          <h2 id="glossary-structure">Struktura XML</h2>
+          <div class="glossary-options">
+            <button class="button button-outline" type="button" data-category="fields" aria-pressed="false">Pola i sekcje XML</button>
+            <button class="button button-outline" type="button" data-category="data" aria-pressed="false">Typy danych XSD</button>
+            <button class="button button-outline" type="button" data-category="values" aria-pressed="false">Wartości słownikowe</button>
+          </div>
+        </div>
+      </div>
+      <section class="panel dictionary-panel" aria-labelledby="glossary-category-title">
+        <h2 id="glossary-category-title">Typy komunikatów</h2>
+        <div class="filters dictionary-filters">
+          <label class="search-field"><span class="search-icon" aria-hidden="true"></span><input type="search" id="code-query" placeholder="Szukaj w tej kategorii…" aria-label="Szukaj w wybranej kategorii"></label>
+          <select id="dictionary-edition" aria-label="Wersja TSKB"><option value="04">TSKB/04/2025</option><option value="05">TSKB/05/2026</option></select>
+        </div>
+        <div id="dictionary-results" aria-live="polite"></div>
+      </section>
+    </section>
+
+    <footer class="footer"><p>CSIRE interpreter</p><a href="https://www.pse.pl/oire/standardy-biznesowe" target="_blank" rel="noopener noreferrer">Standardy PSE ↗</a></footer>
+  </main>
+</body>
+</html>

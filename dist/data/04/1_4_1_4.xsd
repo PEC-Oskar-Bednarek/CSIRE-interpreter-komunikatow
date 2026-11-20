@@ -1,0 +1,156 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:bdt="urn:pl:oire:businessDataTypes:v1" xmlns:tech="urn:pl:oire:technical:v1" xmlns:unk_1_4_1_4="urn:pl:oire:unk_1_4_1_4:v1" elementFormDefault="qualified" targetNamespace="urn:pl:oire:unk_1_4_1_4:v1">
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Wersja z 08.12.2025                                                                                                                          ==== -->
+    <!-- ====================================================================================================================================================== -->
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Import                                                                                                                                       ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:import namespace="urn:pl:oire:businessDataTypes:v1" schemaLocation="businessDataTypes.xsd"/>
+    <xs:import namespace="urn:pl:oire:technical:v1" schemaLocation="technical.xsd"/>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== 1.4.1.4. Powiadomienie o akceptacji zakończenia US                                                                                           ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="SupplyAgreementTerminationAcceptanceNotification" type="unk_1_4_1_4:SupplyAgreementTerminationAcceptanceNotification"/>
+    <xs:complexType name="SupplyAgreementTerminationAcceptanceNotification">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_1_4_1_4:plName>1.4.1.4. Powiadomienie o akceptacji zakończenia US</unk_1_4_1_4:plName>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Nagłówek -->
+            <xs:element name="Header" type="tech:Header" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_1_4_1_4:plName>Nagłówek</unk_1_4_1_4:plName>
+                        <unk_1_4_1_4:code>PL-700</unk_1_4_1_4:code>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Kontekst -->
+            <xs:element name="ProcessEnergyContext" type="tech:ProcessEnergyContext" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_1_4_1_4:plName>Kontekst</unk_1_4_1_4:plName>
+                        <unk_1_4_1_4:code>PL-715</unk_1_4_1_4:code>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- 1.4.1.4. Payload Powiadomienie o akceptacji zakończenia US -->
+            <xs:element name="Payload" type="unk_1_4_1_4:SupplyAgreementTerminationAcceptanceNotificationPayload" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_1_4_1_4:plName>1.4.1.4. Payload Powiadomienie o akceptacji zakończenia US</unk_1_4_1_4:plName>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== 1.4.1.4. Payload Powiadomienie o akceptacji zakończenia US                                                                                   ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="SupplyAgreementTerminationAcceptanceNotificationPayload" type="unk_1_4_1_4:SupplyAgreementTerminationAcceptanceNotificationPayload"/>
+    <xs:complexType name="SupplyAgreementTerminationAcceptanceNotificationPayload">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_1_4_1_4:plName>1.4.1.4. Payload Powiadomienie o akceptacji zakończenia US</unk_1_4_1_4:plName>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Dane PP - ogólne -->
+            <xs:element name="MeteringPointData_Basic" type="unk_1_4_1_4:MeteringPointData_Basic" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_1_4_1_4:plName>Dane PP - ogólne</unk_1_4_1_4:plName>
+                        <unk_1_4_1_4:code>PL-300</unk_1_4_1_4:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 1.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Pozostałe elementy komunikatu -->
+            <xs:element name="Miscellaneous" type="unk_1_4_1_4:Miscellaneous" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_1_4_1_4:plName>Pozostałe elementy komunikatu</unk_1_4_1_4:plName>
+                        <unk_1_4_1_4:code>PL-320</unk_1_4_1_4:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 2.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Dane PP - ogólne                                                                                                                             ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="MeteringPointData_Basic" type="unk_1_4_1_4:MeteringPointData_Basic"/>
+    <xs:complexType name="MeteringPointData_Basic">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_1_4_1_4:plName>Dane PP - ogólne</unk_1_4_1_4:plName>
+                <unk_1_4_1_4:code>PL-300</unk_1_4_1_4:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 1.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Kod PP -->
+            <xs:element name="MeteringPointCode" type="bdt:MeteringPointCodeType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_1_4_1_4:plName>Kod PP</unk_1_4_1_4:plName>
+                        <unk_1_4_1_4:code>PL-001</unk_1_4_1_4:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Kod identyfikujący Punkt pomiarowy - zgodny ze standardem GS1.</xs:documentation>
+                    <xs:documentation xml:lang="en">Metering Point Identification Code - compliant with the GS1 standard.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Pozostałe elementy komunikatu                                                                                                                ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="Miscellaneous" type="unk_1_4_1_4:Miscellaneous"/>
+    <xs:complexType name="Miscellaneous">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_1_4_1_4:plName>Pozostałe elementy komunikatu</unk_1_4_1_4:plName>
+                <unk_1_4_1_4:code>PL-320</unk_1_4_1_4:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 2.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- ID_instancji_procesu_referencyjnego -->
+            <xs:element name="ProcessInstanceId" type="bdt:UuidType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_1_4_1_4:plName>ID_instancji_procesu_referencyjnego</unk_1_4_1_4:plName>
+                        <unk_1_4_1_4:code>PL-002</unk_1_4_1_4:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Unikatowy kod instancji procesu referencyjnego komunikatu, nadawany przez CSIRE.</xs:documentation>
+                    <xs:documentation xml:lang="en">The unique process instance code of the message reference process, assigned by CSIRE.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Planowana data wypisania parametrów umowy z charakterystyki PP -->
+            <xs:element name="PlannedAgreementRemovalDate" type="xs:date" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_1_4_1_4:plName>Planowana data wypisania parametrów umowy z charakterystyki PP</unk_1_4_1_4:plName>
+                        <unk_1_4_1_4:code>PL-155</unk_1_4_1_4:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Ostatni dzień przypisania umowy do charakterystyki PP (włącznie).</xs:documentation>
+                    <xs:documentation xml:lang="en">The last day of assignment of the agreement to the MP characteristics (inclusive).</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

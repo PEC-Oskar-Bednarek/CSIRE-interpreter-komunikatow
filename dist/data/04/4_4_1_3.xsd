@@ -1,0 +1,254 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:bdt="urn:pl:oire:businessDataTypes:v1" xmlns:tech="urn:pl:oire:technical:v1" xmlns:unk_4_4_1_3="urn:pl:oire:unk_4_4_1_3:v1" elementFormDefault="qualified" targetNamespace="urn:pl:oire:unk_4_4_1_3:v1">
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Wersja z 08.12.2025                                                                                                                          ==== -->
+    <!-- ====================================================================================================================================================== -->
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Import                                                                                                                                       ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:import namespace="urn:pl:oire:businessDataTypes:v1" schemaLocation="businessDataTypes.xsd"/>
+    <xs:import namespace="urn:pl:oire:technical:v1" schemaLocation="technical.xsd"/>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== 4.4.1.3. Powiadomienie o zestawie PP                                                                                                         ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="MeteringPointSetNotification" type="unk_4_4_1_3:MeteringPointSetNotification"/>
+    <xs:complexType name="MeteringPointSetNotification">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_4_4_1_3:plName>4.4.1.3. Powiadomienie o zestawie PP</unk_4_4_1_3:plName>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Nagłówek -->
+            <xs:element name="Header" type="tech:Header" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_4_4_1_3:plName>Nagłówek</unk_4_4_1_3:plName>
+                        <unk_4_4_1_3:code>PL-700</unk_4_4_1_3:code>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Kontekst -->
+            <xs:element name="ProcessEnergyContext" type="tech:ProcessEnergyContext" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_4_4_1_3:plName>Kontekst</unk_4_4_1_3:plName>
+                        <unk_4_4_1_3:code>PL-715</unk_4_4_1_3:code>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- 4.4.1.3. Payload Powiadomienie o zestawie PP -->
+            <xs:element name="Payload" type="unk_4_4_1_3:MeteringPointSetNotificationPayload" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_4_4_1_3:plName>4.4.1.3. Payload Powiadomienie o zestawie PP</unk_4_4_1_3:plName>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== 4.4.1.3. Payload Powiadomienie o zestawie PP                                                                                                 ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="MeteringPointSetNotificationPayload" type="unk_4_4_1_3:MeteringPointSetNotificationPayload"/>
+    <xs:complexType name="MeteringPointSetNotificationPayload">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_4_4_1_3:plName>4.4.1.3. Payload Powiadomienie o zestawie PP</unk_4_4_1_3:plName>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Pozostałe elementy komunikatu -->
+            <xs:element name="Miscellaneous" type="unk_4_4_1_3:Miscellaneous" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_4_4_1_3:plName>Pozostałe elementy komunikatu</unk_4_4_1_3:plName>
+                        <unk_4_4_1_3:code>PL-320</unk_4_4_1_3:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 1.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Dane PP - ogólne -->
+            <xs:element name="MeteringPointData_Basic" type="unk_4_4_1_3:MeteringPointData_Basic" minOccurs="0" maxOccurs="unbounded">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_4_4_1_3:plName>Dane PP - ogólne</unk_4_4_1_3:plName>
+                        <unk_4_4_1_3:code>PL-300</unk_4_4_1_3:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 2.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Pozostałe elementy komunikatu                                                                                                                ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="Miscellaneous" type="unk_4_4_1_3:Miscellaneous"/>
+    <xs:complexType name="Miscellaneous">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_4_4_1_3:plName>Pozostałe elementy komunikatu</unk_4_4_1_3:plName>
+                <unk_4_4_1_3:code>PL-320</unk_4_4_1_3:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 1.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- ID_instancji_procesu_referencyjnego -->
+            <xs:element name="ProcessInstanceId" type="bdt:UuidType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_4_4_1_3:plName>ID_instancji_procesu_referencyjnego</unk_4_4_1_3:plName>
+                        <unk_4_4_1_3:code>PL-002</unk_4_4_1_3:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Unikatowy kod instancji procesu referencyjnego komunikatu, nadawany przez CSIRE.</xs:documentation>
+                    <xs:documentation xml:lang="en">The unique process instance code of the message reference process, assigned by CSIRE.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Data obowiązywania zestawu PP -->
+            <xs:element name="MpSetValidFor" type="xs:date" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_4_4_1_3:plName>Data obowiązywania zestawu PP</unk_4_4_1_3:plName>
+                        <unk_4_4_1_3:code>PL-172</unk_4_4_1_3:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Dzień dla którego obowiązuje wygenerowany zestaw PP.</xs:documentation>
+                    <xs:documentation xml:lang="en">The day for which the generated MP set is in effect.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Dane PP - ogólne                                                                                                                             ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="MeteringPointData_Basic" type="unk_4_4_1_3:MeteringPointData_Basic"/>
+    <xs:complexType name="MeteringPointData_Basic">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_4_4_1_3:plName>Dane PP - ogólne</unk_4_4_1_3:plName>
+                <unk_4_4_1_3:code>PL-300</unk_4_4_1_3:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 2.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Kod PP -->
+            <xs:element name="MeteringPointCode" type="bdt:MeteringPointCodeType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_4_4_1_3:plName>Kod PP</unk_4_4_1_3:plName>
+                        <unk_4_4_1_3:code>PL-001</unk_4_4_1_3:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Kod identyfikujący Punkt pomiarowy - zgodny ze standardem GS1.</xs:documentation>
+                    <xs:documentation xml:lang="en">Metering Point Identification Code - compliant with the GS1 standard.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Informacje podstawowe -->
+            <xs:element name="BasicData" type="unk_4_4_1_3:BasicData" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_4_4_1_3:plName>Informacje podstawowe</unk_4_4_1_3:plName>
+                        <unk_4_4_1_3:code>PL-325</unk_4_4_1_3:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 2.1.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Informacje podstawowe                                                                                                                        ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="BasicData" type="unk_4_4_1_3:BasicData"/>
+    <xs:complexType name="BasicData">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_4_4_1_3:plName>Informacje podstawowe</unk_4_4_1_3:plName>
+                <unk_4_4_1_3:code>PL-325</unk_4_4_1_3:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 2.1.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Typ umowy -->
+            <xs:element name="AgreementType" type="bdt:AgreementType_Type" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_4_4_1_3:plName>Typ umowy</unk_4_4_1_3:plName>
+                        <unk_4_4_1_3:code>PL-270</unk_4_4_1_3:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Określenie typu umowy, zgodnie z typem Użytkownika profesjonalnego. Jeżeli zapytanie zostało przekazane przez SE, otrzyma on informację dla każdego PP wraz ze wskazaniem umowy US albo UK wpisanych do charakterystyk, w przypadku gdy zapytanie zostało przekazane przez OSD, otrzyma on informację dot. umów UD, UK, US oraz BH, w których realizuje umowę świadczenia usług dystrybucji. W przypadku OSP otrzyma on informację dot. umów UP, w których realizuje umowę świadczenia usług przesyłania. W przypadku POB otrzyma on informację o wszystkich umowach w których bilansuje handlowo (BH) dany PPE o charakterze wytwórczym.</xs:documentation>
+                    <xs:documentation xml:lang="en">Determination of the type of agreement, according to the type of Professional User. If the inquiry was submitted by the Energy Supplier, it will receive information for each MP with an measurement of the US or UK agreement entered in the characteristics, if the inquiry was submitted by the DSO, it will receive information on the UD, UK, US or BH agreements in which it performs the distribution service agreement. In the case of the TSO, it will receive information on all the UP agreements in which it performs the transmission service agreement. In the case of the BRP, it will receive information on all agreements in which it commercially balances (BH) a given PPE of a generating nature.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Data rozpoczęcia -->
+            <xs:element name="StartDate" type="xs:date" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_4_4_1_3:plName>Data rozpoczęcia</unk_4_4_1_3:plName>
+                        <unk_4_4_1_3:code>PL-561</unk_4_4_1_3:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Data przypisania UD albo UP albo US albo UK albo BH w charakterystyce PP. Typ umowy zależny od wyboru wartości słownkowej dla atrybutu PL-270 Typ umowy.</xs:documentation>
+                    <xs:documentation xml:lang="en">Date of assignment of UD or UP or US or UK or BH in MP characteristics. Agreement type dependent on the selection of the word value for the PL-270 Agreement type attribute.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Zgłoszona data zakończenia umowy z Operatorem -->
+            <xs:element name="ReportedTerminationDate" type="xs:date" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_4_4_1_3:plName>Zgłoszona data zakończenia umowy z Operatorem</unk_4_4_1_3:plName>
+                        <unk_4_4_1_3:code>PL-510</unk_4_4_1_3:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Data zakończenia umowy, zgłoszona przez Operatora do CSIRE (włącznie).</xs:documentation>
+                    <xs:documentation xml:lang="en">Date of termination of the agreement, reported by the Operator to CSIRE (inclusive).</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Zgłoszona data zakończenia umowy ze Sprzedawcą -->
+            <xs:element name="ReportedSupplierAgreementTerminationDate" type="xs:date" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_4_4_1_3:plName>Zgłoszona data zakończenia umowy ze Sprzedawcą</unk_4_4_1_3:plName>
+                        <unk_4_4_1_3:code>PL-511</unk_4_4_1_3:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Data zakończenia umowy, zgłoszona przez Sprzedawcę do CSIRE (włącznie).</xs:documentation>
+                    <xs:documentation xml:lang="en">Date of termination of the agreement, reported by the Energy Supplier to CSIRE (inclusive).</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Identyfikator obszaru -->
+            <xs:element name="MeteringGridAreaCode" type="bdt:NetworkAreaIdentifierType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_4_4_1_3:plName>Identyfikator obszaru</unk_4_4_1_3:plName>
+                        <unk_4_4_1_3:code>PL-014</unk_4_4_1_3:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Kod służący do identyfikacji danego obszaru sieci pomiarowej, nadawany przez Operatora obszaru.</xs:documentation>
+                    <xs:documentation xml:lang="en">Code used to identify a particular area of the measurement network, assigned by the Area Operator.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Status umowy obrotu -->
+            <xs:element name="TradeAgreementStatus" type="bdt:TradeAgreementStatusType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_4_4_1_3:plName>Status umowy obrotu</unk_4_4_1_3:plName>
+                        <unk_4_4_1_3:code>PL-090</unk_4_4_1_3:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Określenie statusu umowy, na podstawie której świadczona jest sprzedaż energii.</xs:documentation>
+                    <xs:documentation xml:lang="en">Determination of the status of the agreement under which energy supply is provided.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

@@ -1,0 +1,562 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:bdt="urn:pl:oire:businessDataTypes:v1" xmlns:tech="urn:pl:oire:technical:v1" xmlns:unk_7_6_1_4="urn:pl:oire:unk_7_6_1_4:v1" elementFormDefault="qualified" targetNamespace="urn:pl:oire:unk_7_6_1_4:v1">
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Wersja z 08.12.2025                                                                                                                          ==== -->
+    <!-- ====================================================================================================================================================== -->
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Import                                                                                                                                       ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:import namespace="urn:pl:oire:businessDataTypes:v1" schemaLocation="businessDataTypes.xsd"/>
+    <xs:import namespace="urn:pl:oire:technical:v1" schemaLocation="technical.xsd"/>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== 7.6.1.4. Powiadomienie o informacji o jakości energii elektrycznej                                                                           ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="ElectricalEnergyQualityInformationNotification" type="unk_7_6_1_4:ElectricalEnergyQualityInformationNotification"/>
+    <xs:complexType name="ElectricalEnergyQualityInformationNotification">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_7_6_1_4:plName>7.6.1.4. Powiadomienie o informacji o jakości energii elektrycznej</unk_7_6_1_4:plName>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Nagłówek -->
+            <xs:element name="Header" type="tech:Header" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_6_1_4:plName>Nagłówek</unk_7_6_1_4:plName>
+                        <unk_7_6_1_4:code>PL-700</unk_7_6_1_4:code>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Kontekst -->
+            <xs:element name="ProcessEnergyContext" type="tech:ProcessEnergyContext" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_6_1_4:plName>Kontekst</unk_7_6_1_4:plName>
+                        <unk_7_6_1_4:code>PL-715</unk_7_6_1_4:code>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- 7.6.1.4. Payload Powiadomienie o informacji o jakości energii elektrycznej -->
+            <xs:element name="Payload" type="unk_7_6_1_4:ElectricalEnergyQualityInformationNotificationPayload" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_6_1_4:plName>7.6.1.4. Payload Powiadomienie o informacji o jakości energii elektrycznej</unk_7_6_1_4:plName>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== 7.6.1.4. Payload Powiadomienie o informacji o jakości energii elektrycznej                                                                   ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="ElectricalEnergyQualityInformationNotificationPayload" type="unk_7_6_1_4:ElectricalEnergyQualityInformationNotificationPayload"/>
+    <xs:complexType name="ElectricalEnergyQualityInformationNotificationPayload">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_7_6_1_4:plName>7.6.1.4. Payload Powiadomienie o informacji o jakości energii elektrycznej</unk_7_6_1_4:plName>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Rekord operacji masowej -->
+            <xs:element name="ElectricalEnergyQualityInformation" type="unk_7_6_1_4:ElectricalEnergyQualityInformation" minOccurs="1" maxOccurs="1000">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_6_1_4:plName>Rekord operacji masowej</unk_7_6_1_4:plName>
+                        <unk_7_6_1_4:code>PL-711</unk_7_6_1_4:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 1.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Rekord operacji masowej                                                                                                                      ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="ElectricalEnergyQualityInformation" type="unk_7_6_1_4:ElectricalEnergyQualityInformation"/>
+    <xs:complexType name="ElectricalEnergyQualityInformation">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_7_6_1_4:plName>Rekord operacji masowej</unk_7_6_1_4:plName>
+                <unk_7_6_1_4:code>PL-711</unk_7_6_1_4:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 1.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Dane PP - ogólne -->
+            <xs:element name="MeteringPointData_Basic" type="unk_7_6_1_4:MeteringPointData_Basic" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_6_1_4:plName>Dane PP - ogólne</unk_7_6_1_4:plName>
+                        <unk_7_6_1_4:code>PL-300</unk_7_6_1_4:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 1.1.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Informacje podstawowe -->
+            <xs:element name="BasicData" type="unk_7_6_1_4:BasicData" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_6_1_4:plName>Informacje podstawowe</unk_7_6_1_4:plName>
+                        <unk_7_6_1_4:code>PL-325</unk_7_6_1_4:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 1.2.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Wskaźniki JEE -->
+            <xs:element name="EeqAttributes" type="unk_7_6_1_4:EeqAttributes" minOccurs="1" maxOccurs="unbounded">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_6_1_4:plName>Wskaźniki JEE</unk_7_6_1_4:plName>
+                        <unk_7_6_1_4:code>PL-406</unk_7_6_1_4:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 1.3.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Produkt energetyczny -->
+            <xs:element name="EnergyProduct" type="unk_7_6_1_4:EnergyProduct" minOccurs="0" maxOccurs="3">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_6_1_4:plName>Produkt energetyczny</unk_7_6_1_4:plName>
+                        <unk_7_6_1_4:code>PL-346</unk_7_6_1_4:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 1.4.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Przerwy dostaw en.el. -->
+            <xs:element name="Interruptions" type="unk_7_6_1_4:Interruptions" minOccurs="0" maxOccurs="unbounded">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_6_1_4:plName>Przerwy dostaw en.el.</unk_7_6_1_4:plName>
+                        <unk_7_6_1_4:code>PL-410</unk_7_6_1_4:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 1.5.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Dane PP - ogólne                                                                                                                             ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="MeteringPointData_Basic" type="unk_7_6_1_4:MeteringPointData_Basic"/>
+    <xs:complexType name="MeteringPointData_Basic">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_7_6_1_4:plName>Dane PP - ogólne</unk_7_6_1_4:plName>
+                <unk_7_6_1_4:code>PL-300</unk_7_6_1_4:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 1.1.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Kod PP -->
+            <xs:element name="MeteringPointCode" type="bdt:MeteringPointCodeType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_6_1_4:plName>Kod PP</unk_7_6_1_4:plName>
+                        <unk_7_6_1_4:code>PL-001</unk_7_6_1_4:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Kod identyfikujący Punkt pomiarowy - zgodny ze standardem GS1.</xs:documentation>
+                    <xs:documentation xml:lang="en">Metering Point Identification Code - compliant with the GS1 standard.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Informacje podstawowe                                                                                                                        ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="BasicData" type="unk_7_6_1_4:BasicData"/>
+    <xs:complexType name="BasicData">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_7_6_1_4:plName>Informacje podstawowe</unk_7_6_1_4:plName>
+                <unk_7_6_1_4:code>PL-325</unk_7_6_1_4:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 1.2.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Typ raportu JEE -->
+            <xs:element name="EeqReportType" type="bdt:EeqReportType_Type" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_6_1_4:plName>Typ raportu JEE</unk_7_6_1_4:plName>
+                        <unk_7_6_1_4:code>PL-402</unk_7_6_1_4:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Informacja, czy raport dot. JEE dotyczy przekazywania wskaźników jakości energii elektrycznej, czy dotyczy przekazywania wskaźników jak i poszczególnych parametrów energii elektrycznej (np: jak Napięcie skuteczne dla każdej z faz).</xs:documentation>
+                    <xs:documentation xml:lang="en">Information on whether the JEE report is for the transmission of electricity quality indicators, or whether it is for the transmission of indicators as well as individual electricity parameters (e.g., such as Effective Voltage for each phase).</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Data początku okresu -->
+            <xs:element name="PeriodStartDate" type="xs:date" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_6_1_4:plName>Data początku okresu</unk_7_6_1_4:plName>
+                        <unk_7_6_1_4:code>PL-179</unk_7_6_1_4:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Data początku okresu pomiarowego właściwego dla wyznaczania wskaźników jakości zasilania - trwa 7 dni i rozpoczyna się w każdy poniedziałek o godz. 00:00 czasu lokalnego w Rzeczpospolitej Polskiej.</xs:documentation>
+                    <xs:documentation xml:lang="en">The start date of the measurement period relevant for the determination of power quality indicators - lasts 7 days and begins every Monday at 00:00 local time in the Republic of Poland.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Data końca okresu -->
+            <xs:element name="PeriodEndDate" type="xs:date" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_6_1_4:plName>Data końca okresu</unk_7_6_1_4:plName>
+                        <unk_7_6_1_4:code>PL-180</unk_7_6_1_4:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Data końcowa okresu pomiarowego właściwego dla wyznaczania wskaźników jakości zasilania - trwa 7 dni i rozpoczyna się w każdy poniedziałek o godz. 00:00 czasu lokalnego w Rzeczpospolitej Polskiej.</xs:documentation>
+                    <xs:documentation xml:lang="en">The end date of the measurement period relevant to the determination of power quality indicators - lasts 7 days and begins every Monday at 00:00 local time in the Republic of Poland.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Czy wyznaczono przerwy? -->
+            <xs:element name="HasInterruptions" type="xs:boolean" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_6_1_4:plName>Czy wyznaczono przerwy?</unk_7_6_1_4:plName>
+                        <unk_7_6_1_4:code>PL-417</unk_7_6_1_4:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Czy w okresie wskazanym w komunikacie Operator zarejestrował przerwy w dostarczaniu en. el., które wynikły z planu pracy lub poza planem pracy sieci elektroenergetycznej.</xs:documentation>
+                    <xs:documentation xml:lang="en">Whether during the period indicated in the message, the Operator recorded interruptions in the supply of electricity, which resulted from the work plan or outside the work plan of the power grid.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Poziom napięcia fazowego -->
+            <xs:element name="PhaseVoltage" type="bdt:VoltageType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_6_1_4:plName>Poziom napięcia fazowego</unk_7_6_1_4:plName>
+                        <unk_7_6_1_4:code>PL-403</unk_7_6_1_4:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Określanie napięcia fazowego, wyrażone w [kV].</xs:documentation>
+                    <xs:documentation xml:lang="en">Determination of the phase voltage, expressed in [kV].</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Pochodzenie danych JEE -->
+            <xs:element name="EeqDataSource" type="bdt:EeqDataSourceType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_6_1_4:plName>Pochodzenie danych JEE</unk_7_6_1_4:plName>
+                        <unk_7_6_1_4:code>PL-520</unk_7_6_1_4:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Określa pochodzenie danych dotyczacych parametrów deltaW1-deltaW4 oraz profili napięć fazowych.</xs:documentation>
+                    <xs:documentation xml:lang="en">Specifies the origin of the deltaW1-deltaW4 parameter data and phase voltage profiles.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Nr analizatora JEE -->
+            <xs:element name="EeqValidatorIdentifier" type="bdt:EeqValidatorIdentifierType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_6_1_4:plName>Nr analizatora JEE</unk_7_6_1_4:plName>
+                        <unk_7_6_1_4:code>PL-519</unk_7_6_1_4:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Numer seryjny analizatora JEE.</xs:documentation>
+                    <xs:documentation xml:lang="en">Serial number of the EEQ analyzer.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Nr licznika -->
+            <xs:element name="MeterNumber" type="bdt:MeterNumberType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_6_1_4:plName>Nr licznika</unk_7_6_1_4:plName>
+                        <unk_7_6_1_4:code>PL-097</unk_7_6_1_4:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Numer seryjny podstawowego licznika energii czynnej.</xs:documentation>
+                    <xs:documentation xml:lang="en">Serial number of the primary active energy meter.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Czy korekta komunikatu? -->
+            <xs:element name="IsCorrection" type="xs:boolean" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_6_1_4:plName>Czy korekta komunikatu?</unk_7_6_1_4:plName>
+                        <unk_7_6_1_4:code>PL-195</unk_7_6_1_4:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Informacja, czy komunikat jest korektą komunikatu.</xs:documentation>
+                    <xs:documentation xml:lang="en">Information on whether the message is a correction of the message.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Korekta komunikatu -->
+            <xs:element name="MessageCorrection" type="unk_7_6_1_4:MessageCorrection" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_6_1_4:plName>Korekta komunikatu</unk_7_6_1_4:plName>
+                        <unk_7_6_1_4:code>PL-416</unk_7_6_1_4:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 1.2.1.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Korekta komunikatu                                                                                                                           ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="MessageCorrection" type="unk_7_6_1_4:MessageCorrection"/>
+    <xs:complexType name="MessageCorrection">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_7_6_1_4:plName>Korekta komunikatu</unk_7_6_1_4:plName>
+                <unk_7_6_1_4:code>PL-416</unk_7_6_1_4:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 1.2.1.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Przyczyna korekty RJEE -->
+            <xs:element name="EeqReportCorrectionReason" type="bdt:EeqReportCorrectionReasonType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_6_1_4:plName>Przyczyna korekty RJEE</unk_7_6_1_4:plName>
+                        <unk_7_6_1_4:code>PL-405</unk_7_6_1_4:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Określenie przyczyny korekty raportu jakości energii elektrycznej.</xs:documentation>
+                    <xs:documentation xml:lang="en">Determination of the reason for adjustment of the power quality report.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- ID_korygowanej_transakcji -->
+            <xs:element name="CorrectedReferenceTransactionId" type="bdt:UuidType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_6_1_4:plName>ID_korygowanej_transakcji</unk_7_6_1_4:plName>
+                        <unk_7_6_1_4:code>PL-200</unk_7_6_1_4:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Identyfikator transakcji (UUID), która jest przedmiotem korekty, określony przez nadawcę korygowanej transakcji.</xs:documentation>
+                    <xs:documentation xml:lang="en">The identifier of the transaction (UUID), which is the subject of the correction, specified by the sender of the corrected transaction.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Wskaźniki JEE                                                                                                                                ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="EeqAttributes" type="unk_7_6_1_4:EeqAttributes"/>
+    <xs:complexType name="EeqAttributes">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_7_6_1_4:plName>Wskaźniki JEE</unk_7_6_1_4:plName>
+                <unk_7_6_1_4:code>PL-406</unk_7_6_1_4:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 1.3.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Wskaźnik JEE -->
+            <xs:element name="EeqIndicator" type="bdt:EeqAttributeType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_6_1_4:plName>Wskaźnik JEE</unk_7_6_1_4:plName>
+                        <unk_7_6_1_4:code>PL-407</unk_7_6_1_4:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Wskazanie wskaźnika jakości dostaw energii elektrycznej. 
+W przypadku układów pomiarowych Kategorii C1 (np.: liczniki u Odbiorców końcowych, w tym gospodarstwach domowych) dotyczy oceny wskaźników ΔW1 i ΔW2.
+W przypadku układów pomiarowych Kategorii B1, B2, B3, C2, dotyczy oceny wskaźników ΔW1-ΔW4.</xs:documentation>
+                    <xs:documentation xml:lang="en">Indication of the electricity supply quality indicator. 
+In the case of Category C1 metering systems (e.g.: meters at End-Users, including households), refers to the assessment of ΔW1 and ΔW2 indicators.
+In the case of Category B1, B2, B3, C2 metering systems, it applies to the evaluation of ΔW1-ΔW4 indicators.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Wartość wskaźnika -->
+            <xs:element name="Value" type="bdt:EeqAttributeValueType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_6_1_4:plName>Wartość wskaźnika</unk_7_6_1_4:plName>
+                        <unk_7_6_1_4:code>PL-408</unk_7_6_1_4:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Wartość wskaźnika w okresie pomiarowym.</xs:documentation>
+                    <xs:documentation xml:lang="en">The value of the index during the measurement period.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Produkt energetyczny                                                                                                                         ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="EnergyProduct" type="unk_7_6_1_4:EnergyProduct"/>
+    <xs:complexType name="EnergyProduct">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_7_6_1_4:plName>Produkt energetyczny</unk_7_6_1_4:plName>
+                <unk_7_6_1_4:code>PL-346</unk_7_6_1_4:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 1.4.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Typ produktu -->
+            <xs:element name="EeqProductType" type="bdt:EeqProductType_Type" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_6_1_4:plName>Typ produktu</unk_7_6_1_4:plName>
+                        <unk_7_6_1_4:code>PL-409</unk_7_6_1_4:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Wskazanie właściwego typu produktu energetycznego dotyczącego jakości energii elektrycznej.</xs:documentation>
+                    <xs:documentation xml:lang="en">Indication of the relevant type of power quality energy product.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Okres integracji danych -->
+            <xs:element name="ResolutionDuration" type="bdt:MeasurementDataResolutionDurationType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_6_1_4:plName>Okres integracji danych</unk_7_6_1_4:plName>
+                        <unk_7_6_1_4:code>PL-190</unk_7_6_1_4:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Oznaczenie okresu pomiędzy poszczególnymi danymi. Obowiązującym standardem przekazywania danych profilowych jest CK0098 - Dane 15-minutowe.</xs:documentation>
+                    <xs:documentation xml:lang="en">Marking the period between each data. The applicable standard for the transmission of profile data is CK0098 - 15-minute data.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Wskazania produktu energetycznego -->
+            <xs:element name="EnergyProductMeasurement" type="unk_7_6_1_4:EnergyProductMeasurement" minOccurs="1" maxOccurs="unbounded">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_6_1_4:plName>Wskazania produktu energetycznego</unk_7_6_1_4:plName>
+                        <unk_7_6_1_4:code>PL-347</unk_7_6_1_4:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 1.4.1.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Wskazania produktu energetycznego                                                                                                            ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="EnergyProductMeasurement" type="unk_7_6_1_4:EnergyProductMeasurement"/>
+    <xs:complexType name="EnergyProductMeasurement">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_7_6_1_4:plName>Wskazania produktu energetycznego</unk_7_6_1_4:plName>
+                <unk_7_6_1_4:code>PL-347</unk_7_6_1_4:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 1.4.1.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Data i czas wskazania -->
+            <xs:element name="MeasurementDateTime" type="xs:dateTime" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_6_1_4:plName>Data i czas wskazania</unk_7_6_1_4:plName>
+                        <unk_7_6_1_4:code>PL-186</unk_7_6_1_4:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Określa datę i czas dotyczący wskazania, zgodnie z normą ISO 8601:2019. Znacznik czasu jest znacznikiem zatrzaśnięcia okresu. Poniżej prezentujemy przykładowe interwały czasowe:
+2024-07-01T01:15:00 - zamknięcie okresu pomiędzy godz. 01:00 a 01:15
+2024-07-01T01:30:00 - zamknięcie okresu pomiędzy godz. 01:15 a 01:30
+2024-07-01T01:45:00 - zamknięcie okresu pomiędzy godz. 01:30 a 01:45</xs:documentation>
+                    <xs:documentation xml:lang="en">Specifies the date and time pertaining to the measurement, in accordance with ISO 8601:2019. The time stamp is the period latch marker. Below are examples of time intervals:
+2024-07-01T01:15:00 - closing of the period between 01:00 and 01:15
+2024-07-01T01:30:00 - closing of the period between 01:15 and 01:30
+2024-07-01T01:45:00 - closing of the period between 01:30 and 01:45.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Wartość -->
+            <xs:element name="Value" type="bdt:VolumeType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_6_1_4:plName>Wartość</unk_7_6_1_4:plName>
+                        <unk_7_6_1_4:code>PL-262</unk_7_6_1_4:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Wartość produktu dla wskazanego znacznika czasu, w przypadku napięcia określany w [kV].</xs:documentation>
+                    <xs:documentation xml:lang="en">The value of the product for the indicated time stamp, in the case of voltage specified in [kV].</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Przerwy dostaw en.el.                                                                                                                        ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="Interruptions" type="unk_7_6_1_4:Interruptions"/>
+    <xs:complexType name="Interruptions">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_7_6_1_4:plName>Przerwy dostaw en.el.</unk_7_6_1_4:plName>
+                <unk_7_6_1_4:code>PL-410</unk_7_6_1_4:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 1.5.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Data i czas początku przerwy -->
+            <xs:element name="InterruptionStartDateTime" type="xs:dateTime" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_6_1_4:plName>Data i czas początku przerwy</unk_7_6_1_4:plName>
+                        <unk_7_6_1_4:code>PL-411</unk_7_6_1_4:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Data i czas, w którym nastąpiła przerwa w dostarczaniu energii elektrycznej.</xs:documentation>
+                    <xs:documentation xml:lang="en">Date and time when the interruption of electricity supply occurred.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Data i czas końca przerwy -->
+            <xs:element name="InterruptionEndDateTime" type="xs:dateTime" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_6_1_4:plName>Data i czas końca przerwy</unk_7_6_1_4:plName>
+                        <unk_7_6_1_4:code>PL-412</unk_7_6_1_4:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Data i czas, w którym nastąpiło wznowienie dostarczania energii elektrycznej.</xs:documentation>
+                    <xs:documentation xml:lang="en">Date and time when the electricity supply was resumed.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Typ przerwy -->
+            <xs:element name="InterruptionType" type="bdt:InterruptionType_Type" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_6_1_4:plName>Typ przerwy</unk_7_6_1_4:plName>
+                        <unk_7_6_1_4:code>PL-413</unk_7_6_1_4:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Określenie typu przerwy jako planowanej lub nieplanowanej.</xs:documentation>
+                    <xs:documentation xml:lang="en">Determination of the type of interruption as planned or unplanned.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Czas przerw -->
+            <xs:element name="InterruptionDuration" type="bdt:InterruptionTimeType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_6_1_4:plName>Czas przerw</unk_7_6_1_4:plName>
+                        <unk_7_6_1_4:code>PL-414</unk_7_6_1_4:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Czas przerwy rozumiany jako różnica czasów początku i końca przerwy.</xs:documentation>
+                    <xs:documentation xml:lang="en">Interruption time understood as the difference of start and end times of the interruption.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Czas przerw narastająco -->
+            <xs:element name="CumulativeInterruptionDuration" type="bdt:InterruptionTimeType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_6_1_4:plName>Czas przerw narastająco</unk_7_6_1_4:plName>
+                        <unk_7_6_1_4:code>PL-415</unk_7_6_1_4:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Czas przerw narastająco od początku roku dla typu przerw.</xs:documentation>
+                    <xs:documentation xml:lang="en">Interruption time cumulatively from the beginning of the year for the type of interruption.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

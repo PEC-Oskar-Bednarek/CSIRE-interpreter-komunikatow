@@ -1,0 +1,980 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:bdt="urn:pl:oire:businessDataTypes:v1" xmlns:tech="urn:pl:oire:technical:v1" xmlns:unk_1_2_1_1="urn:pl:oire:unk_1_2_1_1:v1" elementFormDefault="qualified" targetNamespace="urn:pl:oire:unk_1_2_1_1:v1">
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Wersja z 08.12.2025                                                                                                                          ==== -->
+    <!-- ====================================================================================================================================================== -->
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Import                                                                                                                                       ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:import namespace="urn:pl:oire:businessDataTypes:v1" schemaLocation="businessDataTypes.xsd"/>
+    <xs:import namespace="urn:pl:oire:technical:v1" schemaLocation="technical.xsd"/>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== 1.2.1.1. Powiadomienie o zawarciu UK                                                                                                         ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="ComplexAgreementSigningNotification" type="unk_1_2_1_1:ComplexAgreementSigningNotification"/>
+    <xs:complexType name="ComplexAgreementSigningNotification">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_1_2_1_1:plName>1.2.1.1. Powiadomienie o zawarciu UK</unk_1_2_1_1:plName>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Nagłówek -->
+            <xs:element name="Header" type="tech:Header" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_1_2_1_1:plName>Nagłówek</unk_1_2_1_1:plName>
+                        <unk_1_2_1_1:code>PL-700</unk_1_2_1_1:code>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Kontekst -->
+            <xs:element name="ProcessEnergyContext" type="tech:ProcessEnergyContext" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_1_2_1_1:plName>Kontekst</unk_1_2_1_1:plName>
+                        <unk_1_2_1_1:code>PL-715</unk_1_2_1_1:code>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- 1.2.1.1. Payload Powiadomienie o zawarciu UK -->
+            <xs:element name="Payload" type="unk_1_2_1_1:ComplexAgreementSigningNotificationPayload" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_1_2_1_1:plName>1.2.1.1. Payload Powiadomienie o zawarciu UK</unk_1_2_1_1:plName>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== 1.2.1.1. Payload Powiadomienie o zawarciu UK                                                                                                 ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="ComplexAgreementSigningNotificationPayload" type="unk_1_2_1_1:ComplexAgreementSigningNotificationPayload"/>
+    <xs:complexType name="ComplexAgreementSigningNotificationPayload">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_1_2_1_1:plName>1.2.1.1. Payload Powiadomienie o zawarciu UK</unk_1_2_1_1:plName>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Dane PP - ogólne -->
+            <xs:element name="MeteringPointData_Basic" type="unk_1_2_1_1:MeteringPointData_Basic" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_1_2_1_1:plName>Dane PP - ogólne</unk_1_2_1_1:plName>
+                        <unk_1_2_1_1:code>PL-300</unk_1_2_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 1.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Dane PP - podmioty obsługujące PP -->
+            <xs:element name="MeteringPointData_Operators" type="unk_1_2_1_1:MeteringPointData_Operators" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_1_2_1_1:plName>Dane PP - podmioty obsługujące PP</unk_1_2_1_1:plName>
+                        <unk_1_2_1_1:code>PL-303</unk_1_2_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 2.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Dane Użytkownika KSE - ogólne -->
+            <xs:element name="KseUserData_Basic" type="unk_1_2_1_1:KseUserData_Basic" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_1_2_1_1:plName>Dane Użytkownika KSE - ogólne</unk_1_2_1_1:plName>
+                        <unk_1_2_1_1:code>PL-395</unk_1_2_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 3.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Dane Użytkownika KSE - podstawowe -->
+            <xs:element name="KseUserData_Primary" type="unk_1_2_1_1:KseUserData_Primary" minOccurs="1" maxOccurs="unbounded">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_1_2_1_1:plName>Dane Użytkownika KSE - podstawowe</unk_1_2_1_1:plName>
+                        <unk_1_2_1_1:code>PL-311</unk_1_2_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 4.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Parametry handlowe - ogólne -->
+            <xs:element name="BusinessData_Basic" type="unk_1_2_1_1:BusinessData_Basic" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_1_2_1_1:plName>Parametry handlowe - ogólne</unk_1_2_1_1:plName>
+                        <unk_1_2_1_1:code>PL-316</unk_1_2_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 5.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Parametry handlowe - umowa kompleksowa -->
+            <xs:element name="BusinessData_ComplexAgreement" type="unk_1_2_1_1:BusinessData_ComplexAgreement" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_1_2_1_1:plName>Parametry handlowe - umowa kompleksowa</unk_1_2_1_1:plName>
+                        <unk_1_2_1_1:code>PL-322</unk_1_2_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 6.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Dane PP - ogólne                                                                                                                             ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="MeteringPointData_Basic" type="unk_1_2_1_1:MeteringPointData_Basic"/>
+    <xs:complexType name="MeteringPointData_Basic">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_1_2_1_1:plName>Dane PP - ogólne</unk_1_2_1_1:plName>
+                <unk_1_2_1_1:code>PL-300</unk_1_2_1_1:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 1.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Kod PP -->
+            <xs:element name="MeteringPointCode" type="bdt:MeteringPointCodeType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_1_2_1_1:plName>Kod PP</unk_1_2_1_1:plName>
+                        <unk_1_2_1_1:code>PL-001</unk_1_2_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Kod identyfikujący Punkt pomiarowy - zgodny ze standardem GS1.</xs:documentation>
+                    <xs:documentation xml:lang="en">Metering Point Identification Code - compliant with the GS1 standard.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Dane PP - podmioty obsługujące PP                                                                                                            ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="MeteringPointData_Operators" type="unk_1_2_1_1:MeteringPointData_Operators"/>
+    <xs:complexType name="MeteringPointData_Operators">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_1_2_1_1:plName>Dane PP - podmioty obsługujące PP</unk_1_2_1_1:plName>
+                <unk_1_2_1_1:code>PL-303</unk_1_2_1_1:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 2.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- ID_POB -->
+            <xs:element name="BalanceResponsiblePartyIdentifier" type="bdt:EicIdentifierType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_1_2_1_1:plName>ID_POB</unk_1_2_1_1:plName>
+                        <unk_1_2_1_1:code>PL-021</unk_1_2_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Kod identyfikujący podmiot odpowiedzialny za bilansowanie handlowe - zgodny z EIC.</xs:documentation>
+                    <xs:documentation xml:lang="en">Code identifying the balance responsible party - in accordance with the EIC.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Dane Użytkownika KSE - ogólne                                                                                                                ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="KseUserData_Basic" type="unk_1_2_1_1:KseUserData_Basic"/>
+    <xs:complexType name="KseUserData_Basic">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_1_2_1_1:plName>Dane Użytkownika KSE - ogólne</unk_1_2_1_1:plName>
+                <unk_1_2_1_1:code>PL-395</unk_1_2_1_1:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 3.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Czy nabywca końcowy? -->
+            <xs:element name="IsEndBuyer" type="xs:boolean" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_1_2_1_1:plName>Czy nabywca końcowy?</unk_1_2_1_1:plName>
+                        <unk_1_2_1_1:code>PL-392</unk_1_2_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Określenie, czy Użytkownik KSE jest nabywcą końcowym w rozumieniu przepisów.</xs:documentation>
+                    <xs:documentation xml:lang="en">Determination whether the KSE User is a final buyer as defined by the regulations.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Czy odbiorca końcowy? -->
+            <xs:element name="IsEndUser" type="xs:boolean" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_1_2_1_1:plName>Czy odbiorca końcowy?</unk_1_2_1_1:plName>
+                        <unk_1_2_1_1:code>PL-393</unk_1_2_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Określenie, czy Użytkownik KSE jest odbiorcą końcowym w rozumieniu przepisów.</xs:documentation>
+                    <xs:documentation xml:lang="en">Determination whether the KSE User is a final user as defined by the regulations.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Czy wiele podmiotów? -->
+            <xs:element name="HasMultipleEntities" type="xs:boolean" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_1_2_1_1:plName>Czy wiele podmiotów?</unk_1_2_1_1:plName>
+                        <unk_1_2_1_1:code>PL-400</unk_1_2_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Określenie, czy do Punktu pomiarowego ma być przypisany więcej niż jeden podmiot (osoba fizyczna lub prawna).</xs:documentation>
+                    <xs:documentation xml:lang="en">Determine whether more than one entity (individual or legal entity) is to be assigned to a Metering Point.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Dane Użytkownika KSE - adresowe -->
+            <xs:element name="KseUserData_Address" type="unk_1_2_1_1:KseUserData_Address" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_1_2_1_1:plName>Dane Użytkownika KSE - adresowe</unk_1_2_1_1:plName>
+                        <unk_1_2_1_1:code>PL-313</unk_1_2_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 3.1.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Dane Użytkownika KSE - korespondencyjne -->
+            <xs:element name="KseUserData_MailingAddress" type="unk_1_2_1_1:KseUserData_MailingAddress" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_1_2_1_1:plName>Dane Użytkownika KSE - korespondencyjne</unk_1_2_1_1:plName>
+                        <unk_1_2_1_1:code>PL-314</unk_1_2_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 3.2.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Dane Użytkownika KSE - dodatkowe -->
+            <xs:element name="KseUserData_Additional" type="unk_1_2_1_1:KseUserData_Additional" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_1_2_1_1:plName>Dane Użytkownika KSE - dodatkowe</unk_1_2_1_1:plName>
+                        <unk_1_2_1_1:code>PL-315</unk_1_2_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 3.3.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Dane Użytkownika KSE - adresowe                                                                                                              ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="KseUserData_Address" type="unk_1_2_1_1:KseUserData_Address"/>
+    <xs:complexType name="KseUserData_Address">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_1_2_1_1:plName>Dane Użytkownika KSE - adresowe</unk_1_2_1_1:plName>
+                <unk_1_2_1_1:code>PL-313</unk_1_2_1_1:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 3.1.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Kraj -->
+            <xs:element name="Country" type="bdt:CountryIsoCodeType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_1_2_1_1:plName>Kraj</unk_1_2_1_1:plName>
+                        <unk_1_2_1_1:code>PL-037</unk_1_2_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Kod kraju zgodny z ISO 3166-1 alpha-2</xs:documentation>
+                    <xs:documentation xml:lang="en">Country code in accordance with ISO 3166-1 alpha-2</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Miejscowość -->
+            <xs:element name="CityName" type="bdt:String50_Type" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_1_2_1_1:plName>Miejscowość</unk_1_2_1_1:plName>
+                        <unk_1_2_1_1:code>PL-038</unk_1_2_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Nazwa miejscowości</xs:documentation>
+                    <xs:documentation xml:lang="en">Name of city</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Czy zastosowano podział na ulice? -->
+            <xs:element name="IsStreetSeparationPresent" type="xs:boolean" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_1_2_1_1:plName>Czy zastosowano podział na ulice?</unk_1_2_1_1:plName>
+                        <unk_1_2_1_1:code>PL-559</unk_1_2_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Określenie, czy dla danego adresu Użytkownika KSE w miejscowości zastosowano podział na ulice.</xs:documentation>
+                    <xs:documentation xml:lang="en">Determination whether street division is applicable for this KSE User address.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Czy ulica zgodna z TERYT? -->
+            <xs:element name="IsStreetTerytCodeAvailable" type="xs:boolean" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_1_2_1_1:plName>Czy ulica zgodna z TERYT?</unk_1_2_1_1:plName>
+                        <unk_1_2_1_1:code>PL-585</unk_1_2_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Określenie, czy dla danej ulicy istnieje kod TERYT</xs:documentation>
+                    <xs:documentation xml:lang="en">Determines whether a TERYT code exists for a given street</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Kod pocztowy -->
+            <xs:element name="PostalCode" type="bdt:String10_Type" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_1_2_1_1:plName>Kod pocztowy</unk_1_2_1_1:plName>
+                        <unk_1_2_1_1:code>PL-039</unk_1_2_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Kod pocztowy</xs:documentation>
+                    <xs:documentation xml:lang="en">Postal code</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Ulica -->
+            <xs:element name="StreetName" type="bdt:String100_Type" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_1_2_1_1:plName>Ulica</unk_1_2_1_1:plName>
+                        <unk_1_2_1_1:code>PL-040</unk_1_2_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Nazwa ulicy albo nazwa miejscowości, w przypadku miejscowości bez zastosowanego podziału na ulice. Wprowadzona nazwa musi być zgodna z założeniami dla bazy adresowej TERYT, przy uwzględnieniu zasad implementacji słowników w zakresie katalogu ULIC. Jeżeli wynik połączenia cecha + nazwa_2 + nazwa_1 rozpoczyna się "ul. " lub "ulica " to należy umieścić nazwę ulicy z pominięciem wskazanych przedrostków.</xs:documentation>
+                    <xs:documentation xml:lang="en">The name of the street or the name of the city, in the case of a city without street division. The entered name must be consistent with the TERYT address database, taking into account the rules of master data implementation for the ULIC database. If the result of the combination of prefix + name_2 + name_1 begins with "ul. " or "ulica " then the street name must be included without those prefixes.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Nr budynku -->
+            <xs:element name="BuildingNumber" type="bdt:String10_Type" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_1_2_1_1:plName>Nr budynku</unk_1_2_1_1:plName>
+                        <unk_1_2_1_1:code>PL-041</unk_1_2_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Numer budynku</xs:documentation>
+                    <xs:documentation xml:lang="en">Building number</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Nr lokalu/ mieszkania -->
+            <xs:element name="ApartmentNumber" type="bdt:String10_Type" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_1_2_1_1:plName>Nr lokalu/ mieszkania</unk_1_2_1_1:plName>
+                        <unk_1_2_1_1:code>PL-042</unk_1_2_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Numer lokalu/mieszkania</xs:documentation>
+                    <xs:documentation xml:lang="en">Premises/apartment number</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Nr działki -->
+            <xs:element name="PlotNumber" type="bdt:String100_Type" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_1_2_1_1:plName>Nr działki</unk_1_2_1_1:plName>
+                        <unk_1_2_1_1:code>PL-043</unk_1_2_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Numer działki (w przypadku braku nazwy ulicy lub numeru budynku).</xs:documentation>
+                    <xs:documentation xml:lang="en">Parcel number (in case there is no street name or building number).</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- TERYT -->
+            <xs:element name="Teryt" type="bdt:TerytType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_1_2_1_1:plName>TERYT</unk_1_2_1_1:plName>
+                        <unk_1_2_1_1:code>PL-044</unk_1_2_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Zgodny z Krajowym Rejestrem TERYT typy centralny katalog ulic (ULIC).</xs:documentation>
+                    <xs:documentation xml:lang="en">Compliant with the National TERYT Register types central street directory (ULIC).</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Dane Użytkownika KSE - korespondencyjne                                                                                                      ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="KseUserData_MailingAddress" type="unk_1_2_1_1:KseUserData_MailingAddress"/>
+    <xs:complexType name="KseUserData_MailingAddress">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_1_2_1_1:plName>Dane Użytkownika KSE - korespondencyjne</unk_1_2_1_1:plName>
+                <unk_1_2_1_1:code>PL-314</unk_1_2_1_1:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 3.2.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Nazwa adresata -->
+            <xs:element name="RecipientName" type="bdt:String250_Type" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_1_2_1_1:plName>Nazwa adresata</unk_1_2_1_1:plName>
+                        <unk_1_2_1_1:code>PL-054</unk_1_2_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Nazwa adresata dla adresu do korespondencji</xs:documentation>
+                    <xs:documentation xml:lang="en">Addressee name for mailing address</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Kraj -->
+            <xs:element name="Country" type="bdt:CountryIsoCodeType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_1_2_1_1:plName>Kraj</unk_1_2_1_1:plName>
+                        <unk_1_2_1_1:code>PL-045</unk_1_2_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Kod kraju zgodny z ISO 3166-1 alpha-2</xs:documentation>
+                    <xs:documentation xml:lang="en">Country code in accordance with ISO 3166-1 alpha-2</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Miejscowość -->
+            <xs:element name="CityName" type="bdt:String50_Type" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_1_2_1_1:plName>Miejscowość</unk_1_2_1_1:plName>
+                        <unk_1_2_1_1:code>PL-046</unk_1_2_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Nazwa miejscowości</xs:documentation>
+                    <xs:documentation xml:lang="en">Name of city</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Czy zastosowano podział na ulice? -->
+            <xs:element name="IsStreetSeparationPresent" type="xs:boolean" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_1_2_1_1:plName>Czy zastosowano podział na ulice?</unk_1_2_1_1:plName>
+                        <unk_1_2_1_1:code>PL-560</unk_1_2_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Określenie, czy dla danego adresu Użytkownika KSE w miejscowości zastosowano podział na ulice.</xs:documentation>
+                    <xs:documentation xml:lang="en">Determination whether street division is applicable for this KSE User address.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Czy ulica zgodna z TERYT? -->
+            <xs:element name="IsStreetTerytCodeAvailable" type="xs:boolean" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_1_2_1_1:plName>Czy ulica zgodna z TERYT?</unk_1_2_1_1:plName>
+                        <unk_1_2_1_1:code>PL-586</unk_1_2_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Określenie, czy dla danej ulicy istnieje kod TERYT</xs:documentation>
+                    <xs:documentation xml:lang="en">Determines whether a TERYT code exists for a given street</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Kod pocztowy -->
+            <xs:element name="PostalCode" type="bdt:String10_Type" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_1_2_1_1:plName>Kod pocztowy</unk_1_2_1_1:plName>
+                        <unk_1_2_1_1:code>PL-047</unk_1_2_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Kod pocztowy</xs:documentation>
+                    <xs:documentation xml:lang="en">Postal code</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Ulica -->
+            <xs:element name="StreetName" type="bdt:String100_Type" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_1_2_1_1:plName>Ulica</unk_1_2_1_1:plName>
+                        <unk_1_2_1_1:code>PL-048</unk_1_2_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Nazwa ulicy albo nazwa miejscowości, w przypadku miejscowości bez zastosowanego podziału na ulice. Wprowadzona nazwa musi być zgodna z założeniami dla bazy adresowej TERYT, przy uwzględnieniu zasad implementacji słowników w zakresie katalogu ULIC. Jeżeli wynik połączenia cecha + nazwa_2 + nazwa_1 rozpoczyna się "ul. " lub "ulica " to należy umieścić nazwę ulicy z pominięciem wskazanych przedrostków.</xs:documentation>
+                    <xs:documentation xml:lang="en">The name of the street or the name of the city, in the case of a city without street division. The entered name must be consistent with the TERYT address database, taking into account the rules of master data implementation for the ULIC database. If the result of the combination of prefix + name_2 + name_1 begins with "ul. " or "ulica " then the street name must be included without those prefixes.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Nr budynku -->
+            <xs:element name="BuildingNumber" type="bdt:String10_Type" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_1_2_1_1:plName>Nr budynku</unk_1_2_1_1:plName>
+                        <unk_1_2_1_1:code>PL-049</unk_1_2_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Numer budynku</xs:documentation>
+                    <xs:documentation xml:lang="en">Building number</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Nr lokalu/ mieszkania -->
+            <xs:element name="ApartmentNumber" type="bdt:String10_Type" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_1_2_1_1:plName>Nr lokalu/ mieszkania</unk_1_2_1_1:plName>
+                        <unk_1_2_1_1:code>PL-050</unk_1_2_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Numer lokalu/mieszkania</xs:documentation>
+                    <xs:documentation xml:lang="en">Premises/apartment number</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Nr działki -->
+            <xs:element name="PlotNumber" type="bdt:String100_Type" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_1_2_1_1:plName>Nr działki</unk_1_2_1_1:plName>
+                        <unk_1_2_1_1:code>PL-051</unk_1_2_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Numer działki (w przypadku braku nazwy ulicy lub numeru budynku).</xs:documentation>
+                    <xs:documentation xml:lang="en">Parcel number (in case there is no street name or building number).</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- TERYT -->
+            <xs:element name="Teryt" type="bdt:TerytType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_1_2_1_1:plName>TERYT</unk_1_2_1_1:plName>
+                        <unk_1_2_1_1:code>PL-052</unk_1_2_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Zgodny z Krajowym Rejestrem TERYT typy centralny katalog ulic (ULIC).</xs:documentation>
+                    <xs:documentation xml:lang="en">Compliant with the National TERYT Register types central street directory (ULIC).</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Dane Użytkownika KSE - dodatkowe                                                                                                             ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="KseUserData_Additional" type="unk_1_2_1_1:KseUserData_Additional"/>
+    <xs:complexType name="KseUserData_Additional">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_1_2_1_1:plName>Dane Użytkownika KSE - dodatkowe</unk_1_2_1_1:plName>
+                <unk_1_2_1_1:code>PL-315</unk_1_2_1_1:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 3.3.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Adres email dla OSD -->
+            <xs:element name="DsoEmailAddress" type="bdt:EmailType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_1_2_1_1:plName>Adres email dla OSD</unk_1_2_1_1:plName>
+                        <unk_1_2_1_1:code>PL-035</unk_1_2_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Adres poczty elektronicznej, wykorzystywany do realizacji usług dystrybucji na podstawie zawartej UK (między innymi planowane wznowienia dostaw).</xs:documentation>
+                    <xs:documentation xml:lang="en">E-mail address, used for the execution of distribution services under the concluded UK (among other things, planned resumption of supply).</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Nr telefonu dla OSD -->
+            <xs:element name="DsoPhoneNumber" type="bdt:PhoneNumberType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_1_2_1_1:plName>Nr telefonu dla OSD</unk_1_2_1_1:plName>
+                        <unk_1_2_1_1:code>PL-036</unk_1_2_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Numer telefonu kontaktowego, wykorzystywany do realizacji usług dystrybucji na podstawie zawartej UK (między innymi planowane wznowienia dostaw).</xs:documentation>
+                    <xs:documentation xml:lang="en">Contact telephone number, used for distribution services under the concluded UK (among other things, planned resumption of supply).</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Dane Użytkownika KSE - podstawowe                                                                                                            ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="KseUserData_Primary" type="unk_1_2_1_1:KseUserData_Primary"/>
+    <xs:complexType name="KseUserData_Primary">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_1_2_1_1:plName>Dane Użytkownika KSE - podstawowe</unk_1_2_1_1:plName>
+                <unk_1_2_1_1:code>PL-311</unk_1_2_1_1:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 4.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Typ Użytkownika KSE -->
+            <xs:element name="KseUserType" type="bdt:KseUserType_Type" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_1_2_1_1:plName>Typ Użytkownika KSE</unk_1_2_1_1:plName>
+                        <unk_1_2_1_1:code>PL-024</unk_1_2_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Określenie typu Użytkownika KSE wprowadzonego do Punktu pomiarowego.</xs:documentation>
+                    <xs:documentation xml:lang="en">Determination of the type of the KSE User entered in the Metering Point.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Dane Użytkownika KSE - identyfikacyjne -->
+            <xs:element name="KseUserData_Identifiers" type="unk_1_2_1_1:KseUserData_Identifiers" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_1_2_1_1:plName>Dane Użytkownika KSE - identyfikacyjne</unk_1_2_1_1:plName>
+                        <unk_1_2_1_1:code>PL-312</unk_1_2_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 4.1.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Dane Użytkownika KSE - identyfikacyjne                                                                                                       ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="KseUserData_Identifiers" type="unk_1_2_1_1:KseUserData_Identifiers"/>
+    <xs:complexType name="KseUserData_Identifiers">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_1_2_1_1:plName>Dane Użytkownika KSE - identyfikacyjne</unk_1_2_1_1:plName>
+                <unk_1_2_1_1:code>PL-312</unk_1_2_1_1:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 4.1.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- PESEL -->
+            <xs:element name="Pesel" type="bdt:PeselType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_1_2_1_1:plName>PESEL</unk_1_2_1_1:plName>
+                        <unk_1_2_1_1:code>PL-028</unk_1_2_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Numer PESEL identyfikujący użytkownika.</xs:documentation>
+                    <xs:documentation xml:lang="en">PESEL number identifying the user.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- NIP -->
+            <xs:element name="Nip" type="bdt:NipType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_1_2_1_1:plName>NIP</unk_1_2_1_1:plName>
+                        <unk_1_2_1_1:code>PL-029</unk_1_2_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Numer NIP identyfikujący użytkownika.</xs:documentation>
+                    <xs:documentation xml:lang="en">NIP number identifying the user.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- KRS -->
+            <xs:element name="Krs" type="bdt:KrsType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_1_2_1_1:plName>KRS</unk_1_2_1_1:plName>
+                        <unk_1_2_1_1:code>PL-030</unk_1_2_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Numer KRS identyfikujący użytkownika.</xs:documentation>
+                    <xs:documentation xml:lang="en">KRS number identifying the user.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Typ identyfikatora -->
+            <xs:element name="IdentifierType" type="bdt:UserIdentifierType_Type" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_1_2_1_1:plName>Typ identyfikatora</unk_1_2_1_1:plName>
+                        <unk_1_2_1_1:code>PL-032</unk_1_2_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sposób nadania identyfikatora osobie fizycznej nierezydent lub rezydent bez PESEL.</xs:documentation>
+                    <xs:documentation xml:lang="en">The method of assigning an identifier to an individual non-resident or resident without PESEL.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Inny identyfikator osoby fizycznej -->
+            <xs:element name="CustomKseUserIdentifier" type="bdt:IdentityDocumentNumberType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_1_2_1_1:plName>Inny identyfikator osoby fizycznej</unk_1_2_1_1:plName>
+                        <unk_1_2_1_1:code>PL-033</unk_1_2_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Identyfikator użytkownika, dla którego nie jest znany PESEL. W przypadku nadania numeru przez Operatora, struktura identyfikatora powinna wyglądać następująco: [EIC] [UKSE] [UNIKATOWE_DOPEŁNIENIE_W_FORMACIE_12345678901]</xs:documentation>
+                    <xs:documentation xml:lang="en">Identification for a KSE user without PESEL. The identifier structure should look as follows: [EIC] [UKSE] [UNIQUE_ADDENDUM_IN_FORMAT_12345678901].</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Global NIP -->
+            <xs:element name="GlobalTaxIdentification" type="bdt:GlobalTaxIdentificationType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_1_2_1_1:plName>Global NIP</unk_1_2_1_1:plName>
+                        <unk_1_2_1_1:code>PL-034</unk_1_2_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Numer identyfikujący użytkownika typu jednostka organizacyjna nieposiadająca numeru NIP, w tym nierezydent.</xs:documentation>
+                    <xs:documentation xml:lang="en">Number identifying the user of the type organizational entity without NIP identifier (e.g. non-resident).</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Parametry handlowe - ogólne                                                                                                                  ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="BusinessData_Basic" type="unk_1_2_1_1:BusinessData_Basic"/>
+    <xs:complexType name="BusinessData_Basic">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_1_2_1_1:plName>Parametry handlowe - ogólne</unk_1_2_1_1:plName>
+                <unk_1_2_1_1:code>PL-316</unk_1_2_1_1:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 5.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Zgoda na udostępnienie rzeczywistego profilu zużycia SE -->
+            <xs:element name="HasConsumptionProfileConsent" type="xs:boolean" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_1_2_1_1:plName>Zgoda na udostępnienie rzeczywistego profilu zużycia SE</unk_1_2_1_1:plName>
+                        <unk_1_2_1_1:code>PL-067</unk_1_2_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Zgoda wyrażona przez odbiorcę na rzecz Sprzedawcy lub wynikająca z regulacji prawnych dotycząca udostępniania rzeczywistego profilu zużycia energii elektrycznej dla PPE. Dotyczy tylko przypadków, gdy Użytkownikiem KSE jest Odbiorca jako osoba fizyczna.</xs:documentation>
+                    <xs:documentation xml:lang="en">Consent expressed by the customer to the Energy Supplier or resulting from legal regulations regarding the release of the actual electricity consumption profile for the PPE. Applies only when the KSE User is the Customer as an individual.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Szacowany wolumen roczny -->
+            <xs:element name="EstimatedAnnualVolume" type="bdt:EstimatedAnnualVolumeType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_1_2_1_1:plName>Szacowany wolumen roczny</unk_1_2_1_1:plName>
+                        <unk_1_2_1_1:code>PL-068</unk_1_2_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Szacowana lub deklarowana wartość średniorocznego zapotrzebowania na energię, wyrażona w [kWh].</xs:documentation>
+                    <xs:documentation xml:lang="en">The estimated or declared value of the average annual energy demand, expressed in [kWh].</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Możliwość wstrzymania windykacyjnego -->
+            <xs:element name="CanBeSuspendedForDebtCollection" type="xs:boolean" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_1_2_1_1:plName>Możliwość wstrzymania windykacyjnego</unk_1_2_1_1:plName>
+                        <unk_1_2_1_1:code>PL-055</unk_1_2_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Określenie, czy dla danego Punktu poboru energii dopuszczalne jest wstrzymywanie dostaw energii.</xs:documentation>
+                    <xs:documentation xml:lang="en">Determination whether withholding of energy supply is allowed for a given Energy Point.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Parametry handlowe - umowa kompleksowa                                                                                                       ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="BusinessData_ComplexAgreement" type="unk_1_2_1_1:BusinessData_ComplexAgreement"/>
+    <xs:complexType name="BusinessData_ComplexAgreement">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_1_2_1_1:plName>Parametry handlowe - umowa kompleksowa</unk_1_2_1_1:plName>
+                <unk_1_2_1_1:code>PL-322</unk_1_2_1_1:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 6.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Data rozpoczęcia -->
+            <xs:element name="StartDate" type="xs:date" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_1_2_1_1:plName>Data rozpoczęcia</unk_1_2_1_1:plName>
+                        <unk_1_2_1_1:code>PL-271</unk_1_2_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Data przypisania UK do charakterystyki PP.</xs:documentation>
+                    <xs:documentation xml:lang="en">Date of assignment of UK to MP characteristics.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Okres rozliczeniowy sprzedawcy -->
+            <xs:element name="SupplierBillingPeriod" type="bdt:String100_Type" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_1_2_1_1:plName>Okres rozliczeniowy sprzedawcy</unk_1_2_1_1:plName>
+                        <unk_1_2_1_1:code>PL-342</unk_1_2_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Okres rozliczeniowy dot. umowy obrotu.</xs:documentation>
+                    <xs:documentation xml:lang="en">Billing period regarding the trading agreement.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Okres wypowiedzenia -->
+            <xs:element name="NoticePeriod" type="bdt:String30_Type" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_1_2_1_1:plName>Okres wypowiedzenia</unk_1_2_1_1:plName>
+                        <unk_1_2_1_1:code>PL-272</unk_1_2_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Okres wypowiedzenia UK</xs:documentation>
+                    <xs:documentation xml:lang="en">Termination period UK</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Terminowość -->
+            <xs:element name="EndDateType" type="bdt:EndDateType_Type" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_1_2_1_1:plName>Terminowość</unk_1_2_1_1:plName>
+                        <unk_1_2_1_1:code>PL-273</unk_1_2_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Wskazanie, czy umowa kompleksowa została zawarta na określony czas.</xs:documentation>
+                    <xs:documentation xml:lang="en">Indication of whether the comprehensive agreement was concluded for a specified period of time.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Termin zakończenia określony w umowie -->
+            <xs:element name="ExpectedEndDate" type="xs:date" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_1_2_1_1:plName>Termin zakończenia określony w umowie</unk_1_2_1_1:plName>
+                        <unk_1_2_1_1:code>PL-274</unk_1_2_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Przewidywana data zakończenia UK, która została określona w umowie (włącznie).</xs:documentation>
+                    <xs:documentation xml:lang="en">Anticipated date of termination of UK, which was specified in the agreement (inclusive).</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Okres rozliczeniowy -->
+            <xs:element name="BillingPeriod" type="bdt:BillingPeriod_Type" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_1_2_1_1:plName>Okres rozliczeniowy</unk_1_2_1_1:plName>
+                        <unk_1_2_1_1:code>PL-275</unk_1_2_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Okres rozliczeniowy usług dystrybucji - zgodny z okresem rozliczeniowym Operatora.</xs:documentation>
+                    <xs:documentation xml:lang="en">Billing period for distribution services - consistent with the Operator's billing period.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Funkcja przedpłaty -->
+            <xs:element name="HasPrepayment" type="xs:boolean" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_1_2_1_1:plName>Funkcja przedpłaty</unk_1_2_1_1:plName>
+                        <unk_1_2_1_1:code>PL-173</unk_1_2_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Określenie, czy dla danego PP sprzedawca świadczy usługę kompleksową na zasadach przedpłaty.</xs:documentation>
+                    <xs:documentation xml:lang="en">Determine whether, for a given MP, the supplier provides comprehensive service on a prepaid basis.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Parametry handlowe - dodatkowe US/UK -->
+            <xs:element name="BusinessData_SupplyAndComplexAgreement" type="unk_1_2_1_1:BusinessData_SupplyAndComplexAgreement" minOccurs="1" maxOccurs="5">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_1_2_1_1:plName>Parametry handlowe - dodatkowe US/UK</unk_1_2_1_1:plName>
+                        <unk_1_2_1_1:code>PL-319</unk_1_2_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 6.1.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Parametry handlowe - dodatkowe US/UK                                                                                                         ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="BusinessData_SupplyAndComplexAgreement" type="unk_1_2_1_1:BusinessData_SupplyAndComplexAgreement"/>
+    <xs:complexType name="BusinessData_SupplyAndComplexAgreement">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_1_2_1_1:plName>Parametry handlowe - dodatkowe US/UK</unk_1_2_1_1:plName>
+                <unk_1_2_1_1:code>PL-319</unk_1_2_1_1:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 6.1.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Warunki produktu -->
+            <xs:element name="ProductTerms" type="bdt:ProductTermsType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_1_2_1_1:plName>Warunki produktu</unk_1_2_1_1:plName>
+                        <unk_1_2_1_1:code>PL-495</unk_1_2_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Określenie warunków umowy zawartej z odbiorcą:
+CK0715 - oznacza wyłącznie taryfę, która jest zatwierdzana przez Prezesa Urzędu Regulacji Energetyki;
+CK0716 - oznacza specjalny cennik wykorzystywany wobec konsumentów znajdujących się w trudnej sytuacji materialnej;
+CK0717 - oznacza taryfę standardową lub podstawowy cennik sprzedawcy, który nie jest zatwierdzany przez Prezesa Urzędu Regulacji Energetyki;
+CK0718 - oznacza ofertę, zgodnie z którą przez określony czas cena energii nie ulegnie zmianie;
+CK0719 - oznacza ofertę, zgodnie z którą część energii rozliczana jest po cenie stałej, a część - po cenie zmiennej;
+CK0720 - oznacza ofertę opartą o ceny rynku spot;
+CK0721 - oznacza ofertę opartą o średnią cenę rynku hurtowego w określonym czasie;
+CK0722 - oznacza ofertę, zgodnie z którą cena za energię może ulegać zmianie, ale do określonego limitu;
+CK0723 - oznacza ofertę opartą o taryfę zatwierdzaną lub cennik standardowy z dodatkowym upustem procentowym;
+CK0724 - oznacza ofertę, zgodnie z którą zużyta energia pochodzi z odnawialnych źródeł energii lub jest kompensowana gwarancjami pochodzenia;
+CK0725 - oznacza ofertę, dotyczącą pochodzenia energii ze źródeł innych, niż odnawialne;
+CK0726 - oznacza ofertę, na podstawie której Użytkownik KSE otrzymuje dodatkowe korzyści od Sprzedawcy (np. w formie usług dodatkowych, bonów zakupowych, itp.);
+CK0727 - oznacza inną ofertę, niewymienioną w powyższych.</xs:documentation>
+                    <xs:documentation xml:lang="en">Determination of the terms of the agreement concluded with the customer.
+CK0715 - means only the tariff that is approved by the President of the Energy Regulatory Authority;
+CK0716 - means a special price list used with regard to financially disadvantaged consumers;
+CK0717 - means the supplier's standard tariff or basic price list that is not approved by the President of the Energy Regulatory Authority;
+CK0718 - means an offer according to which the price of energy will not change for a certain period of time;
+CK0719 - means an offer according to which part of the energy is billed at a fixed price and part is billed at a variable price;
+CK0720 - means an offer based on spot market prices;
+CK0721 - means an offer based on the average price of the wholesale market over a specified period of time;
+CK0722 - means an offer according to which the price for energy may change, but up to a certain limit;
+CK0723 - means an offer based on an approved tariff or standard price list with an additional percentage discount;
+CK0724 - means an offer according to which the energy consumed comes from renewable energy sources or is offset by guarantees of origin;
+CK0725 - means an offer, according to which the energy originates from non-renewable sources;
+CK0726 - means an offer pursuant to which the KSE User receives additional benefits from the Supplier (e.g., in the form of additional services, purchase vouchers, etc.);
+CK0727 - means any other offer not mentioned in the above.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Nazwa produktu -->
+            <xs:element name="ProductName" type="bdt:String100_Type" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_1_2_1_1:plName>Nazwa produktu</unk_1_2_1_1:plName>
+                        <unk_1_2_1_1:code>PL-343</unk_1_2_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Nazwa produktu, zgodna ze słownikiem SE.</xs:documentation>
+                    <xs:documentation xml:lang="en">Name of the product, in accordance with the ES dictionary.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Opis produktu -->
+            <xs:element name="ProductDescription" type="bdt:String250_Type" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_1_2_1_1:plName>Opis produktu</unk_1_2_1_1:plName>
+                        <unk_1_2_1_1:code>PL-344</unk_1_2_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Zwięzły opis szczegółowych warunków wpływających na rozliczenie odbiorcy.</xs:documentation>
+                    <xs:documentation xml:lang="en">Concise description of the detailed conditions affecting the billing of the customer.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Terminowość produktu -->
+            <xs:element name="EndDateType" type="bdt:EndDateType_Type" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_1_2_1_1:plName>Terminowość produktu</unk_1_2_1_1:plName>
+                        <unk_1_2_1_1:code>PL-133</unk_1_2_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Określenie, czy umowa zawiera produkt terminowy w postaci np. preferencyjnych warunków cenowych.</xs:documentation>
+                    <xs:documentation xml:lang="en">Determine whether the agreement includes a term product in the form of, for example, preferential pricing terms.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Przewidywana data zakończenia produktu -->
+            <xs:element name="ExpectedEndDate" type="xs:date" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_1_2_1_1:plName>Przewidywana data zakończenia produktu</unk_1_2_1_1:plName>
+                        <unk_1_2_1_1:code>PL-134</unk_1_2_1_1:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Przewidywana data zakończenia warunków produktu (włącznie).</xs:documentation>
+                    <xs:documentation xml:lang="en">Anticipated date of completion of product conditions (inclusive).</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

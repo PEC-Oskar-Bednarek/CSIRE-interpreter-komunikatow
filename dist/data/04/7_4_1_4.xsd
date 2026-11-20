@@ -1,0 +1,212 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:bdt="urn:pl:oire:businessDataTypes:v1" xmlns:tech="urn:pl:oire:technical:v1" xmlns:unk_7_4_1_4="urn:pl:oire:unk_7_4_1_4:v1" elementFormDefault="qualified" targetNamespace="urn:pl:oire:unk_7_4_1_4:v1">
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Wersja z 08.12.2025                                                                                                                          ==== -->
+    <!-- ====================================================================================================================================================== -->
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Import                                                                                                                                       ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:import namespace="urn:pl:oire:businessDataTypes:v1" schemaLocation="businessDataTypes.xsd"/>
+    <xs:import namespace="urn:pl:oire:technical:v1" schemaLocation="technical.xsd"/>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== 7.4.1.4. Powiadomienie o danych zagregowanych lub zbiorczych                                                                                 ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="AggregatedDataResponse" type="unk_7_4_1_4:AggregatedDataResponse"/>
+    <xs:complexType name="AggregatedDataResponse">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_7_4_1_4:plName>7.4.1.4. Powiadomienie o danych zagregowanych lub zbiorczych</unk_7_4_1_4:plName>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Nagłówek -->
+            <xs:element name="Header" type="tech:Header" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_4_1_4:plName>Nagłówek</unk_7_4_1_4:plName>
+                        <unk_7_4_1_4:code>PL-700</unk_7_4_1_4:code>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Kontekst -->
+            <xs:element name="ProcessEnergyContext" type="tech:ProcessEnergyContext" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_4_1_4:plName>Kontekst</unk_7_4_1_4:plName>
+                        <unk_7_4_1_4:code>PL-715</unk_7_4_1_4:code>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- 7.4.1.4. Payload Powiadomienie o danych zagregowanych lub zbiorczych -->
+            <xs:element name="Payload" type="unk_7_4_1_4:AggregatedDataResponsePayload" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_4_1_4:plName>7.4.1.4. Payload Powiadomienie o danych zagregowanych lub zbiorczych</unk_7_4_1_4:plName>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== 7.4.1.4. Payload Powiadomienie o danych zagregowanych lub zbiorczych                                                                         ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="AggregatedDataResponsePayload" type="unk_7_4_1_4:AggregatedDataResponsePayload"/>
+    <xs:complexType name="AggregatedDataResponsePayload">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_7_4_1_4:plName>7.4.1.4. Payload Powiadomienie o danych zagregowanych lub zbiorczych</unk_7_4_1_4:plName>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Pozostałe elementy komunikatu -->
+            <xs:element name="Miscellaneous" type="unk_7_4_1_4:Miscellaneous" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_4_1_4:plName>Pozostałe elementy komunikatu</unk_7_4_1_4:plName>
+                        <unk_7_4_1_4:code>PL-320</unk_7_4_1_4:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 1.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Informacje podstawowe -->
+            <xs:element name="BasicData" type="unk_7_4_1_4:BasicData" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_4_1_4:plName>Informacje podstawowe</unk_7_4_1_4:plName>
+                        <unk_7_4_1_4:code>PL-325</unk_7_4_1_4:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 2.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Dane zagregowane lub zbiorcze -->
+            <xs:element name="AggregatedData" type="unk_7_4_1_4:AggregatedData" minOccurs="1" maxOccurs="unbounded">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_4_1_4:plName>Dane zagregowane lub zbiorcze</unk_7_4_1_4:plName>
+                        <unk_7_4_1_4:code>PL-330</unk_7_4_1_4:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 3.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Pozostałe elementy komunikatu                                                                                                                ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="Miscellaneous" type="unk_7_4_1_4:Miscellaneous"/>
+    <xs:complexType name="Miscellaneous">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_7_4_1_4:plName>Pozostałe elementy komunikatu</unk_7_4_1_4:plName>
+                <unk_7_4_1_4:code>PL-320</unk_7_4_1_4:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 1.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- ID_instancji_procesu_referencyjnego -->
+            <xs:element name="ProcessInstanceId" type="bdt:UuidType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_4_1_4:plName>ID_instancji_procesu_referencyjnego</unk_7_4_1_4:plName>
+                        <unk_7_4_1_4:code>PL-002</unk_7_4_1_4:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Unikatowy kod instancji procesu referencyjnego komunikatu, nadawany przez CSIRE.</xs:documentation>
+                    <xs:documentation xml:lang="en">The unique process instance code of the message reference process, assigned by CSIRE.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Informacje podstawowe                                                                                                                        ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="BasicData" type="unk_7_4_1_4:BasicData"/>
+    <xs:complexType name="BasicData">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_7_4_1_4:plName>Informacje podstawowe</unk_7_4_1_4:plName>
+                <unk_7_4_1_4:code>PL-325</unk_7_4_1_4:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 2.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Typ produktu energetycznego -->
+            <xs:element name="ProductType" type="bdt:ProductType_Type" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_4_1_4:plName>Typ produktu energetycznego</unk_7_4_1_4:plName>
+                        <unk_7_4_1_4:code>PL-247</unk_7_4_1_4:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Określenie właściwego produktu energetycznego, zgodnie z listą. 
+W zakresie wskazania profilów pomiarowych, oznacza przekazanie danych profilowych bez uwzględnienia doliczeń/odliczeń, w odróżnieniu do wskazania profilów rozliczeniowego, który uwzględnia w prezentowanych wartościach straty energii elektrycznej lub doliczenia oraz odliczenia, zgodnie z parametrami umowy między Operatorem a Użytkownikiem KSE. 
+Produkt energetyczny: Energia pobrana (CK1125, CK1128), dotyczy wielkości pobranej z sieci elektroenergetycznej; Energia wprowadzona (CK1126, CK1129) dotyczy wielkości wprowadzonej do sieci.
+Produkt energetyczny: Bilans energii czynnej (CK1127, CK1130) dotyczy wielkości wyliczonej jako sumaryczne zbilansowanie w godzinie (t) ilości energii wprowadzonej do i pobranej z sieci z wszystkich faz. Wartości dodatnie (+) oznaczają energię pobraną z sieci, wartości ujemne bilansu energii czynnej (-) oznacza energię wprowadzoną do sieci.</xs:documentation>
+                    <xs:documentation xml:lang="en">Determination of the relevant energy product, according to the list. 
+In terms of the metering profiles measurements, means the transmission of profile data without taking into account additions/deductions, as opposed to the billing profiles measurements, which takes into account electricity losses or additions and deductions in the presented values, in accordance with the parameters of the agreement between the Operator and the KSE User.
+Energy product: Energy withdrawn (CK1125, CK1128), refers to the volume withdrawn from the power grid; Energy injected (CK1126, CK1129) refers to the volume injected into the grid.
+Energy product: Active energy balance (CK1127, CK1130) refers to the quantity calculated as the summed balance in hour (t) of the amount of energy injected into and withdrawn from the grid from all phases. Positive values (+) represent energy taken from the grid, negative values of the active energy balance (-) represent energy fed into the grid.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Dane zagregowane lub zbiorcze                                                                                                                ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="AggregatedData" type="unk_7_4_1_4:AggregatedData"/>
+    <xs:complexType name="AggregatedData">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_7_4_1_4:plName>Dane zagregowane lub zbiorcze</unk_7_4_1_4:plName>
+                <unk_7_4_1_4:code>PL-330</unk_7_4_1_4:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 3.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Data i czas okresu łączenia danych -->
+            <xs:element name="AggregationPeriodDateTime" type="xs:dateTime" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_4_1_4:plName>Data i czas okresu łączenia danych</unk_7_4_1_4:plName>
+                        <unk_7_4_1_4:code>PL-209</unk_7_4_1_4:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Określa datę i czas zużycia energii elektrycznej zgodnie z normą ISO 8601:2019, dla każdego okresu łączenia.</xs:documentation>
+                    <xs:documentation xml:lang="en">Specifies the date and time of electricity consumption according to ISO 8601:2019, for each connection period.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Wielkość produktu -->
+            <xs:element name="Result" type="bdt:AggregatedValueType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_4_1_4:plName>Wielkość produktu</unk_7_4_1_4:plName>
+                        <unk_7_4_1_4:code>PL-210</unk_7_4_1_4:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Określa zagregowane lub zbiorcze zużycie lub pobór w danym czasie.</xs:documentation>
+                    <xs:documentation xml:lang="en">Determines the aggregate or collective consumption or consumption at a given time.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Poprawność danych -->
+            <xs:element name="DataStatus" type="bdt:DataStatusType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_4_1_4:plName>Poprawność danych</unk_7_4_1_4:plName>
+                        <unk_7_4_1_4:code>PL-211</unk_7_4_1_4:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Określenie poprawności zagregowanych lub zbiorczych danych. E36 -Pewne oznacza, że żadna ze składowych wielkości agregowanych nie została oznaczona jako niepewna, CK0936 - Niepewne oznacza, że przynajmniej jedna z wielkości agregowanych byłą oznaczona jako zaburzona/niepewna.</xs:documentation>
+                    <xs:documentation xml:lang="en">Determination of the correctness of aggregated or collective data. E36 -Pure means that none of the component aggregate quantities were marked as uncertain, CK0936 - Uncertain means that at least one of the aggregate quantities was marked as disturbed/uncertain.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

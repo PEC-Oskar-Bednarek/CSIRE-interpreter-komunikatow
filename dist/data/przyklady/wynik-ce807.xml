@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<BatchResult xmlns="urn:pl:oire:message_R_9:v1" xmlns:tech="urn:pl:oire:technical:v1">
+  <Header>
+    <tech:MessageId>080cd234-5fd2-4eaf-b5a7-b10a923f1832</tech:MessageId>
+    <tech:MessageType>R_9</tech:MessageType>
+    <tech:MessageTypeResponsibleOrganization>260</tech:MessageTypeResponsibleOrganization>
+    <tech:MessageTimestamp>2026-11-18T08:43:15+01:00</tech:MessageTimestamp>
+    <tech:PhysicalSenderId>19X000000000001C</tech:PhysicalSenderId>
+    <tech:PhysicalSenderIdResponsibleOrganization>305</tech:PhysicalSenderIdResponsibleOrganization>
+    <tech:JuridicalSenderId>19X000000000001C</tech:JuridicalSenderId>
+    <tech:JuridicalSenderIdResponsibleOrganization>305</tech:JuridicalSenderIdResponsibleOrganization>
+    <tech:PhysicalRecipientId>19X000000000002A</tech:PhysicalRecipientId>
+    <tech:PhysicalRecipientIdResponsibleOrganization>305</tech:PhysicalRecipientIdResponsibleOrganization>
+    <tech:JuridicalRecipientId>19X000000000002A</tech:JuridicalRecipientId>
+    <tech:JuridicalRecipientIdResponsibleOrganization>305</tech:JuridicalRecipientIdResponsibleOrganization>
+  </Header>
+  <ProcessEnergyContext>
+    <tech:BusinessProcess>6.1.</tech:BusinessProcess>
+    <tech:BusinessProcessResponsibleOrganization>260</tech:BusinessProcessResponsibleOrganization>
+    <tech:SenderBusinessRoleIdentifier>CK0094</tech:SenderBusinessRoleIdentifier>
+    <tech:SenderBusinessRoleResponsibleOrganization>260</tech:SenderBusinessRoleResponsibleOrganization>
+    <tech:IndustryClassificationId>23</tech:IndustryClassificationId>
+    <tech:BusinessProcessMessageType>6.1.1.2.</tech:BusinessProcessMessageType>
+  </ProcessEnergyContext>
+  <Payload>
+    <BasicInfo>
+      <ProcessInstanceId>9b4d8b11-4a1c-4ca0-8739-951fab2a6276</ProcessInstanceId>
+      <BatchOperationResult>PARTIAL_OK</BatchOperationResult>
+    </BasicInfo>
+    <BatchOperationRecord>
+      <ReferenceTransactionId>00000000-0000-4000-8000-000000000101</ReferenceTransactionId>
+      <DataSubject>
+        <DataSubject>CK0150</DataSubject>
+      </DataSubject>
+      <MeteringPointData_Basic>
+        <MeteringPointCode>590123456789012000</MeteringPointCode>
+      </MeteringPointData_Basic>
+      <TransactionResult>
+        <ErrorCode>CE807</ErrorCode>
+        <ErrorDescription>Lista typów produktów energetycznych w profilu jest niezgodna z charakterystyką punktu pomiarowego.</ErrorDescription>
+      </TransactionResult>
+    </BatchOperationRecord>
+  </Payload>
+</BatchResult>

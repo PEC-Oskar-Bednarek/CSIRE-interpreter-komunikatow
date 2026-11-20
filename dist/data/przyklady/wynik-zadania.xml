@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<GenericInformationResultNotification xmlns="urn:pl:oire:unk_9_1_1_4:v1" xmlns:tech="urn:pl:oire:technical:v1">
+  <Header>
+    <tech:MessageId>00000000-0000-4000-8000-000000000108</tech:MessageId>
+    <tech:MessageType>9.1_3</tech:MessageType>
+    <tech:MessageTypeResponsibleOrganization>260</tech:MessageTypeResponsibleOrganization>
+    <tech:MessageTimestamp>2026-11-18T11:50:00+01:00</tech:MessageTimestamp>
+    <tech:PhysicalSenderId>19X000000000001C</tech:PhysicalSenderId>
+    <tech:PhysicalSenderIdResponsibleOrganization>305</tech:PhysicalSenderIdResponsibleOrganization>
+    <tech:JuridicalSenderId>19X000000000001C</tech:JuridicalSenderId>
+    <tech:JuridicalSenderIdResponsibleOrganization>305</tech:JuridicalSenderIdResponsibleOrganization>
+    <tech:PhysicalRecipientId>19X000000000002A</tech:PhysicalRecipientId>
+    <tech:PhysicalRecipientIdResponsibleOrganization>305</tech:PhysicalRecipientIdResponsibleOrganization>
+    <tech:JuridicalRecipientId>19X000000000002A</tech:JuridicalRecipientId>
+    <tech:JuridicalRecipientIdResponsibleOrganization>305</tech:JuridicalRecipientIdResponsibleOrganization>
+  </Header>
+  <ProcessEnergyContext>
+    <tech:BusinessProcess>9.1.</tech:BusinessProcess>
+    <tech:BusinessProcessResponsibleOrganization>260</tech:BusinessProcessResponsibleOrganization>
+    <tech:SenderBusinessRoleIdentifier>CK0094</tech:SenderBusinessRoleIdentifier>
+    <tech:SenderBusinessRoleResponsibleOrganization>260</tech:SenderBusinessRoleResponsibleOrganization>
+    <tech:IndustryClassificationId>23</tech:IndustryClassificationId>
+    <tech:BusinessProcessMessageType>9.1.1.4.</tech:BusinessProcessMessageType>
+  </ProcessEnergyContext>
+  <Payload>
+    <Miscellaneous>
+      <ProcessInstanceId>00000000-0000-4000-8000-000000000202</ProcessInstanceId>
+    </Miscellaneous>
+    <MeteringPointData_Operators/>
+    <MessageDetails>
+      <ResponseCode>CK0485</ResponseCode>
+      <ResponseJustification>Zweryfikowano dane w przykładowej sprawie. Informacje zostały potwierdzone.</ResponseJustification>
+    </MessageDetails>
+  </Payload>
+</GenericInformationResultNotification>

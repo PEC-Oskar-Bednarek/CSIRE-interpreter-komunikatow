@@ -1,0 +1,392 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:bdt="urn:pl:oire:businessDataTypes:v1" xmlns:msg_S="urn:pl:oire:message_S:v1" xmlns:tech="urn:pl:oire:technical:v1" elementFormDefault="qualified" targetNamespace="urn:pl:oire:message_S:v1">
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Wersja z 08.12.2025                                                                                                                          ==== -->
+    <!-- ====================================================================================================================================================== -->
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Import                                                                                                                                       ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:import namespace="urn:pl:oire:businessDataTypes:v1" schemaLocation="businessDataTypes.xsd"/>
+    <xs:import namespace="urn:pl:oire:technical:v1" schemaLocation="technical.xsd"/>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== S Komunikat specjalny                                                                                                                        ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="SpecialMessage" type="msg_S:SpecialMessage"/>
+    <xs:complexType name="SpecialMessage">
+        <xs:annotation>
+            <xs:appinfo>
+                <msg_S:plName>S Komunikat specjalny</msg_S:plName>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Nagłówek -->
+            <xs:element name="Header" type="tech:Header" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <msg_S:plName>Nagłówek</msg_S:plName>
+                        <msg_S:code>PL-700</msg_S:code>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Kontekst -->
+            <xs:element name="ProcessEnergyContext" type="tech:ProcessEnergyContext" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <msg_S:plName>Kontekst</msg_S:plName>
+                        <msg_S:code>PL-715</msg_S:code>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- S Payload Komunikat specjalny -->
+            <xs:element name="Payload" type="msg_S:SpecialMessagePayload" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <msg_S:plName>S Payload Komunikat specjalny</msg_S:plName>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== S Payload Komunikat specjalny                                                                                                                ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="SpecialMessagePayload" type="msg_S:SpecialMessagePayload"/>
+    <xs:complexType name="SpecialMessagePayload">
+        <xs:annotation>
+            <xs:appinfo>
+                <msg_S:plName>S Payload Komunikat specjalny</msg_S:plName>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Rekord operacji masowej -->
+            <xs:element name="Anomaly" type="msg_S:Anomaly" minOccurs="1" maxOccurs="unbounded">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <msg_S:plName>Rekord operacji masowej</msg_S:plName>
+                        <msg_S:code>PL-711</msg_S:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 1.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Rekord operacji masowej                                                                                                                      ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="Anomaly" type="msg_S:Anomaly"/>
+    <xs:complexType name="Anomaly">
+        <xs:annotation>
+            <xs:appinfo>
+                <msg_S:plName>Rekord operacji masowej</msg_S:plName>
+                <msg_S:code>PL-711</msg_S:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 1.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Identyfikator transakcji -->
+            <xs:element name="ReferenceTransactionId" type="bdt:UuidType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <msg_S:plName>Identyfikator transakcji</msg_S:plName>
+                        <msg_S:code>PL-710</msg_S:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Identyfikator rekordu nadawany przez Operatora, używany do korelacji rekordu żądania do rekordu wyniku</xs:documentation>
+                    <xs:documentation xml:lang="en">Identifier assigned by Operator, used for batch record identification</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Przedmiot danych -->
+            <xs:element name="DataSubject" type="msg_S:DataSubject" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <msg_S:plName>Przedmiot danych</msg_S:plName>
+                        <msg_S:code>PL-160</msg_S:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 1.1.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Pozostałe elementy komunikatu -->
+            <xs:element name="Miscellaneous" type="msg_S:Miscellaneous" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <msg_S:plName>Pozostałe elementy komunikatu</msg_S:plName>
+                        <msg_S:code>PL-320</msg_S:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 1.2.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Produkt energetyczny -->
+            <xs:element name="EnergyProduct" type="msg_S:EnergyProduct" minOccurs="0" maxOccurs="unbounded">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <msg_S:plName>Produkt energetyczny</msg_S:plName>
+                        <msg_S:code>PL-346</msg_S:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 1.3.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Przedmiot danych                                                                                                                             ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="DataSubject" type="msg_S:DataSubject"/>
+    <xs:complexType name="DataSubject">
+        <xs:annotation>
+            <xs:appinfo>
+                <msg_S:plName>Przedmiot danych</msg_S:plName>
+                <msg_S:code>PL-160</msg_S:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 1.1.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Przedmiot danych -->
+            <xs:element name="DataSubject" type="bdt:DataSubjectType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <msg_S:plName>Przedmiot danych</msg_S:plName>
+                        <msg_S:code>PL-161</msg_S:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Określa, czy przekazywane lub udostępniane dane pomiarowe dotyczą Punktu pomiarowego, czy obiektu pomiarowego.</xs:documentation>
+                    <xs:documentation xml:lang="en">Determines whether the transferred or shared metering data pertains to a Metering Point or a Metering Facility.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Dane PP - ogólne -->
+            <xs:element name="MeteringPointData_Basic" type="msg_S:MeteringPointData_Basic" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <msg_S:plName>Dane PP - ogólne</msg_S:plName>
+                        <msg_S:code>PL-300</msg_S:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 1.1.1.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Dane obiektu - ogólne -->
+            <xs:element name="FacilityData_Basic" type="msg_S:FacilityData_Basic" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <msg_S:plName>Dane obiektu - ogólne</msg_S:plName>
+                        <msg_S:code>PL-425</msg_S:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 1.1.2.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Dane PP - ogólne                                                                                                                             ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="MeteringPointData_Basic" type="msg_S:MeteringPointData_Basic"/>
+    <xs:complexType name="MeteringPointData_Basic">
+        <xs:annotation>
+            <xs:appinfo>
+                <msg_S:plName>Dane PP - ogólne</msg_S:plName>
+                <msg_S:code>PL-300</msg_S:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 1.1.1.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Kod PP -->
+            <xs:element name="MeteringPointCode" type="bdt:MeteringPointCodeType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <msg_S:plName>Kod PP</msg_S:plName>
+                        <msg_S:code>PL-001</msg_S:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Kod identyfikujący Punkt pomiarowy - zgodny ze standardem GS1.</xs:documentation>
+                    <xs:documentation xml:lang="en">Metering Point Identification Code - compliant with the GS1 standard.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Dane obiektu - ogólne                                                                                                                        ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="FacilityData_Basic" type="msg_S:FacilityData_Basic"/>
+    <xs:complexType name="FacilityData_Basic">
+        <xs:annotation>
+            <xs:appinfo>
+                <msg_S:plName>Dane obiektu - ogólne</msg_S:plName>
+                <msg_S:code>PL-425</msg_S:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 1.1.2.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Identyfikator obiektu -->
+            <xs:element name="FacilityIdentifier" type="bdt:FacilityIdentifierType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <msg_S:plName>Identyfikator obiektu</msg_S:plName>
+                        <msg_S:code>PL-424</msg_S:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Unikalny kod identyfikujący obiekt pomiarowy. Struktura Identyfikatora obiektu składa się z:
+1) kodu EIC (np. 19X000000000001C),
+2) oznaczenia przedmiotu identyfikacji (OP - obiektu pomiarowego),
+3) unikalnego dopełnienia nadawanego przez Operatora (np. 11111111).</xs:documentation>
+                    <xs:documentation xml:lang="en">Unique code identifying the metering facility. The structure of the facility Identifier consists of:
+1) EIC code (e.g. 19X000000000001C),
+2) designation of the facility of identification (OP - measurement facility),
+3) a unique complement assigned by the Operator (e.g. 11111111).</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Pozostałe elementy komunikatu                                                                                                                ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="Miscellaneous" type="msg_S:Miscellaneous"/>
+    <xs:complexType name="Miscellaneous">
+        <xs:annotation>
+            <xs:appinfo>
+                <msg_S:plName>Pozostałe elementy komunikatu</msg_S:plName>
+                <msg_S:code>PL-320</msg_S:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 1.2.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- ID_instancji_procesu_referencyjnego -->
+            <xs:element name="ProcessInstanceId" type="bdt:UuidType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <msg_S:plName>ID_instancji_procesu_referencyjnego</msg_S:plName>
+                        <msg_S:code>PL-002</msg_S:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Unikatowy kod instancji procesu referencyjnego komunikatu, nadawany przez CSIRE.</xs:documentation>
+                    <xs:documentation xml:lang="en">The unique process instance code of the message reference process, assigned by CSIRE.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Typ komunikatu specjalnego -->
+            <xs:element name="SpecialMessageType" type="bdt:SpecialMesageType_Type" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <msg_S:plName>Typ komunikatu specjalnego</msg_S:plName>
+                        <msg_S:code>PL-501</msg_S:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Określenie, czego dotyczy komunikat specjalny.</xs:documentation>
+                    <xs:documentation xml:lang="en">Determine what the special message is about.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Kod anomalii -->
+            <xs:element name="AnomalyCode" type="bdt:String250_Type" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <msg_S:plName>Kod anomalii</msg_S:plName>
+                        <msg_S:code>PL-500</msg_S:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Kod wykrytej anomalii.</xs:documentation>
+                    <xs:documentation xml:lang="en">Code of detected anomaly.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Opis błędu -->
+            <xs:element name="ErrorDescription" type="bdt:String2000_Type" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <msg_S:plName>Opis błędu</msg_S:plName>
+                        <msg_S:code>PL-499</msg_S:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Opis błędu w formacie swobodnym.</xs:documentation>
+                    <xs:documentation xml:lang="en">Error description in free format.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Scenariusz macierzy priorytetyzacji -->
+            <xs:element name="PriorityMatrixScenario" type="bdt:PriorityMatrixScenarioType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <msg_S:plName>Scenariusz macierzy priorytetyzacji</msg_S:plName>
+                        <msg_S:code>PL-502</msg_S:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Doprecyzowanie, który scenariusz Macierzy priorytetyzacji spowodował odrzucenie komunikatu.</xs:documentation>
+                    <xs:documentation xml:lang="en">Clarification of which Prioritization Matrix scenario caused the message to be rejected.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Kod typu procesu biznesowego -->
+            <xs:element name="BusinessProcess" type="bdt:BusinessProcessType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <msg_S:plName>Kod typu procesu biznesowego</msg_S:plName>
+                        <msg_S:code>PL-716</msg_S:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Kod procesu, który spowodował odrzucenie w oparciu o macierz priorytetyzacji.</xs:documentation>
+                    <xs:documentation xml:lang="en">Code of the process that caused the rejection based on the prioritization matrix.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Czas początku okresu -->
+            <xs:element name="PeriodStart" type="xs:dateTime" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <msg_S:plName>Czas początku okresu</msg_S:plName>
+                        <msg_S:code>PL-179</msg_S:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Czas początku pierwszego wysyłanego interwału danych zużycia energii elektrycznej</xs:documentation>
+                    <xs:documentation xml:lang="en">Time of beginning of the first sent interval of electricity consumption data</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Czas końca okresu -->
+            <xs:element name="PeriodEnd" type="xs:dateTime" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <msg_S:plName>Czas końca okresu</msg_S:plName>
+                        <msg_S:code>PL-180</msg_S:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Czas końca ostatniego wysyłanego interwału danych zużycia energii elektrycznej</xs:documentation>
+                    <xs:documentation xml:lang="en">Time of end of the last sent interval of electricity consumption data</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Produkt energetyczny                                                                                                                         ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="EnergyProduct" type="msg_S:EnergyProduct"/>
+    <xs:complexType name="EnergyProduct">
+        <xs:annotation>
+            <xs:appinfo>
+                <msg_S:plName>Produkt energetyczny</msg_S:plName>
+                <msg_S:code>PL-346</msg_S:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 1.3.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Typ produktu energetycznego -->
+            <xs:element name="ProductType" type="bdt:ProductType_Type" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <msg_S:plName>Typ produktu energetycznego</msg_S:plName>
+                        <msg_S:code>PL-247</msg_S:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Określenie właściwego produktu energetycznego, zgodnie z listą. 
+W zakresie wskazania profilów pomiarowych, oznacza przekazanie danych profilowych bez uwzględnienia doliczeń/odliczeń, w odróżnieniu do wskazania profilów rozliczeniowego, który uwzględnia w prezentowanych wartościach straty energii elektrycznej lub doliczenia oraz odliczenia, zgodnie z parametrami umowy między Operatorem a Użytkownikiem KSE. 
+Produkt energetyczny: Energia pobrana (CK1125, CK1128), dotyczy wielkości pobranej z sieci elektroenergetycznej; Energia wprowadzona (CK1126, CK1129) dotyczy wielkości wprowadzonej do sieci.
+Produkt energetyczny: Bilans energii czynnej (CK1127, CK1130) dotyczy wielkości wyliczonej jako sumaryczne zbilansowanie w godzinie (t) ilości energii wprowadzonej do i pobranej z sieci z wszystkich faz. Wartości dodatnie (+) oznaczają energię pobraną z sieci, wartości ujemne bilansu energii czynnej (-) oznacza energię wprowadzoną do sieci.</xs:documentation>
+                    <xs:documentation xml:lang="en">Determination of the relevant energy product, according to the list. 
+In terms of the metering profiles measurements, means the transmission of profile data without taking into account additions/deductions, as opposed to the billing profiles measurements, which takes into account electricity losses or additions and deductions in the presented values, in accordance with the parameters of the agreement between the Operator and the KSE User.
+Energy product: Energy withdrawn (CK1125, CK1128), refers to the volume withdrawn from the power grid; Energy injected (CK1126, CK1129) refers to the volume injected into the grid.
+Energy product: Active energy balance (CK1127, CK1130) refers to the quantity calculated as the summed balance in hour (t) of the amount of energy injected into and withdrawn from the grid from all phases. Positive values (+) represent energy taken from the grid, negative values of the active energy balance (-) represent energy fed into the grid.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

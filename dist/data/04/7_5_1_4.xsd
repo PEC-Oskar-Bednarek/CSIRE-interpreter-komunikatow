@@ -1,0 +1,238 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:bdt="urn:pl:oire:businessDataTypes:v1" xmlns:tech="urn:pl:oire:technical:v1" xmlns:unk_7_5_1_4="urn:pl:oire:unk_7_5_1_4:v1" elementFormDefault="qualified" targetNamespace="urn:pl:oire:unk_7_5_1_4:v1">
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Wersja z 08.12.2025                                                                                                                          ==== -->
+    <!-- ====================================================================================================================================================== -->
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Import                                                                                                                                       ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:import namespace="urn:pl:oire:businessDataTypes:v1" schemaLocation="businessDataTypes.xsd"/>
+    <xs:import namespace="urn:pl:oire:technical:v1" schemaLocation="technical.xsd"/>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== 7.5.1.4. Żądanie realizacji dodatkowego odczytu danych pomiarowych                                                                           ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="AdditionalMeasurementRealisationRequest" type="unk_7_5_1_4:AdditionalMeasurementRealisationRequest"/>
+    <xs:complexType name="AdditionalMeasurementRealisationRequest">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_7_5_1_4:plName>7.5.1.4. Żądanie realizacji dodatkowego odczytu danych pomiarowych</unk_7_5_1_4:plName>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Nagłówek -->
+            <xs:element name="Header" type="tech:Header" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_5_1_4:plName>Nagłówek</unk_7_5_1_4:plName>
+                        <unk_7_5_1_4:code>PL-700</unk_7_5_1_4:code>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Kontekst -->
+            <xs:element name="ProcessEnergyContext" type="tech:ProcessEnergyContext" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_5_1_4:plName>Kontekst</unk_7_5_1_4:plName>
+                        <unk_7_5_1_4:code>PL-715</unk_7_5_1_4:code>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- 7.5.1.4. Payload Żądanie realizacji dodatkowego odczytu danych pomiarowych -->
+            <xs:element name="Payload" type="unk_7_5_1_4:AdditionalMeasurementRealisationRequestPayload" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_5_1_4:plName>7.5.1.4. Payload Żądanie realizacji dodatkowego odczytu danych pomiarowych</unk_7_5_1_4:plName>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== 7.5.1.4. Payload Żądanie realizacji dodatkowego odczytu danych pomiarowych                                                                   ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="AdditionalMeasurementRealisationRequestPayload" type="unk_7_5_1_4:AdditionalMeasurementRealisationRequestPayload"/>
+    <xs:complexType name="AdditionalMeasurementRealisationRequestPayload">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_7_5_1_4:plName>7.5.1.4. Payload Żądanie realizacji dodatkowego odczytu danych pomiarowych</unk_7_5_1_4:plName>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Przedmiot danych -->
+            <xs:element name="DataSubject" type="unk_7_5_1_4:DataSubject" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_5_1_4:plName>Przedmiot danych</unk_7_5_1_4:plName>
+                        <unk_7_5_1_4:code>PL-160</unk_7_5_1_4:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 1.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Pozostałe elementy komunikatu -->
+            <xs:element name="Miscellaneous" type="unk_7_5_1_4:Miscellaneous" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_5_1_4:plName>Pozostałe elementy komunikatu</unk_7_5_1_4:plName>
+                        <unk_7_5_1_4:code>PL-320</unk_7_5_1_4:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 2.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Przedmiot danych                                                                                                                             ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="DataSubject" type="unk_7_5_1_4:DataSubject"/>
+    <xs:complexType name="DataSubject">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_7_5_1_4:plName>Przedmiot danych</unk_7_5_1_4:plName>
+                <unk_7_5_1_4:code>PL-160</unk_7_5_1_4:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 1.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Przedmiot danych -->
+            <xs:element name="DataSubject" type="bdt:DataSubjectType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_5_1_4:plName>Przedmiot danych</unk_7_5_1_4:plName>
+                        <unk_7_5_1_4:code>PL-161</unk_7_5_1_4:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Określa, czy przekazywane lub udostępniane dane pomiarowe dotyczą Punktu pomiarowego, czy obiektu pomiarowego.</xs:documentation>
+                    <xs:documentation xml:lang="en">Determines whether the transferred or shared metering data pertains to a Metering Point or a Metering Facility.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Dane PP - ogólne -->
+            <xs:element name="MeteringPointData_Basic" type="unk_7_5_1_4:MeteringPointData_Basic" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_5_1_4:plName>Dane PP - ogólne</unk_7_5_1_4:plName>
+                        <unk_7_5_1_4:code>PL-300</unk_7_5_1_4:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 1.1.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Dane obiektu - ogólne -->
+            <xs:element name="FacilityData_Basic" type="unk_7_5_1_4:FacilityData_Basic" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_5_1_4:plName>Dane obiektu - ogólne</unk_7_5_1_4:plName>
+                        <unk_7_5_1_4:code>PL-425</unk_7_5_1_4:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 1.2.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Dane PP - ogólne                                                                                                                             ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="MeteringPointData_Basic" type="unk_7_5_1_4:MeteringPointData_Basic"/>
+    <xs:complexType name="MeteringPointData_Basic">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_7_5_1_4:plName>Dane PP - ogólne</unk_7_5_1_4:plName>
+                <unk_7_5_1_4:code>PL-300</unk_7_5_1_4:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 1.1.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Kod PP -->
+            <xs:element name="MeteringPointCode" type="bdt:MeteringPointCodeType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_5_1_4:plName>Kod PP</unk_7_5_1_4:plName>
+                        <unk_7_5_1_4:code>PL-001</unk_7_5_1_4:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Kod identyfikujący Punkt pomiarowy - zgodny ze standardem GS1.</xs:documentation>
+                    <xs:documentation xml:lang="en">Metering Point Identification Code - compliant with the GS1 standard.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Dane obiektu - ogólne                                                                                                                        ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="FacilityData_Basic" type="unk_7_5_1_4:FacilityData_Basic"/>
+    <xs:complexType name="FacilityData_Basic">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_7_5_1_4:plName>Dane obiektu - ogólne</unk_7_5_1_4:plName>
+                <unk_7_5_1_4:code>PL-425</unk_7_5_1_4:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 1.2.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Identyfikator obiektu -->
+            <xs:element name="FacilityIdentifier" type="bdt:FacilityIdentifierType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_5_1_4:plName>Identyfikator obiektu</unk_7_5_1_4:plName>
+                        <unk_7_5_1_4:code>PL-424</unk_7_5_1_4:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Unikalny kod identyfikujący obiekt pomiarowy. Struktura Identyfikatora obiektu składa się z:
+1) kodu EIC (np. 19X000000000001C),
+2) oznaczenia przedmiotu identyfikacji (OP - obiektu pomiarowego),
+3) unikalnego dopełnienia nadawanego przez Operatora (np. 11111111).</xs:documentation>
+                    <xs:documentation xml:lang="en">Unique code identifying the metering facility. The structure of the facility Identifier consists of:
+1) EIC code (e.g. 19X000000000001C),
+2) designation of the facility of identification (OP - measurement facility),
+3) a unique complement assigned by the Operator (e.g. 11111111).</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Pozostałe elementy komunikatu                                                                                                                ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="Miscellaneous" type="unk_7_5_1_4:Miscellaneous"/>
+    <xs:complexType name="Miscellaneous">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_7_5_1_4:plName>Pozostałe elementy komunikatu</unk_7_5_1_4:plName>
+                <unk_7_5_1_4:code>PL-320</unk_7_5_1_4:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 2.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- ID_instancji_procesu_referencyjnego -->
+            <xs:element name="ProcessInstanceId" type="bdt:UuidType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_5_1_4:plName>ID_instancji_procesu_referencyjnego</unk_7_5_1_4:plName>
+                        <unk_7_5_1_4:code>PL-002</unk_7_5_1_4:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Unikatowy kod instancji procesu referencyjnego komunikatu, nadawany przez CSIRE.</xs:documentation>
+                    <xs:documentation xml:lang="en">The unique process instance code of the message reference process, assigned by CSIRE.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Oczekiwana data i czas odczytu/wskazania -->
+            <xs:element name="MeasurementQueryDateTime" type="xs:dateTime" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_5_1_4:plName>Oczekiwana data i czas odczytu/wskazania</unk_7_5_1_4:plName>
+                        <unk_7_5_1_4:code>PL-139</unk_7_5_1_4:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Wskazanie daty i czasu dotyczącego oczekiwanego odczytu wskazań pomiarowych z licznika konwencjonalnego.</xs:documentation>
+                    <xs:documentation xml:lang="en">Indication of the date and time concerning the expected reading of measurement readings from the conventional meter.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

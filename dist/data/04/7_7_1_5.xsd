@@ -1,0 +1,842 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:bdt="urn:pl:oire:businessDataTypes:v1" xmlns:tech="urn:pl:oire:technical:v1" xmlns:unk_7_7_1_5="urn:pl:oire:unk_7_7_1_5:v1" elementFormDefault="qualified" targetNamespace="urn:pl:oire:unk_7_7_1_5:v1">
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Wersja z 08.12.2025                                                                                                                          ==== -->
+    <!-- ====================================================================================================================================================== -->
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Import                                                                                                                                       ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:import namespace="urn:pl:oire:businessDataTypes:v1" schemaLocation="businessDataTypes.xsd"/>
+    <xs:import namespace="urn:pl:oire:technical:v1" schemaLocation="technical.xsd"/>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== 7.7.1.5. Powiadomienie o rozliczeniu dodatkowym                                                                                              ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="AdditionalSettlementNotification" type="unk_7_7_1_5:AdditionalSettlementNotification"/>
+    <xs:complexType name="AdditionalSettlementNotification">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_7_7_1_5:plName>7.7.1.5. Powiadomienie o rozliczeniu dodatkowym</unk_7_7_1_5:plName>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Nagłówek -->
+            <xs:element name="Header" type="tech:Header" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_7_1_5:plName>Nagłówek</unk_7_7_1_5:plName>
+                        <unk_7_7_1_5:code>PL-700</unk_7_7_1_5:code>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Kontekst -->
+            <xs:element name="ProcessEnergyContext" type="tech:ProcessEnergyContext" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_7_1_5:plName>Kontekst</unk_7_7_1_5:plName>
+                        <unk_7_7_1_5:code>PL-715</unk_7_7_1_5:code>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- 7.7.1.5. Payload Powiadomienie o rozliczeniu dodatkowym -->
+            <xs:element name="Payload" type="unk_7_7_1_5:AdditionalSettlementNotificationPayload" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_7_1_5:plName>7.7.1.5. Payload Powiadomienie o rozliczeniu dodatkowym</unk_7_7_1_5:plName>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== 7.7.1.5. Payload Powiadomienie o rozliczeniu dodatkowym                                                                                      ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="AdditionalSettlementNotificationPayload" type="unk_7_7_1_5:AdditionalSettlementNotificationPayload"/>
+    <xs:complexType name="AdditionalSettlementNotificationPayload">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_7_7_1_5:plName>7.7.1.5. Payload Powiadomienie o rozliczeniu dodatkowym</unk_7_7_1_5:plName>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Rekord operacji masowej -->
+            <xs:element name="AdditionalSettlement" type="unk_7_7_1_5:AdditionalSettlement" minOccurs="1" maxOccurs="1000">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_7_1_5:plName>Rekord operacji masowej</unk_7_7_1_5:plName>
+                        <unk_7_7_1_5:code>PL-711</unk_7_7_1_5:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 1.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Rekord operacji masowej                                                                                                                      ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="AdditionalSettlement" type="unk_7_7_1_5:AdditionalSettlement"/>
+    <xs:complexType name="AdditionalSettlement">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_7_7_1_5:plName>Rekord operacji masowej</unk_7_7_1_5:plName>
+                <unk_7_7_1_5:code>PL-711</unk_7_7_1_5:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 1.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Identyfikator transakcji -->
+            <xs:element name="ReferenceTransactionId" type="bdt:UuidType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_7_1_5:plName>Identyfikator transakcji</unk_7_7_1_5:plName>
+                        <unk_7_7_1_5:code>PL-710</unk_7_7_1_5:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Identyfikator rekordu nadawany przez Operatora, używany do korelacji rekordu żądania do rekordu wyniku</xs:documentation>
+                    <xs:documentation xml:lang="en">Identifier assigned by Operator, used for batch record identification</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Pozostałe elementy komunikatu -->
+            <xs:element name="Miscellaneous" type="unk_7_7_1_5:Miscellaneous" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_7_1_5:plName>Pozostałe elementy komunikatu</unk_7_7_1_5:plName>
+                        <unk_7_7_1_5:code>PL-320</unk_7_7_1_5:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 1.1.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Przedmiot danych -->
+            <xs:element name="DataSubject" type="unk_7_7_1_5:DataSubject" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_7_1_5:plName>Przedmiot danych</unk_7_7_1_5:plName>
+                        <unk_7_7_1_5:code>PL-160</unk_7_7_1_5:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 1.2.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Informacje podstawowe -->
+            <xs:element name="BasicData" type="unk_7_7_1_5:BasicData" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_7_1_5:plName>Informacje podstawowe</unk_7_7_1_5:plName>
+                        <unk_7_7_1_5:code>PL-325</unk_7_7_1_5:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 1.3.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Bonifikata -->
+            <xs:element name="Discount" type="unk_7_7_1_5:Discount" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_7_1_5:plName>Bonifikata</unk_7_7_1_5:plName>
+                        <unk_7_7_1_5:code>PL-398</unk_7_7_1_5:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 1.4.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Opłata dodatkowa -->
+            <xs:element name="AdditionalFee" type="unk_7_7_1_5:AdditionalFee" minOccurs="0" maxOccurs="unbounded">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_7_1_5:plName>Opłata dodatkowa</unk_7_7_1_5:plName>
+                        <unk_7_7_1_5:code>PL-396</unk_7_7_1_5:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 1.5.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Pozostałe elementy komunikatu                                                                                                                ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="Miscellaneous" type="unk_7_7_1_5:Miscellaneous"/>
+    <xs:complexType name="Miscellaneous">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_7_7_1_5:plName>Pozostałe elementy komunikatu</unk_7_7_1_5:plName>
+                <unk_7_7_1_5:code>PL-320</unk_7_7_1_5:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 1.1.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- ID_instancji_procesu_referencyjnego -->
+            <xs:element name="ProcessInstanceId" type="bdt:UuidType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_7_1_5:plName>ID_instancji_procesu_referencyjnego</unk_7_7_1_5:plName>
+                        <unk_7_7_1_5:code>PL-002</unk_7_7_1_5:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Unikatowy kod instancji procesu referencyjnego komunikatu, nadawany przez CSIRE.</xs:documentation>
+                    <xs:documentation xml:lang="en">The unique process instance code of the message reference process, assigned by CSIRE.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Przedmiot danych                                                                                                                             ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="DataSubject" type="unk_7_7_1_5:DataSubject"/>
+    <xs:complexType name="DataSubject">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_7_7_1_5:plName>Przedmiot danych</unk_7_7_1_5:plName>
+                <unk_7_7_1_5:code>PL-160</unk_7_7_1_5:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 1.2.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Przedmiot danych -->
+            <xs:element name="DataSubject" type="bdt:DataSubjectType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_7_1_5:plName>Przedmiot danych</unk_7_7_1_5:plName>
+                        <unk_7_7_1_5:code>PL-161</unk_7_7_1_5:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Określa, czy przekazywane lub udostępniane dane pomiarowe dotyczą Punktu pomiarowego, czy obiektu pomiarowego.</xs:documentation>
+                    <xs:documentation xml:lang="en">Determines whether the transferred or shared metering data pertains to a Metering Point or a Metering Facility.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Dane PP - ogólne -->
+            <xs:element name="MeteringPointData_Basic" type="unk_7_7_1_5:MeteringPointData_Basic" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_7_1_5:plName>Dane PP - ogólne</unk_7_7_1_5:plName>
+                        <unk_7_7_1_5:code>PL-300</unk_7_7_1_5:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 1.2.1.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Dane obiektu - ogólne -->
+            <xs:element name="FacilityData_Basic" type="unk_7_7_1_5:FacilityData_Basic" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_7_1_5:plName>Dane obiektu - ogólne</unk_7_7_1_5:plName>
+                        <unk_7_7_1_5:code>PL-425</unk_7_7_1_5:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 1.2.2.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Dane PP - ogólne                                                                                                                             ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="MeteringPointData_Basic" type="unk_7_7_1_5:MeteringPointData_Basic"/>
+    <xs:complexType name="MeteringPointData_Basic">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_7_7_1_5:plName>Dane PP - ogólne</unk_7_7_1_5:plName>
+                <unk_7_7_1_5:code>PL-300</unk_7_7_1_5:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 1.2.1.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Kod PP -->
+            <xs:element name="MeteringPointCode" type="bdt:MeteringPointCodeType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_7_1_5:plName>Kod PP</unk_7_7_1_5:plName>
+                        <unk_7_7_1_5:code>PL-001</unk_7_7_1_5:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Kod identyfikujący Punkt pomiarowy - zgodny ze standardem GS1.</xs:documentation>
+                    <xs:documentation xml:lang="en">Metering Point Identification Code - compliant with the GS1 standard.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Dane obiektu - ogólne                                                                                                                        ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="FacilityData_Basic" type="unk_7_7_1_5:FacilityData_Basic"/>
+    <xs:complexType name="FacilityData_Basic">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_7_7_1_5:plName>Dane obiektu - ogólne</unk_7_7_1_5:plName>
+                <unk_7_7_1_5:code>PL-425</unk_7_7_1_5:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 1.2.2.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Identyfikator obiektu -->
+            <xs:element name="FacilityIdentifier" type="bdt:FacilityIdentifierType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_7_1_5:plName>Identyfikator obiektu</unk_7_7_1_5:plName>
+                        <unk_7_7_1_5:code>PL-424</unk_7_7_1_5:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Unikalny kod identyfikujący obiekt pomiarowy. Struktura Identyfikatora obiektu składa się z:
+1) kodu EIC (np. 19X000000000001C),
+2) oznaczenia przedmiotu identyfikacji (OP - obiektu pomiarowego),
+3) unikalnego dopełnienia nadawanego przez Operatora (np. 11111111).</xs:documentation>
+                    <xs:documentation xml:lang="en">Unique code identifying the metering facility. The structure of the facility Identifier consists of:
+1) EIC code (e.g. 19X000000000001C),
+2) designation of the facility of identification (OP - measurement facility),
+3) a unique complement assigned by the Operator (e.g. 11111111).</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Informacje podstawowe                                                                                                                        ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="BasicData" type="unk_7_7_1_5:BasicData"/>
+    <xs:complexType name="BasicData">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_7_7_1_5:plName>Informacje podstawowe</unk_7_7_1_5:plName>
+                <unk_7_7_1_5:code>PL-325</unk_7_7_1_5:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 1.3.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Data i czas dokonania rozliczenia -->
+            <xs:element name="BillingDateTime" type="xs:dateTime" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_7_1_5:plName>Data i czas dokonania rozliczenia</unk_7_7_1_5:plName>
+                        <unk_7_7_1_5:code>PL-178</unk_7_7_1_5:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Data i czas dokonania rozliczenia.</xs:documentation>
+                    <xs:documentation xml:lang="en">Date and time of billing.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- ID_rozliczenia -->
+            <xs:element name="BillingIdentifier" type="bdt:String50_Type" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_7_1_5:plName>ID_rozliczenia</unk_7_7_1_5:plName>
+                        <unk_7_7_1_5:code>PL-226</unk_7_7_1_5:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Unikatowy identyfikator rozliczenia danego PPE, nadawany przez OSD.</xs:documentation>
+                    <xs:documentation xml:lang="en">The unique identifier of the billing of a given PPE, assigned by the DSO.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- ID_rozliczenia_wzajemnego_OSD-SE -->
+            <xs:element name="DsoSupplierSettlementIdentifier" type="bdt:String50_Type" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_7_1_5:plName>ID_rozliczenia_wzajemnego_OSD-SE</unk_7_7_1_5:plName>
+                        <unk_7_7_1_5:code>PL-224</unk_7_7_1_5:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Identyfikator dokumentu (faktury zbiorczej/zagregowanej lub noty uznaniowej), wystawianej przez Operatora dla SE z tytułu usług dystrybucyjnych świadczonych przez Operatora na rzecz Użytkowników z którymi SE ma zawarte umowy kompleksowe, w którym uwzględnione jest dane rozliczenie</xs:documentation>
+                    <xs:documentation xml:lang="en">Identifier of the document (summary/aggregate invoice or credit note), issued by the Operator to the Energy Supplier for distribution services provided by the Operator to Users with whom the ES has concluded comprehensive agreements, in which the billing in question is included</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Typ rozliczenia dodatkowego -->
+            <xs:element name="AdditionalBillingType" type="bdt:AdditionalBillingType_Type" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_7_1_5:plName>Typ rozliczenia dodatkowego</unk_7_7_1_5:plName>
+                        <unk_7_7_1_5:code>PL-372</unk_7_7_1_5:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Określenie, czy komunikat dotyczy bonifikaty, czy opłaty dodatkowej.</xs:documentation>
+                    <xs:documentation xml:lang="en">Determination whether the message concerns a discount or an additional charge.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Czy korekta komunikatu? -->
+            <xs:element name="IsCorrection" type="xs:boolean" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_7_1_5:plName>Czy korekta komunikatu?</unk_7_7_1_5:plName>
+                        <unk_7_7_1_5:code>PL-195</unk_7_7_1_5:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Informacja, czy komunikat jest korektą komunikatu.</xs:documentation>
+                    <xs:documentation xml:lang="en">Information on whether the message is a correction of the message.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Przyczyna korekty rozliczenia dodatkowego -->
+            <xs:element name="AdditionalBillingCorrectionReason" type="bdt:AdditionalBillingCorrectionReasonType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_7_1_5:plName>Przyczyna korekty rozliczenia dodatkowego</unk_7_7_1_5:plName>
+                        <unk_7_7_1_5:code>PL-373</unk_7_7_1_5:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Wskazanie przyczyny korekty komunikatu z rozliczeniem dodatkowym.</xs:documentation>
+                    <xs:documentation xml:lang="en">Indication of the reason for correction of the message with additional billing.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Korekta rozliczenia dodatkowego -->
+            <xs:element name="AdditionalBillingCorrection" type="unk_7_7_1_5:AdditionalBillingCorrection" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_7_1_5:plName>Korekta rozliczenia dodatkowego</unk_7_7_1_5:plName>
+                        <unk_7_7_1_5:code>PL-399</unk_7_7_1_5:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 1.3.1.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Korekta rozliczenia dodatkowego                                                                                                              ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="AdditionalBillingCorrection" type="unk_7_7_1_5:AdditionalBillingCorrection"/>
+    <xs:complexType name="AdditionalBillingCorrection">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_7_7_1_5:plName>Korekta rozliczenia dodatkowego</unk_7_7_1_5:plName>
+                <unk_7_7_1_5:code>PL-399</unk_7_7_1_5:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 1.3.1.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Wartość korygowanego rozliczenia -->
+            <xs:element name="ValueOfCorrectedBilling" type="bdt:PriceType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_7_1_5:plName>Wartość korygowanego rozliczenia</unk_7_7_1_5:plName>
+                        <unk_7_7_1_5:code>PL-374</unk_7_7_1_5:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Podsumowanie korygowanego rozliczenia (netto, jeśli opodatkowana VAT).</xs:documentation>
+                    <xs:documentation xml:lang="en">Summary of the adjusted billing (net, if subject to VAT).</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- ID_korygowanego_rozliczenia -->
+            <xs:element name="CorrectedBillingIdentifier" type="bdt:String50_Type" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_7_1_5:plName>ID_korygowanego_rozliczenia</unk_7_7_1_5:plName>
+                        <unk_7_7_1_5:code>PL-354</unk_7_7_1_5:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Identyfikator ID_rozliczenia, który jest przedmiotem korekty, określony przez nadawcę korygowanego komunikatu.</xs:documentation>
+                    <xs:documentation xml:lang="en">ID of the ID_billing that is the subject of the correction, specified by the sender of the message being corrected.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Bonifikata                                                                                                                                   ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="Discount" type="unk_7_7_1_5:Discount"/>
+    <xs:complexType name="Discount">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_7_7_1_5:plName>Bonifikata</unk_7_7_1_5:plName>
+                <unk_7_7_1_5:code>PL-398</unk_7_7_1_5:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 1.4.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Typ bonifikaty -->
+            <xs:element name="DiscountType" type="bdt:DiscountType_Type" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_7_1_5:plName>Typ bonifikaty</unk_7_7_1_5:plName>
+                        <unk_7_7_1_5:code>PL-294</unk_7_7_1_5:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Określa typ bonifikaty - zgodnie z rozporządzeniem systemowym/taryfowym.</xs:documentation>
+                    <xs:documentation xml:lang="en">Determines the type of discount - according to the system/tariff regulation.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Wyliczenie bonifikaty -->
+            <xs:element name="DiscountCalculation" type="unk_7_7_1_5:DiscountCalculation" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_7_1_5:plName>Wyliczenie bonifikaty</unk_7_7_1_5:plName>
+                        <unk_7_7_1_5:code>PL-397</unk_7_7_1_5:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 1.4.1.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Wyliczenie bonifikaty                                                                                                                        ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="DiscountCalculation" type="unk_7_7_1_5:DiscountCalculation"/>
+    <xs:complexType name="DiscountCalculation">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_7_7_1_5:plName>Wyliczenie bonifikaty</unk_7_7_1_5:plName>
+                <unk_7_7_1_5:code>PL-397</unk_7_7_1_5:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 1.4.1.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Data początku okresu -->
+            <xs:element name="PeriodStartDate" type="xs:date" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_7_1_5:plName>Data początku okresu</unk_7_7_1_5:plName>
+                        <unk_7_7_1_5:code>PL-179</unk_7_7_1_5:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Data początku przedziału czasowego, dla którego są przekazywane dane (od początku doby).</xs:documentation>
+                    <xs:documentation xml:lang="en">The date of the beginning of the time interval for which data is provided (from the beginning of the day).</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Data końca okresu -->
+            <xs:element name="PeriodEndDate" type="xs:date" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_7_1_5:plName>Data końca okresu</unk_7_7_1_5:plName>
+                        <unk_7_7_1_5:code>PL-180</unk_7_7_1_5:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Data końcowa przedziału czasowego, dla którego są przekazane dane (włącznie).</xs:documentation>
+                    <xs:documentation xml:lang="en">The end date of the time interval for which the data are transferred (inclusive).</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Liczba dni niedotrzymania standardów -->
+            <xs:element name="StandardsViolationDaysCount" type="bdt:PositiveInteger2_Type" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_7_1_5:plName>Liczba dni niedotrzymania standardów</unk_7_7_1_5:plName>
+                        <unk_7_7_1_5:code>PL-375</unk_7_7_1_5:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Liczba dnia niedotrzymania standardów.</xs:documentation>
+                    <xs:documentation xml:lang="en">The number of the day of non-compliance with the standards.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Średnia cena sprzedaży energii elektrycznej na rynku konkurencyjnym -->
+            <xs:element name="AverageCompetitorsElectricalEnergySalesRate" type="bdt:PriceType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_7_1_5:plName>Średnia cena sprzedaży energii elektrycznej na rynku konkurencyjnym</unk_7_7_1_5:plName>
+                        <unk_7_7_1_5:code>PL-376</unk_7_7_1_5:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Średnia cena sprzedaży energii elektrycznej na rynku konkurencyjnym, wyrażona w [zł/kWh].</xs:documentation>
+                    <xs:documentation xml:lang="en">The average selling price of electricity on the competitive market, expressed in [PLN/kWh].</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Ilość energii elektrycznej dostarczonej odbiorcy w okresie doby -->
+            <xs:element name="DailyRecipientEnergyDeliveryVolume" type="bdt:VolumeType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_7_1_5:plName>Ilość energii elektrycznej dostarczonej odbiorcy w okresie doby</unk_7_7_1_5:plName>
+                        <unk_7_7_1_5:code>PL-377</unk_7_7_1_5:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Ilość energii elektrycznej dostarczonej odbiorcy w okresie doby.</xs:documentation>
+                    <xs:documentation xml:lang="en">The amount of electricity delivered to the customer during the period of a day.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Odchylenie napięcia -->
+            <xs:element name="VoltageDeviation" type="bdt:PositivePercentageType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_7_1_5:plName>Odchylenie napięcia</unk_7_7_1_5:plName>
+                        <unk_7_7_1_5:code>PL-378</unk_7_7_1_5:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Wartość odchylenia napięcia.</xs:documentation>
+                    <xs:documentation xml:lang="en">Value of voltage deviation.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Stawka bonifikaty -->
+            <xs:element name="DiscountRate" type="bdt:PriceType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_7_1_5:plName>Stawka bonifikaty</unk_7_7_1_5:plName>
+                        <unk_7_7_1_5:code>PL-379</unk_7_7_1_5:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Stawka bonifikaty za każdą godzinę lub dzień zwłoki.</xs:documentation>
+                    <xs:documentation xml:lang="en">Discount rate for each hour or day of delay.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Jednostka stawki bonifikaty -->
+            <xs:element name="DiscountRateUnit" type="bdt:DiscountRateUnitType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_7_1_5:plName>Jednostka stawki bonifikaty</unk_7_7_1_5:plName>
+                        <unk_7_7_1_5:code>PL-380</unk_7_7_1_5:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Jednostka stawki bonifikaty.</xs:documentation>
+                    <xs:documentation xml:lang="en">Unit of discount rate.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Określenie jednostki stawki bonifikaty -->
+            <xs:element name="DiscountRateUnitDescription" type="bdt:String30_Type" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_7_1_5:plName>Określenie jednostki stawki bonifikaty</unk_7_7_1_5:plName>
+                        <unk_7_7_1_5:code>PL-479</unk_7_7_1_5:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Określenie jednostki stawki bonifikaty innej, niż wyszczególnione w słowniku.</xs:documentation>
+                    <xs:documentation xml:lang="en">Determination of the discount rate unit other than those specified in the dictionary.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Czas trwania niedotrzymania parametrów jakościowych energii -->
+            <xs:element name="EeqParamsViolationDuration" type="bdt:InterruptionTimeType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_7_1_5:plName>Czas trwania niedotrzymania parametrów jakościowych energii</unk_7_7_1_5:plName>
+                        <unk_7_7_1_5:code>PL-381</unk_7_7_1_5:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Czas trwania niedotrzymania parametrów jakościowych energii.</xs:documentation>
+                    <xs:documentation xml:lang="en">Duration of failure to meet energy quality parameters.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Współczynnik naliczania bonifikaty za przerwy -->
+            <xs:element name="InterruptionDiscountCalculationCoefficient" type="bdt:DiscountCoefficientType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_7_1_5:plName>Współczynnik naliczania bonifikaty za przerwy</unk_7_7_1_5:plName>
+                        <unk_7_7_1_5:code>PL-382</unk_7_7_1_5:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Współczynnik naliczania bonifikaty za przerwy.</xs:documentation>
+                    <xs:documentation xml:lang="en">A factor for calculating discounts for interruptions.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Ilość energii niedostarczonej w ciągu doby -->
+            <xs:element name="DailyUndeliveredEnergyVolume" type="bdt:VolumeType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_7_1_5:plName>Ilość energii niedostarczonej w ciągu doby</unk_7_7_1_5:plName>
+                        <unk_7_7_1_5:code>PL-383</unk_7_7_1_5:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Ilość energii niedostarczonej, w ciągu doby.</xs:documentation>
+                    <xs:documentation xml:lang="en">The amount of undelivered energy, per day.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Przeciętne wynagrodzenie w gospodarce narodowej -->
+            <xs:element name="TypicalSalary" type="bdt:PriceType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_7_1_5:plName>Przeciętne wynagrodzenie w gospodarce narodowej</unk_7_7_1_5:plName>
+                        <unk_7_7_1_5:code>PL-384</unk_7_7_1_5:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Przeciętne wynagrodzenie w gospodarce narodowej przyjęty do rozliczenia, wyrażona w PLN.</xs:documentation>
+                    <xs:documentation xml:lang="en">Average salary in the national economy adopted for billing, expressed in PLN.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Wartość -->
+            <xs:element name="Value" type="bdt:PriceType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_7_1_5:plName>Wartość</unk_7_7_1_5:plName>
+                        <unk_7_7_1_5:code>PL-385</unk_7_7_1_5:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Wartość naliczonej bonifikaty, wyrażona w PLN.</xs:documentation>
+                    <xs:documentation xml:lang="en">The value of the calculated discount, expressed in [PLN].</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Rozliczenie VAT bonifikaty -->
+            <xs:element name="DiscountVatCalculation" type="unk_7_7_1_5:DiscountVatCalculation" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_7_1_5:plName>Rozliczenie VAT bonifikaty</unk_7_7_1_5:plName>
+                        <unk_7_7_1_5:code>PL-359</unk_7_7_1_5:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 1.4.1.1.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Rozliczenie VAT bonifikaty                                                                                                                   ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="DiscountVatCalculation" type="unk_7_7_1_5:DiscountVatCalculation"/>
+    <xs:complexType name="DiscountVatCalculation">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_7_7_1_5:plName>Rozliczenie VAT bonifikaty</unk_7_7_1_5:plName>
+                <unk_7_7_1_5:code>PL-359</unk_7_7_1_5:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 1.4.1.1.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Stawka VAT -->
+            <xs:element name="VatRate" type="bdt:String10_Type" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_7_1_5:plName>Stawka VAT</unk_7_7_1_5:plName>
+                        <unk_7_7_1_5:code>PL-220</unk_7_7_1_5:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Stawka VAT opłaty, wyrażona w [%], jeżeli zwolniony z podatku VAT należy uzupełnić "n/d".</xs:documentation>
+                    <xs:documentation xml:lang="en">VAT rate of the charge, expressed in [%], if exempt from VAT should be completed "n/a."</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Kwota netto -->
+            <xs:element name="NetAmount" type="bdt:PriceType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_7_1_5:plName>Kwota netto</unk_7_7_1_5:plName>
+                        <unk_7_7_1_5:code>PL-225</unk_7_7_1_5:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Suma wartości netto w ramach rozliczenia finansowego, wyrażona w PLN.</xs:documentation>
+                    <xs:documentation xml:lang="en">The sum of the net value within the financial billing, expressed in PLN.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Kwota VAT -->
+            <xs:element name="VatAmount" type="bdt:PriceType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_7_1_5:plName>Kwota VAT</unk_7_7_1_5:plName>
+                        <unk_7_7_1_5:code>PL-288</unk_7_7_1_5:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Kwota VAT</xs:documentation>
+                    <xs:documentation xml:lang="en">VAT amount</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Opłata dodatkowa                                                                                                                             ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="AdditionalFee" type="unk_7_7_1_5:AdditionalFee"/>
+    <xs:complexType name="AdditionalFee">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_7_7_1_5:plName>Opłata dodatkowa</unk_7_7_1_5:plName>
+                <unk_7_7_1_5:code>PL-396</unk_7_7_1_5:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 1.5.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Data i czas wykonania wznowienia usługi -->
+            <xs:element name="ReactivationDateTime" type="xs:dateTime" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_7_1_5:plName>Data i czas wykonania wznowienia usługi</unk_7_7_1_5:plName>
+                        <unk_7_7_1_5:code>PL-386</unk_7_7_1_5:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Data i czas wykonania wznowienia usługi.</xs:documentation>
+                    <xs:documentation xml:lang="en">Date and time when service reactivation was performed.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Typ usługi -->
+            <xs:element name="ServiceType" type="bdt:ServiceType_Type" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_7_1_5:plName>Typ usługi</unk_7_7_1_5:plName>
+                        <unk_7_7_1_5:code>PL-387</unk_7_7_1_5:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Nazwa wykonywanej usługi podlegającej rozliczeniu.</xs:documentation>
+                    <xs:documentation xml:lang="en">The name of the service being performed that is subject to billing.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Cena jednostkowa -->
+            <xs:element name="UnitPrice" type="bdt:PriceType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_7_1_5:plName>Cena jednostkowa</unk_7_7_1_5:plName>
+                        <unk_7_7_1_5:code>PL-389</unk_7_7_1_5:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Cena jednostkowa opłaty dodatkowej, wyrażona jako PLN za wykonaną usługę.</xs:documentation>
+                    <xs:documentation xml:lang="en">Unit price of the additional charge, expressed as PLN for the service performed.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Wartość -->
+            <xs:element name="Value" type="bdt:PriceType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_7_1_5:plName>Wartość</unk_7_7_1_5:plName>
+                        <unk_7_7_1_5:code>PL-390</unk_7_7_1_5:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Wartość netto naliczonej opłaty dodatkowej, wyrażona w PLN.</xs:documentation>
+                    <xs:documentation xml:lang="en">The net value of the calculated additional charge, expressed in PLN.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Rozliczenie VAT opłaty dodatkowej -->
+            <xs:element name="AdditionalFeeVatCalculation" type="unk_7_7_1_5:AdditionalFeeVatCalculation" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_7_1_5:plName>Rozliczenie VAT opłaty dodatkowej</unk_7_7_1_5:plName>
+                        <unk_7_7_1_5:code>PL-359</unk_7_7_1_5:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 1.5.1.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Rozliczenie VAT opłaty dodatkowej                                                                                                            ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="AdditionalFeeVatCalculation" type="unk_7_7_1_5:AdditionalFeeVatCalculation"/>
+    <xs:complexType name="AdditionalFeeVatCalculation">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_7_7_1_5:plName>Rozliczenie VAT opłaty dodatkowej</unk_7_7_1_5:plName>
+                <unk_7_7_1_5:code>PL-359</unk_7_7_1_5:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 1.5.1.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Stawka VAT -->
+            <xs:element name="VatRate" type="bdt:String10_Type" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_7_1_5:plName>Stawka VAT</unk_7_7_1_5:plName>
+                        <unk_7_7_1_5:code>PL-220</unk_7_7_1_5:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Stawka VAT opłaty, wyrażona w [%], jeżeli zwolniony z podatku VAT należy uzupełnić "n/d".</xs:documentation>
+                    <xs:documentation xml:lang="en">VAT rate of the charge, expressed in [%], if exempt from VAT should be completed "n/a."</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Kwota netto -->
+            <xs:element name="NetAmount" type="bdt:PriceType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_7_1_5:plName>Kwota netto</unk_7_7_1_5:plName>
+                        <unk_7_7_1_5:code>PL-225</unk_7_7_1_5:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Suma wartości netto w ramach rozliczenia finansowego, wyrażona w PLN.</xs:documentation>
+                    <xs:documentation xml:lang="en">The sum of the net value within the financial billing, expressed in PLN.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Kwota VAT -->
+            <xs:element name="VatAmount" type="bdt:PriceType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_7_7_1_5:plName>Kwota VAT</unk_7_7_1_5:plName>
+                        <unk_7_7_1_5:code>PL-288</unk_7_7_1_5:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Kwota VAT</xs:documentation>
+                    <xs:documentation xml:lang="en">VAT amount</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

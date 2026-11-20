@@ -1,0 +1,156 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:bdt="urn:pl:oire:businessDataTypes:v1" xmlns:msg_R_3="urn:pl:oire:message_R_3:v1" xmlns:tech="urn:pl:oire:technical:v1" elementFormDefault="qualified" targetNamespace="urn:pl:oire:message_R_3:v1">
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Wersja z 18.09.2026                                                                                                                          ==== -->
+    <!-- ====================================================================================================================================================== -->
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Import                                                                                                                                       ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:import namespace="urn:pl:oire:businessDataTypes:v1" schemaLocation="businessDataTypes.xsd"/>
+    <xs:import namespace="urn:pl:oire:technical:v1" schemaLocation="technical.xsd"/>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== R_3 Powiadomienie o potencjalnej potrzebie przekazania danych pomiarowych                                                                    ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="MeteringPointMeasurementDataRetrievalRequestNotification" type="msg_R_3:MeteringPointMeasurementDataRetrievalRequestNotification"/>
+    <xs:complexType name="MeteringPointMeasurementDataRetrievalRequestNotification">
+        <xs:annotation>
+            <xs:appinfo>
+                <msg_R_3:plName>R_3 Powiadomienie o potencjalnej potrzebie przekazania danych pomiarowych</msg_R_3:plName>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Nagłówek -->
+            <xs:element name="Header" type="tech:Header" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <msg_R_3:plName>Nagłówek</msg_R_3:plName>
+                        <msg_R_3:code>PL-700</msg_R_3:code>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Kontekst -->
+            <xs:element name="ProcessEnergyContext" type="tech:ProcessEnergyContext" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <msg_R_3:plName>Kontekst</msg_R_3:plName>
+                        <msg_R_3:code>PL-715</msg_R_3:code>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- R_3 Payload Powiadomienie o potencjalnej potrzebie przekazania danych pomiarowych -->
+            <xs:element name="Payload" type="msg_R_3:MeteringPointMeasurementDataRetrievalRequestNotificationPayload" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <msg_R_3:plName>R_3 Payload Powiadomienie o potencjalnej potrzebie przekazania danych pomiarowych</msg_R_3:plName>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== R_3 Payload Powiadomienie o potencjalnej potrzebie przekazania danych pomiarowych                                                            ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="MeteringPointMeasurementDataRetrievalRequestNotificationPayload" type="msg_R_3:MeteringPointMeasurementDataRetrievalRequestNotificationPayload"/>
+    <xs:complexType name="MeteringPointMeasurementDataRetrievalRequestNotificationPayload">
+        <xs:annotation>
+            <xs:appinfo>
+                <msg_R_3:plName>R_3 Payload Powiadomienie o potencjalnej potrzebie przekazania danych pomiarowych</msg_R_3:plName>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Dane PP - ogólne -->
+            <xs:element name="MeteringPointData_Basic" type="msg_R_3:MeteringPointData_Basic" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <msg_R_3:plName>Dane PP - ogólne</msg_R_3:plName>
+                        <msg_R_3:code>PL-300</msg_R_3:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 1.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Pozostałe elementy komunikatu -->
+            <xs:element name="Miscellaneous" type="msg_R_3:Miscellaneous" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <msg_R_3:plName>Pozostałe elementy komunikatu</msg_R_3:plName>
+                        <msg_R_3:code>PL-320</msg_R_3:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 2.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Dane PP - ogólne                                                                                                                             ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="MeteringPointData_Basic" type="msg_R_3:MeteringPointData_Basic"/>
+    <xs:complexType name="MeteringPointData_Basic">
+        <xs:annotation>
+            <xs:appinfo>
+                <msg_R_3:plName>Dane PP - ogólne</msg_R_3:plName>
+                <msg_R_3:code>PL-300</msg_R_3:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 1.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Kod PP -->
+            <xs:element name="MeteringPointCode" type="bdt:MeteringPointCodeType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <msg_R_3:plName>Kod PP</msg_R_3:plName>
+                        <msg_R_3:code>PL-001</msg_R_3:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Kod identyfikujący Punkt pomiarowy - zgodny ze standardem GS1.</xs:documentation>
+                    <xs:documentation xml:lang="en">Metering Point Identification Code - compliant with the GS1 standard.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Pozostałe elementy komunikatu                                                                                                                ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="Miscellaneous" type="msg_R_3:Miscellaneous"/>
+    <xs:complexType name="Miscellaneous">
+        <xs:annotation>
+            <xs:appinfo>
+                <msg_R_3:plName>Pozostałe elementy komunikatu</msg_R_3:plName>
+                <msg_R_3:code>PL-320</msg_R_3:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 2.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- ID_instancji_procesu_referencyjnego -->
+            <xs:element name="ProcessInstanceId" type="bdt:UuidType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <msg_R_3:plName>ID_instancji_procesu_referencyjnego</msg_R_3:plName>
+                        <msg_R_3:code>PL-002</msg_R_3:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Unikatowy kod instancji procesu referencyjnego komunikatu, nadawany przez CSIRE.</xs:documentation>
+                    <xs:documentation xml:lang="en">The unique process instance code of the message reference process, assigned by CSIRE.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Oczekiwana data i czas odczytu/wskazania -->
+            <xs:element name="MeasurementQueryDateTime" type="xs:dateTime" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <msg_R_3:plName>Oczekiwana data i czas odczytu/wskazania</msg_R_3:plName>
+                        <msg_R_3:code>PL-139</msg_R_3:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Wskazanie doby handlowej, w której następuje zmiana przypisania podmiotu obsługującego PP i dla której oczekiwane jest przekazanie danych pomiarowych.</xs:documentation>
+                    <xs:documentation xml:lang="en">Indication of the trading day on which the assignment of the MP operating entity is changed and for which measurement data is expected to be transmitted.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

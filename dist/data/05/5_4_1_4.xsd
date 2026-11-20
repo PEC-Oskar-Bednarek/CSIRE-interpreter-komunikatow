@@ -1,0 +1,180 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:bdt="urn:pl:oire:businessDataTypes:v1" xmlns:tech="urn:pl:oire:technical:v1" xmlns:unk_5_4_1_4="urn:pl:oire:unk_5_4_1_4:v1" elementFormDefault="qualified" targetNamespace="urn:pl:oire:unk_5_4_1_4:v1">
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Wersja z 18.09.2026                                                                                                                          ==== -->
+    <!-- ====================================================================================================================================================== -->
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Import                                                                                                                                       ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:import namespace="urn:pl:oire:businessDataTypes:v1" schemaLocation="businessDataTypes.xsd"/>
+    <xs:import namespace="urn:pl:oire:technical:v1" schemaLocation="technical.xsd"/>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== 5.4.1.4. Powiadomienie o planowanym zakończeniu bilansowania handlowego dla wszystkich PP danego SE                                          ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="PlannedBalanceSupplyBatchTerminationNotification" type="unk_5_4_1_4:PlannedBalanceSupplyBatchTerminationNotification"/>
+    <xs:complexType name="PlannedBalanceSupplyBatchTerminationNotification">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_5_4_1_4:plName>5.4.1.4. Powiadomienie o planowanym zakończeniu bilansowania handlowego dla wszystkich PP danego SE</unk_5_4_1_4:plName>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Nagłówek -->
+            <xs:element name="Header" type="tech:Header" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_5_4_1_4:plName>Nagłówek</unk_5_4_1_4:plName>
+                        <unk_5_4_1_4:code>PL-700</unk_5_4_1_4:code>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Kontekst -->
+            <xs:element name="ProcessEnergyContext" type="tech:ProcessEnergyContext" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_5_4_1_4:plName>Kontekst</unk_5_4_1_4:plName>
+                        <unk_5_4_1_4:code>PL-715</unk_5_4_1_4:code>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- 5.4.1.4. Payload Powiadomienie o planowanym zakończeniu bilansowania handlowego dla wszystkich PP danego SE -->
+            <xs:element name="Payload" type="unk_5_4_1_4:PlannedBalanceSupplyBatchTerminationNotificationPayload" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_5_4_1_4:plName>5.4.1.4. Payload Powiadomienie o planowanym zakończeniu bilansowania handlowego dla wszystkich PP danego SE</unk_5_4_1_4:plName>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== 5.4.1.4. Payload Powiadomienie o planowanym zakończeniu bilansowania handlowego dla wszystkich PP danego SE                                  ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="PlannedBalanceSupplyBatchTerminationNotificationPayload" type="unk_5_4_1_4:PlannedBalanceSupplyBatchTerminationNotificationPayload"/>
+    <xs:complexType name="PlannedBalanceSupplyBatchTerminationNotificationPayload">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_5_4_1_4:plName>5.4.1.4. Payload Powiadomienie o planowanym zakończeniu bilansowania handlowego dla wszystkich PP danego SE</unk_5_4_1_4:plName>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Dane PP - podmioty obsługujące PP -->
+            <xs:element name="MeteringPointData_Operators" type="unk_5_4_1_4:MeteringPointData_Operators" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_5_4_1_4:plName>Dane PP - podmioty obsługujące PP</unk_5_4_1_4:plName>
+                        <unk_5_4_1_4:code>PL-303</unk_5_4_1_4:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 1.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Pozostałe elementy komunikatu -->
+            <xs:element name="Miscellaneous" type="unk_5_4_1_4:Miscellaneous" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_5_4_1_4:plName>Pozostałe elementy komunikatu</unk_5_4_1_4:plName>
+                        <unk_5_4_1_4:code>PL-320</unk_5_4_1_4:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 2.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Dane PP - podmioty obsługujące PP                                                                                                            ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="MeteringPointData_Operators" type="unk_5_4_1_4:MeteringPointData_Operators"/>
+    <xs:complexType name="MeteringPointData_Operators">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_5_4_1_4:plName>Dane PP - podmioty obsługujące PP</unk_5_4_1_4:plName>
+                <unk_5_4_1_4:code>PL-303</unk_5_4_1_4:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 1.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- ID_POB -->
+            <xs:element name="BalanceResponsiblePartyIdentifier" type="bdt:EicIdentifierType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_5_4_1_4:plName>ID_POB</unk_5_4_1_4:plName>
+                        <unk_5_4_1_4:code>PL-021</unk_5_4_1_4:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Kod identyfikujący podmiot odpowiedzialny za bilansowanie handlowe - zgodny z EIC.</xs:documentation>
+                    <xs:documentation xml:lang="en">Code identifying the balance responsible party - in accordance with the EIC.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- ID_Operator -->
+            <xs:element name="OperatorIdentifier" type="bdt:EicIdentifierType" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_5_4_1_4:plName>ID_Operator</unk_5_4_1_4:plName>
+                        <unk_5_4_1_4:code>PL-017</unk_5_4_1_4:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Kod identyfikujący Operatora, który utworzył oraz administruje PP. Kod identyfikacyjny zgodny z EIC.</xs:documentation>
+                    <xs:documentation xml:lang="en">Identification code of the Operator who created and administers the MP. Identification code in accordance with the EIC.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- ID_SE -->
+            <xs:element name="SupplierIdentifier" type="bdt:EicIdentifierType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_5_4_1_4:plName>ID_SE</unk_5_4_1_4:plName>
+                        <unk_5_4_1_4:code>PL-019</unk_5_4_1_4:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Kod identyfikujący sprzedawcę - zgodny z EIC.</xs:documentation>
+                    <xs:documentation xml:lang="en">EIC code identifying the Energy Supplier.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Pozostałe elementy komunikatu                                                                                                                ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="Miscellaneous" type="unk_5_4_1_4:Miscellaneous"/>
+    <xs:complexType name="Miscellaneous">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_5_4_1_4:plName>Pozostałe elementy komunikatu</unk_5_4_1_4:plName>
+                <unk_5_4_1_4:code>PL-320</unk_5_4_1_4:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 2.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Typ powiadomienia -->
+            <xs:element name="NotificationType" type="bdt:BalanceResponsiblePartyChangeNotificationType_Type" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_5_4_1_4:plName>Typ powiadomienia</unk_5_4_1_4:plName>
+                        <unk_5_4_1_4:code>PL-167</unk_5_4_1_4:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Określenie czy powiadomienie odnosi się do zakończenia bilansowania dla grupy PPE danego Sprzedawcy czy dla Sprzedawcy na terenie danego Operatora.</xs:documentation>
+                    <xs:documentation xml:lang="en">Determines whether the notification refers to the termination of balancing for the PPE group of a given Energy Supplier or for the Energy Supplier on the area of a given Operator.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Planowana data zakończenia bilansowania -->
+            <xs:element name="PlannedBalanceEndDate" type="xs:date" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_5_4_1_4:plName>Planowana data zakończenia bilansowania</unk_5_4_1_4:plName>
+                        <unk_5_4_1_4:code>PL-168</unk_5_4_1_4:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Dzień, od którego POB nie świadczy usługi bilansowania handlowego.</xs:documentation>
+                    <xs:documentation xml:lang="en">The day from which the BRP does not provide commercial balancing service.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

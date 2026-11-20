@@ -1,0 +1,318 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:bdt="urn:pl:oire:businessDataTypes:v1" xmlns:tech="urn:pl:oire:technical:v1" xmlns:unk_6_6_1_4="urn:pl:oire:unk_6_6_1_4:v1" elementFormDefault="qualified" targetNamespace="urn:pl:oire:unk_6_6_1_4:v1">
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Wersja z 18.09.2026                                                                                                                          ==== -->
+    <!-- ====================================================================================================================================================== -->
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Import                                                                                                                                       ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:import namespace="urn:pl:oire:businessDataTypes:v1" schemaLocation="businessDataTypes.xsd"/>
+    <xs:import namespace="urn:pl:oire:technical:v1" schemaLocation="technical.xsd"/>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== 6.6.1.4. Powiadomienie strony umowy o zmianie Umowy profesjonalnej                                                                           ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="ProfessionalAgreementModificationPartyNotification" type="unk_6_6_1_4:ProfessionalAgreementModificationPartyNotification"/>
+    <xs:complexType name="ProfessionalAgreementModificationPartyNotification">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_6_6_1_4:plName>6.6.1.4. Powiadomienie strony umowy o zmianie Umowy profesjonalnej</unk_6_6_1_4:plName>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Nagłówek -->
+            <xs:element name="Header" type="tech:Header" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_6_1_4:plName>Nagłówek</unk_6_6_1_4:plName>
+                        <unk_6_6_1_4:code>PL-700</unk_6_6_1_4:code>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Kontekst -->
+            <xs:element name="ProcessEnergyContext" type="tech:ProcessEnergyContext" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_6_1_4:plName>Kontekst</unk_6_6_1_4:plName>
+                        <unk_6_6_1_4:code>PL-715</unk_6_6_1_4:code>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- 6.6.1.4. Payload Powiadomienie strony umowy o zmianie Umowy profesjonalnej -->
+            <xs:element name="Payload" type="unk_6_6_1_4:ProfessionalAgreementModificationPartyNotificationPayload" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_6_1_4:plName>6.6.1.4. Payload Powiadomienie strony umowy o zmianie Umowy profesjonalnej</unk_6_6_1_4:plName>
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== 6.6.1.4. Payload Powiadomienie strony umowy o zmianie Umowy profesjonalnej                                                                   ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="ProfessionalAgreementModificationPartyNotificationPayload" type="unk_6_6_1_4:ProfessionalAgreementModificationPartyNotificationPayload"/>
+    <xs:complexType name="ProfessionalAgreementModificationPartyNotificationPayload">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_6_6_1_4:plName>6.6.1.4. Payload Powiadomienie strony umowy o zmianie Umowy profesjonalnej</unk_6_6_1_4:plName>
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Pozostałe elementy komunikatu -->
+            <xs:element name="Miscellaneous" type="unk_6_6_1_4:Miscellaneous" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_6_1_4:plName>Pozostałe elementy komunikatu</unk_6_6_1_4:plName>
+                        <unk_6_6_1_4:code>PL-320</unk_6_6_1_4:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 1.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Informacje podstawowe -->
+            <xs:element name="BasicData" type="unk_6_6_1_4:BasicData" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_6_1_4:plName>Informacje podstawowe</unk_6_6_1_4:plName>
+                        <unk_6_6_1_4:code>PL-325</unk_6_6_1_4:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 2.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Pozostałe elementy komunikatu                                                                                                                ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="Miscellaneous" type="unk_6_6_1_4:Miscellaneous"/>
+    <xs:complexType name="Miscellaneous">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_6_6_1_4:plName>Pozostałe elementy komunikatu</unk_6_6_1_4:plName>
+                <unk_6_6_1_4:code>PL-320</unk_6_6_1_4:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 1.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- ID_instancji_procesu_referencyjnego -->
+            <xs:element name="ProcessInstanceId" type="bdt:UuidType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_6_1_4:plName>ID_instancji_procesu_referencyjnego</unk_6_6_1_4:plName>
+                        <unk_6_6_1_4:code>PL-002</unk_6_6_1_4:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Unikatowy kod instancji procesu referencyjnego komunikatu, nadawany przez CSIRE.</xs:documentation>
+                    <xs:documentation xml:lang="en">The unique process instance code of the message reference process, assigned by CSIRE.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Informacje podstawowe                                                                                                                        ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="BasicData" type="unk_6_6_1_4:BasicData"/>
+    <xs:complexType name="BasicData">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_6_6_1_4:plName>Informacje podstawowe</unk_6_6_1_4:plName>
+                <unk_6_6_1_4:code>PL-325</unk_6_6_1_4:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 2.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- Typ zgłaszanej umowy -->
+            <xs:element name="ContractType" type="bdt:ContractType_Type" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_6_1_4:plName>Typ zgłaszanej umowy</unk_6_6_1_4:plName>
+                        <unk_6_6_1_4:code>PL-237</unk_6_6_1_4:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Określenie typu umowy pomiędzy Użytkownikami profesjonalnymi dotyczące dostępu do sieci elektroenergetycznej. Na bazie zgłoszonych możliwych relacji OIRE weryfikuje zgłoszenia umów dot. Sprzedaży lub dot. bilansowania handlowego.</xs:documentation>
+                    <xs:documentation xml:lang="en">Determination of the type of agreement between Professional Users regarding access to the power grid. On the basis of the reported possible relationships, OIRE verifies the notification of supply agreements or on commercial balancing.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Zgłaszana data aktualizacji umowy -->
+            <xs:element name="ReportedAgreementUpdateDate" type="xs:date" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_6_1_4:plName>Zgłaszana data aktualizacji umowy</unk_6_6_1_4:plName>
+                        <unk_6_6_1_4:code>PL-243</unk_6_6_1_4:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Data, od której umowa uległa zmianie.</xs:documentation>
+                    <xs:documentation xml:lang="en">The date from which the agreement has changed.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Elementy umowy GUD -->
+            <xs:element name="GeneralDistributionAgreementData" type="unk_6_6_1_4:GeneralDistributionAgreementData" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_6_1_4:plName>Elementy umowy GUD</unk_6_6_1_4:plName>
+                        <unk_6_6_1_4:code>PL-291</unk_6_6_1_4:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 2.1.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Elementy umowy dot. bilansowania -->
+            <xs:element name="BalanceAgreementData" type="unk_6_6_1_4:BalanceAgreementData" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_6_1_4:plName>Elementy umowy dot. bilansowania</unk_6_6_1_4:plName>
+                        <unk_6_6_1_4:code>PL-292</unk_6_6_1_4:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 2.2.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Dane PP - podmioty obsługujące PP -->
+            <xs:element name="MeteringPointData_Operators" type="unk_6_6_1_4:MeteringPointData_Operators" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_6_1_4:plName>Dane PP - podmioty obsługujące PP</unk_6_6_1_4:plName>
+                        <unk_6_6_1_4:code>PL-303</unk_6_6_1_4:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Sekcja 2.3.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Elementy umowy GUD                                                                                                                           ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="GeneralDistributionAgreementData" type="unk_6_6_1_4:GeneralDistributionAgreementData"/>
+    <xs:complexType name="GeneralDistributionAgreementData">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_6_6_1_4:plName>Elementy umowy GUD</unk_6_6_1_4:plName>
+                <unk_6_6_1_4:code>PL-291</unk_6_6_1_4:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 2.1.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- ID_SE -->
+            <xs:element name="SupplierIdentifier" type="bdt:EicIdentifierType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_6_1_4:plName>ID_SE</unk_6_6_1_4:plName>
+                        <unk_6_6_1_4:code>PL-019</unk_6_6_1_4:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Kod identyfikujący sprzedawcę - zgodny z EIC, z którym zgłaszana jest zawarta lub zaktualizowana umowa GUD/GUD-k.</xs:documentation>
+                    <xs:documentation xml:lang="en">Code identifying the Energy Supplier - consistent with the EIC with which the new or updated GUD/GUD-k contract is reported.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Realizacja nowych umów -->
+            <xs:element name="CanImplementNewAgreements" type="xs:boolean" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_6_1_4:plName>Realizacja nowych umów</unk_6_6_1_4:plName>
+                        <unk_6_6_1_4:code>PL-241</unk_6_6_1_4:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Określenie, czy dany SE posiadający GUD-k może dokonywać zgłoszeń kolejnych umów kompleksowych.</xs:documentation>
+                    <xs:documentation xml:lang="en">Determination whether a given ES holding a GUD-k may make notifications of subsequent comprehensive agreements.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Elementy umowy dot. bilansowania                                                                                                             ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="BalanceAgreementData" type="unk_6_6_1_4:BalanceAgreementData"/>
+    <xs:complexType name="BalanceAgreementData">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_6_6_1_4:plName>Elementy umowy dot. bilansowania</unk_6_6_1_4:plName>
+                <unk_6_6_1_4:code>PL-292</unk_6_6_1_4:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 2.2.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- ID_POB -->
+            <xs:element name="BalanceResponsiblePartyIdentifier" type="bdt:EicIdentifierType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_6_1_4:plName>ID_POB</unk_6_6_1_4:plName>
+                        <unk_6_6_1_4:code>PL-021</unk_6_6_1_4:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Kod identyfikujący podmiot odpowiedzialny za bilansowanie handlowe - zgodny z EIC.</xs:documentation>
+                    <xs:documentation xml:lang="en">Code identifying the balance responsible party - in accordance with the EIC.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Wstrzymanie wykonalności umowy -->
+            <xs:element name="HasContractSuspension" type="xs:boolean" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_6_1_4:plName>Wstrzymanie wykonalności umowy</unk_6_6_1_4:plName>
+                        <unk_6_6_1_4:code>PL-293</unk_6_6_1_4:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Określenie, czy nastąpiło wstrzymanie wykonalności umowy przez OSD.</xs:documentation>
+                    <xs:documentation xml:lang="en">Determination whether there has been a suspension of contract enforceability by the DSO.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Ograniczenie świadczenia usług przesyłania -->
+            <xs:element name="HasTransmissionServiceConstraints" type="xs:boolean" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_6_1_4:plName>Ograniczenie świadczenia usług przesyłania</unk_6_6_1_4:plName>
+                        <unk_6_6_1_4:code>PL-474</unk_6_6_1_4:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Określenie, czy nastąpiło ograniczenie działalności na RB w zakresie zgłaszania nowych umów, zgłoszone przez OSP.</xs:documentation>
+                    <xs:documentation xml:lang="en">Determination whether there has been a curtailment of activity on the Balancing Market for reporting new contracts, reported by the TSO.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            
+            <!-- Wstrzymanie świadczenia usług przesyłania -->
+            <xs:element name="HasTransmissionServiceSuspended" type="xs:boolean" minOccurs="0" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_6_1_4:plName>Wstrzymanie świadczenia usług przesyłania</unk_6_6_1_4:plName>
+                        <unk_6_6_1_4:code>PL-297</unk_6_6_1_4:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Określenie, czy nastąpiło wstrzymanie działalności na RB, zgłoszone przez OSP.</xs:documentation>
+                    <xs:documentation xml:lang="en">Determination whether there has been a cessation of activity on the Balancing Market, reported by the TSO.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!-- ====================================================================================================================================================== -->
+    <!-- ==== Dane PP - podmioty obsługujące PP                                                                                                            ==== -->
+    <!-- ====================================================================================================================================================== -->
+    <xs:element name="MeteringPointData_Operators" type="unk_6_6_1_4:MeteringPointData_Operators"/>
+    <xs:complexType name="MeteringPointData_Operators">
+        <xs:annotation>
+            <xs:appinfo>
+                <unk_6_6_1_4:plName>Dane PP - podmioty obsługujące PP</unk_6_6_1_4:plName>
+                <unk_6_6_1_4:code>PL-303</unk_6_6_1_4:code>
+            </xs:appinfo>
+            <xs:documentation xml:lang="pl">Sekcja 2.3.</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <!-- ID_Operator -->
+            <xs:element name="OperatorIdentifier" type="bdt:EicIdentifierType" minOccurs="1" maxOccurs="1">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <unk_6_6_1_4:plName>ID_Operator</unk_6_6_1_4:plName>
+                        <unk_6_6_1_4:code>PL-017</unk_6_6_1_4:code>
+                    </xs:appinfo>
+                    <xs:documentation xml:lang="pl">Kod identyfikujący Operatora.</xs:documentation>
+                    <xs:documentation xml:lang="en">Code identifying the Operator.</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
