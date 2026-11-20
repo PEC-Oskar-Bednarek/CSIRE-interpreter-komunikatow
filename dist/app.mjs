@@ -1,5 +1,5 @@
 import { EDITIONS, searchText } from './analysis.mjs';
-import { mountWarm, sampleHash } from './warm.mjs?v=slownik-wewnetrzny';
+import { mountWarm, sampleHash } from './warm.mjs?v=nazwa-operatora';
 import { mountArchive, usesLocalArchive } from './archive-client.mjs?v=slownik-wewnetrzny';
 import { h, pager, table } from './ui.mjs?v=strony-slownika';
 import { loadLocalDictionary, localName } from './local-dictionary.mjs';
@@ -33,7 +33,7 @@ function loadJson(version, filename, cache) {
 const loadCatalog = version => loadJson(version, 'schemas.json', catalogs);
 const loadFields = version => loadJson(version, 'fields.json', fieldCatalogs);
 const loadCodeDescriptions = version => loadJson(version, 'opisy-kodow.json', codeDescriptions);
-const loadEicNames = () => loadJson('eic', 'podmioty.json', eicCatalog);
+const loadEicNames = () => loadJson('eic', 'podmioty.json?v=kod-oire', eicCatalog);
 
 function xmlFields(node, parentType, definitions) {
   const branch = h('details');
@@ -57,11 +57,12 @@ function xmlFields(node, parentType, definitions) {
         const value = child.nodeValue.trim();
         const values = Object.hasOwn(definitions.enums, type) ? definitions.enums[type] : {};
         const csire = node.namespaceURI?.startsWith('urn:pl:oire:');
+        const eic = type === 'EicIdentifierType' || csire && ['OperatorIdentifier', 'Operator2Identifier'].includes(name);
         const names = csire && (name === 'MeterNumber' ? definitions.localDictionary.meters
           : ['MeteringPointCode', 'FacilityIdentifier'].includes(name) ? definitions.localDictionary.ppe : null);
         const explanation = ['ErrorCode', 'ResultCode'].includes(name) && Object.hasOwn(definitions.codes, value)
           ? definitions.codes[value]
-          : type === 'EicIdentifierType' ? definitions.parties[value.toUpperCase()]
+          : eic ? definitions.parties[value.toUpperCase()]
             : localName(names, value) || (Object.hasOwn(values, value) ? values[value] : '');
         const text = h('p', 'xml-value', value);
         if (explanation) text.append(h('span', 'xml-explanation', ' · ' + explanation));

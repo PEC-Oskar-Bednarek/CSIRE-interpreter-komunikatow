@@ -11,6 +11,10 @@ from urllib.request import urlopen
 EIC_SOURCE = "https://www.pse.pl/web/pse-eng/eic-code-list"
 CSIRE_SOURCE = "https://www.pse.pl/lista-podmiotow-csire"
 PARTY_CODE = re.compile(r"\d{2}X[A-Z0-9-]{13}")
+# PSE publishes this system identifier at https://www.pse.pl/oire/kody-eic.
+OIRE_SYSTEM = {
+    "19VPL-348177312M": "Centralny System Informacji Rynku Energii (CSIRE) / Operator Informacji Rynku Energii (OIRE)",
+}
 TARGET = Path(__file__).resolve().parents[1] / "dist" / "data" / "eic" / "podmioty.json"
 
 
@@ -70,10 +74,10 @@ def main():
     args = parser.parse_args()
     eic = load_register(EIC_SOURCE, args.eic_html, "EIC Code", "EIC Name")
     csire = load_register(CSIRE_SOURCE, args.csire_html, "Kod EIC", "Nazwa")
-    parties = {**eic, **csire}
+    parties = {**eic, **csire, **OIRE_SYSTEM}
     TARGET.parent.mkdir(parents=True, exist_ok=True)
     TARGET.write_text(json.dumps(dict(sorted(parties.items())), ensure_ascii=False, separators=(",", ":")) + "\n", encoding="utf-8")
-    print(f"Zapisano {len(parties)} podmiotów, w tym {len(csire)} z listy CSIRE.")
+    print(f"Zapisano {len(parties)} kodów EIC, w tym {len(csire)} z listy CSIRE.")
 
 
 if __name__ == "__main__":

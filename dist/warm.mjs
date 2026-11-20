@@ -20,6 +20,12 @@ const demoLinks = {
 const markup = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' };
 const e = value => String(value ?? '').replace(/[&<>"']/g, char => markup[char]);
 const code = value => `<code>${e(value || '—')}</code>`;
+function xmlDescription(value) {
+  if (/^not all required product types are submitted\.?$/i.test(value?.trim().replace(/\s+/g, ' '))) {
+    return 'Nie przekazano wszystkich wymaganych typów produktów energetycznych. <small class="xml-explanation">(tłumaczenie)</small>';
+  }
+  return e(value);
+}
 function namedCode(value, names) {
   const label = localName(names, value);
   return code(value) + (label ? ` <span class="xml-explanation">· ${e(label)}</span>` : '');
@@ -111,7 +117,7 @@ function batchRecords(host, records, codes, enums, ppe) {
         ['Identyfikator transakcji', record.transactionId && code(record.transactionId)],
         ['Przedmiot danych', coded(record.subject, enums.DataSubjectType)],
         ['Kod wyniku', coded(record.code, codes)],
-        ['Opis z XML', e(record.description)],
+        ['Opis z XML', xmlDescription(record.description)],
         ['Scenariusz macierzy', coded(record.scenario, enums.PriorityMatrixScenarioType)],
       ]);
       return [record.index, namedCode(record.point || record.facility, ppe), coded(record.code, codes) || '—',
@@ -162,7 +168,7 @@ const coded = (value, labels) => value && (code(value) + (labels && Object.hasOw
 const moreFields = (title, visibleFields) => visibleFields
   ? `<details class="w-business-details"><summary>${e(title)}</summary>${visibleFields}</details>` : '';
 
-function businessView(root, data, catalog, codes, enums, {ppe, meters}) {
+function businessView(root, data, catalog, { codes, enums, parties, localDictionary: {ppe, meters} }) {
   const payload = Array.from(root.children).find(node => node.localName === 'Payload' && node.namespaceURI === root.namespaceURI);
   const nodes = xmlNodes;
   const value = (name, parent = payload) => xmlValue(parent, name);
@@ -187,7 +193,7 @@ function businessView(root, data, catalog, codes, enums, {ppe, meters}) {
     batch = extractR9(root);
     if (batch.general) information = fields([
       ['Kod wyniku ogólnego', coded(batch.general.code, codes)],
-      ['Opis wyniku z XML', e(batch.general.description)],
+      ['Opis wyniku z XML', xmlDescription(batch.general.description)],
     ]);
     if (batch.records.length) mountBusiness = host => batchRecords(host, batch.records, codes, enums, ppe);
   } else if (data.type === 'R_3') {
@@ -222,7 +228,7 @@ function businessView(root, data, catalog, codes, enums, {ppe, meters}) {
       ['Numer budynku', e(xmlValue(address, 'BuildingNumber'))], ['Numer lokalu', e(xmlValue(address, 'ApartmentNumber'))],
       ['Kod obszaru sieci', optionalCode(xmlValue(area, 'MeteringGridAreaCode'))],
     ])) + moreFields('Podmioty', fields([
-      ['Operator', optionalCode(xmlValue(operators, 'OperatorIdentifier'))],
+      ['Operator', partyField(xmlValue(operators, 'OperatorIdentifier'), parties)],
       ['Sprzedawca', optionalCode(xmlValue(operators, 'SupplierIdentifier'))],
       ['Podmiot odpowiedzialny za bilansowanie', optionalCode(xmlValue(operators, 'BalanceResponsiblePartyIdentifier'))],
     ])) + moreFields('Dane techniczne', fields([
@@ -243,7 +249,7 @@ function businessView(root, data, catalog, codes, enums, {ppe, meters}) {
       ['Powód wymiany informacji', coded(value('GenericInformationExchangeReason'), enums.GenericInformationExchangeReasonType)],
       ['Typ adresata', coded(value('RecipientType'), enums.ComplaintRecipientType_Type)],
     ]) + moreFields('Treść żądania lub odpowiedzi', fields([
-      ['Opis z XML', e(responseText || xmlValue(messageDetails, 'Description'))], ['Data wskazana w żądaniu', e(date(xmlValue(messageDetails, 'Date')))],
+      ['Opis z XML', xmlDescription(responseText || xmlValue(messageDetails, 'Description'))], ['Data wskazana w żądaniu', e(date(xmlValue(messageDetails, 'Date')))],
       ['Planowana data początku obowiązywania umowy', e(date(xmlValue(messageDetails, 'PlannedAgreementValidFrom')))],
     ])) + moreFields('Inicjator i powiązane identyfikatory', fields([
       ['Nazwa inicjatora', e(value('ProcessInitiatorName'))], ['Identyfikator inicjatora', optionalCode(value('ProcessInitiatorId'))],
@@ -251,7 +257,7 @@ function businessView(root, data, catalog, codes, enums, {ppe, meters}) {
       ['Identyfikator komunikatu wskazanego w żądaniu', optionalCode(xmlValue(messageDetails, 'ComplaintSubjectMessageId'))],
     ]));
   } else if (data.type === 'R_1') {
-    information = fields([...focus, ['Kod wyniku', coded(response, codes)], ['Opis z XML', e(responseText)]]);
+    information = fields([...focus, ['Kod wyniku', coded(response, codes)], ['Opis z XML', xmlDescription(responseText)]]);
   } else {
     fallback = catalog?.schemas?.[data.schemaKey]
       ? 'Dostępny jest przegląd pól źródłowych z opisami ze schematu.'
@@ -308,7 +314,7 @@ function timelineEntry(root, metadata, catalog, codesByName, ppe) {
       ['Znaczenie według PSE', codes.filter(value => Object.hasOwn(codesByName, value))
         .map(value => `${code(value)} · ${e(codesByName[value])}`).join('<br>')],
       ['Opis z XML', [...new Set([...values('ErrorDescription'), ...values('ResultDescription'), ...values('ResponseJustification')])]
-        .slice(0, 5).map(e).join('<br>')],
+        .slice(0, 5).map(xmlDescription).join('<br>')],
     ],
   };
 }
@@ -345,7 +351,7 @@ function renderAttention(cards, { codes, descriptions, enums, localDictionary },
     const description = Object.hasOwn(descriptions, card.code) ? descriptions[card.code] : '';
     const describe = item => `<div class="w-issue-item">${item.index || item.identity
       ? `<strong>${item.index ? 'Rekord ' + item.index : ''}${item.identity ? (item.index ? ' · ' : '') + namedCode(item.identity, localDictionary.ppe) : ''}</strong>` : ''}
-      ${item.description ? `<p>Opis z XML · ${e(item.description)}</p>` : ''}
+      ${item.description ? `<p>Opis z XML · ${xmlDescription(item.description)}</p>` : ''}
       ${item.scenario ? `<p>Scenariusz macierzy · ${code(item.scenario)}</p>` : ''}</div>`;
     return `<article class="w-issue">
       <div class="w-issue-heading">${card.code ? `<span class="d-code">${e(card.code)}</span>` : ''}<h3>${e(title || enumTitle || card.title)}</h3></div>
@@ -354,7 +360,7 @@ function renderAttention(cards, { codes, descriptions, enums, localDictionary },
       ${enumTitle && !title && !description ? '<p class="w-evidence-label">Znaczenie według schematu TSKB</p>' : ''}
       ${fields([['Punkt / obiekt', card.points?.map(point => namedCode(point, localDictionary.ppe)).join(', ')],
         ...(card.dates ?? []).map(([label, value]) => [label, /^\d{4}-/.test(value) ? e(date(value)) : e(value)])])}
-      ${card.description ? `<p>Opis z XML · ${e(card.description)}</p>` : ''}
+      ${card.description ? `<p>Opis z XML · ${xmlDescription(card.description)}</p>` : ''}
       ${items.length === 1 ? describe(items[0]) : items.length > 1
         ? `<details class="w-issue-records"><summary>Pozycje z tym kodem (${items.length})</summary>
           ${items.slice(0, 100).map(describe).join('')}
@@ -588,7 +594,7 @@ export function mountWarm(options) {
       const [rootType, schemaFields] = fields?.schemas?.[schema?.[0]] ?? [];
       const definitions = { rootType, groups: { ...fields?.technical, ...schemaFields }, enums: fields?.enums ?? {},
         codes, descriptions: descriptions ?? {}, parties: parties ?? {}, localDictionary };
-      const data = businessView(root, metadata, catalog, definitions.codes, definitions.enums, localDictionary);
+      const data = businessView(root, metadata, catalog, definitions);
       const relatedJob = Promise.allSettled((demoLinks[sample] ?? []).map(async ([id, relation, reason]) => {
         const linked = readMessage(await loadSample(id));
         return { ...timelineEntry(linked, messageMetadata(linked), catalog, definitions.codes, localDictionary.ppe),
