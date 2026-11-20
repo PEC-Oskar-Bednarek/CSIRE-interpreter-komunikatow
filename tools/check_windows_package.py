@@ -40,7 +40,9 @@ def check_server(command, environment, archive, expected_items, available=True):
                 assert not available and error.code == 503
                 with error:
                     data = json.load(error)
-            assert Path(data["folder"]) == archive.resolve()
+            reported_folder = Path(data["folder"]).resolve()
+            expected_folder = archive.resolve()
+            assert reported_folder == expected_folder, f"Archive folder: {reported_folder} instead of {expected_folder}"
             workbook = Path(command[2]).resolve().parent.parent / "Słownik.xlsx"
             assert workbook.is_file()
             with urlopen(base + "/api/local-dictionary", timeout=3) as response:
